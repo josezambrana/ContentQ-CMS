@@ -1,0 +1,47 @@
+application: contentq-dev
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: static/default
+  expiration: '100d'
+
+- url: /themes
+  static_dir: static/themes
+  expiration: '100d'
+  
+- url: /robots\.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
+
+- url: /blobstore/.*
+  script: "blob/upload.py"
+  secure: optional
+  
+- url: /.*
+  script: main.py
+  
+skip_files: |
+ ^(.*/)?(
+ (app\.yaml)|
+ (app\.yml)|
+ (index\.yaml)|
+ (index\.yml)|
+ (#.*#)|
+ (.*~)|
+ (.*\.py[co])|
+ (.*/RCS/.*)|
+ (\..*)|
+ (manage.py)|
+ (dev/.*)|
+ (nbproject/.*)|
+ (tests/.*)|
+ (vendor/.*)|
+ (docs/.*)|
+ (.*\.markdown)|
+ (license\.txt)|
+ (local_settings\.py)|
+ (setup.py)
+ )$

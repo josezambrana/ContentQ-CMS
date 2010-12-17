@@ -1,0 +1,25 @@
+{% extends 'base_admin.html' %}
+{% load i18n %}
+
+{% block contenttitle %}
+  <h1>{% trans 'Edit Category'%}</h1>
+{% endblock %}
+
+{% block contentzone %}
+  {% if form.errors %}
+    <p class="error">Please correct the error{{ form.errors|pluralize }}.
+    {% if form.errors %}
+      {% for error in form.errors %}
+        <br />{{ error }}
+      {% endfor %}
+    {% endif %}
+    </p>
+  {% endif %}
+
+  <form method="POST" action="{{content.edit_url}}" class="ckeditor">
+    {% include 'forms/form_fields.html' %}
+    <div class="prepend-4">
+      <input type="submit" value="Update" />
+    </div>
+  </form>
+{% endblock %}

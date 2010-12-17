@@ -1,0 +1,23 @@
+{% extends 'base_admin.html' %}
+{% load i18n %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  Site Configuration
+{% endblock %}
+
+{% block contenttitle %}
+  <h1 title="item-list">
+    Site Configuration
+  </h1>
+{% endblock %}
+
+{% block contentzone %}
+  {% include 'forms/form_errors.html' %}
+  <form method="POST" action="{{content.edit_url}}">
+    {% include 'forms/form_fields.html' %}
+    <div class="prepend-4">
+      <button>{% trans 'Update' %}</button>
+    </div>
+  </form>
+{% endblock %}

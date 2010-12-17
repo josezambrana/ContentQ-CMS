@@ -1,0 +1,23 @@
+{% extends 'content_admin.html' %}
+
+{% block contentlisttitle %}List of config items{% endblock %}
+
+{% block beforelistbody %}{% endblock beforelistbody %}
+
+{% block listbodytitles %}
+<div class="admin-titles clearfix">
+  <strong class="span name">Name</strong>
+  <strong class="span value">Value</strong>
+  <strong class="span created-at">Label</strong>
+</div>
+{% endblock %}
+
+{% block singleitem %}
+<div class="count-{{forloop.counter}} {{item.object_name}}-item">
+  <span class="span name">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </span>
+  <span class="span value">{{item.extra.value}}</span>
+  <span class="span active">{{item.label}}</span>
+</div>
+{% endblock %}

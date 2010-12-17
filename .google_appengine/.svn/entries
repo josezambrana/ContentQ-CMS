@@ -1,0 +1,171 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+bulkload_client.py
+file
+
+
+
+
+2010-02-16T15:58:26.835000Z
+e1fe0c679e82ba9945e90650dcdf406a
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+has-props
+
+LICENSE
+file
+
+
+
+
+2010-02-16T15:58:26.826000Z
+3c647c3d10c6b380cbd08b861ad8ac2f
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+
+VERSION
+file
+
+
+
+
+2010-08-10T01:19:01.009144Z
+5b6c58d5866fbdac3df475564ca6b93b
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+
+appcfg.py
+file
+
+
+
+
+2010-02-16T15:58:26.853000Z
+e1fe0c679e82ba9945e90650dcdf406a
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+has-props
+
+RELEASE_NOTES
+file
+
+
+
+
+2010-08-10T01:19:01.017144Z
+8d27d8ae018cf3aa7cf492be4f75f412
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+
+dev_appserver.py
+file
+
+
+
+
+2010-02-16T15:58:26.870000Z
+e1fe0c679e82ba9945e90650dcdf406a
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+has-props
+
+README
+file
+
+
+
+
+2010-06-10T18:42:01.469536Z
+7c8d1e6836fbf66468c47f17c292f4ef
+2010-05-20T16:58:01.323400Z
+113
+apijason@google.com
+
+templates
+dir
+
+tools
+dir
+
+BUGS
+file
+
+
+
+
+2009-11-24T14:18:09.310000Z
+03336cdd07c64177d130f08197d5defe
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+remote_api_shell.py
+file
+
+
+
+
+2010-02-16T15:58:26.880000Z
+e1fe0c679e82ba9945e90650dcdf406a
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+has-props
+
+lib
+dir
+
+demos
+dir
+
+new_project_template
+dir
+
+bulkloader.py
+file
+
+
+
+
+2010-02-16T15:58:26.888000Z
+e1fe0c679e82ba9945e90650dcdf406a
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+has-props
+
+google
+dir
+

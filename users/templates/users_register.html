@@ -1,0 +1,11 @@
+{% extends 'base_singlesmall.html' %}
+
+{% block content %}
+  {% include 'forms/form_errors.html' %}
+  <form method="POST" action="{{content.edit_url}}">
+    {% include 'forms/form_fields.html' %}
+    <div class="field-wrapper clearfix">
+      <button type="submit"><span>Sign Up</span></button>
+    </div>
+  </form>
+{% endblock %}

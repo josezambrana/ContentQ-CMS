@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/116/trunk/python
+END
+BUGS
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/54/trunk/python/BUGS
+END
+bulkload_client.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/100/trunk/python/bulkload_client.py
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/100/trunk/python/LICENSE
+END
+remote_api_shell.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/100/trunk/python/remote_api_shell.py
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/116/trunk/python/VERSION
+END
+appcfg.py
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/100/trunk/python/appcfg.py
+END
+RELEASE_NOTES
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/116/trunk/python/RELEASE_NOTES
+END
+bulkloader.py
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/100/trunk/python/bulkloader.py
+END
+dev_appserver.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/100/trunk/python/dev_appserver.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/113/trunk/python/README
+END

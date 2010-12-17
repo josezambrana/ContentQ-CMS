@@ -1,0 +1,65 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/google/appengine
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+ext
+dir
+
+tools
+dir
+
+cron
+dir
+
+dist
+dir
+
+runtime
+dir
+
+datastore
+dir
+
+__init__.py
+file
+
+
+
+
+2009-11-24T14:18:08.364000Z
+8a1cf976c633930cf868053726c69e2d
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+api
+dir
+
+base
+dir
+

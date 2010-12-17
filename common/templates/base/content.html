@@ -1,0 +1,41 @@
+{% extends "base_rightbar.html" %}
+{% load i18n %}
+
+{% block flash %}{% endblock %}
+
+{% block headkeywords %}{% for tag in content.tags %}{{tag}}{% if not forloop.last %}, {% endif %}{% endfor %}{% endblock %}
+
+{% block headdescription %}{{content.meta_desc}}{% endblock %}
+
+{% block pagetitle %}{{block.super}} {% if content.get_category %}// {{content.get_category}}{% endif %} // {{content.name}}{% endblock %}
+
+{% block content %}
+  {% include 'flash.html' %}
+  {% block contenttitle %}
+  <h1 class="content-title" title="{{ content.name }}">{{ content.name }}</h1>
+  {% endblock %}
+
+  {% block beforecontentzone %}
+  {% endblock %}
+
+  {% block contentzone %}
+    <div id="content-zone">
+      {% block contentdescription %}
+        {% if content.description %}
+          <div class="contentDescription">{{ content.description|safe }}</div>
+        {% endif %}
+      {% endblock %}
+
+      {% block contentbody %}
+      {% endblock %}
+
+      {% block aftercontentbody %}
+      {% endblock %}
+
+    </div>
+  {% endblock %}
+
+  {% block aftercontentzone %}
+    {% include 'comments.html' %}
+  {% endblock %}
+{% endblock %}

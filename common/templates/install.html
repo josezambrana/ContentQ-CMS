@@ -1,0 +1,14 @@
+{% extends 'base_single.html' %}
+{% load i18n %}
+
+{% block contenttitle %}Installation{% endblock %}
+
+{% block content %}
+  {% include 'forms/form_errors.html' %}
+  <form method="POST" action="{{content.edit_url}}" class="inline">
+    {% include 'forms/form_fields.html' %}
+    <div class="prepend-4">
+      <button>{% trans 'Install' %}</button>
+    </div>
+  </form>
+{% endblock %}

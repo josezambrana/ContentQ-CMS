@@ -1,0 +1,61 @@
+[
+  {"pk": "mainmenublock",
+  "model": "common.block",
+  "fields": {
+    "name": "Main Menu",
+    "uuid": "049aaf947c204527a1785ee261410445",
+    "slug": "main-menu",
+    "position": "mainmenu",
+    "model": "common.blocks.MenuBlock",
+    "args": {"name": "mainmenu"},
+    "active":true
+    }
+  },
+  {"pk": "mainmenu",
+  "model": "common.menu",
+  "fields": {
+    "name": "mainmenu",
+    "uuid": "bff0a450685a473399e76030bc0f0663",
+    "slug": "mainmenu",
+    "position": "mainmenu",
+    "block":"049aaf947c204527a1785ee261410445"
+    }
+  },
+  {"pk": "menuitemfront",
+  "model": "common.menuitem",
+  "fields": {
+    "name": "Home",
+    "slug": "home",
+    "link": "/",
+    "menu": "bff0a450685a473399e76030bc0f0663"
+    }
+  },
+  {"pk": "menuitempraesent",
+  "model": "common.menuitem",
+  "fields": {
+    "name": "Praesent",
+    "slug": "praesent",
+    "link": "/pages/praesent-aliquam-sem-sed-sem-luctus_f7a16e",
+    "menu": "bff0a450685a473399e76030bc0f0663"
+    }
+  },
+  {"pk": "menuitemlorem",
+  "model": "common.menuitem",
+  "fields": {
+    "name": "Lorem",
+    "slug": "lorem",
+    "link": "/pages/lorem-ipsum-dolor-sit-amet_520dea",
+    "menu": "bff0a450685a473399e76030bc0f0663"
+    }
+  },
+  {"pk": "configmenus",
+  "model": "common.configdata",
+  "fields": {
+      "name": "common",
+      "active": true,
+      "order": 0,
+      "extra": {"value": true},
+      "label": "installed_app"
+    }
+  }
+]

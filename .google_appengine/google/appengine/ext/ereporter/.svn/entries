@@ -1,0 +1,70 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/google/appengine/ext/ereporter
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+__init__.py
+file
+
+
+
+
+2009-11-24T14:17:45.939000Z
+879306af1c99bcaef50154e2db3247f6
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+has-props
+
+report_generator.py
+file
+
+
+
+
+2009-11-24T14:17:45.944000Z
+dbfd1162eb779b40136c8eee01d85e0b
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+has-props
+
+templates
+dir
+
+ereporter.py
+file
+
+
+
+
+2009-11-24T14:17:45.950000Z
+be6cd344dbb6dbcdf06cec60e05e470b
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+has-props
+

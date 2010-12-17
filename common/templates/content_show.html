@@ -1,0 +1,8 @@
+{% extends 'content.html' %}
+{% load i18n %}
+
+{% block contentbody %}
+  {% autoescape off %}
+    {{content.body}}
+  {% endautoescape %}
+{% endblock %}

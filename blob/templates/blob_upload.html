@@ -1,0 +1,13 @@
+{% extends "base_admin.html" %}
+
+{% block contentlisttitle %}Upload form{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo; 
+  <a href="{% url blob_admin %}"> Media Manager </a>  &raquo;
+  Upload form
+{% endblock %}
+
+{% block contentzone %}
+  {% include 'blob_form.html' %}
+{% endblock %}

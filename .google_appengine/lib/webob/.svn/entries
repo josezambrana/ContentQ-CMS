@@ -1,0 +1,102 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/webob
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+test
+file
+
+
+
+
+2009-11-24T14:17:40.742000Z
+6936dbed16ae57b141ca34b95d6ba9e0
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+tests
+dir
+
+LICENSE
+file
+
+
+
+
+2009-11-24T14:17:40.748000Z
+8223a46f938e29cb5b3d318c1c4a6102
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+setup.py
+file
+
+
+
+
+2009-11-24T14:17:40.754000Z
+2a505ac1426438a241f1099eb1bd2281
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+WebOb.egg-info
+dir
+
+docs
+dir
+
+PKG-INFO
+file
+
+
+
+
+2009-11-24T14:17:40.758000Z
+88094f472d7b4c303e8e55649bf64514
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+webob
+dir
+
+setup.cfg
+file
+
+
+
+
+2009-11-24T14:17:40.763000Z
+914d2518872df05ce349e2efec67cf4f
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+

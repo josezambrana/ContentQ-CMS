@@ -1,0 +1,15 @@
+<fieldset>
+  <legend>Details</legend>
+  {% for field in form %}
+    <div class="field-wrapper {{field.name}} clearfix{% if field.errors %} invalid{% endif %}">
+      {{ field.label_tag }} {{ field }}
+      {% if field.errors %}
+        <p class="error prepend-4">
+        {% for error in field.errors %}
+          {{ error }}<br />
+        {% endfor %}
+        </p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</fieldset>

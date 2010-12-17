@@ -1,0 +1,15 @@
+{% extends "base_singlesmall.html" %}
+{% load base i18n %}
+
+{% block contenttitle %}
+  <h1 class="title">Forgot password?</h1>
+{% endblock %}
+  
+{% block content %}
+  <p>{{SITE_NAME}} will send password reset instructions to your email address.</p>
+
+  {% include_extend 'forms/form.html' %}
+    {% block button %}{% trans 'Send Instructions' %}{% endblock %}
+  {% endinclude_extend %}
+  
+{% endblock %}

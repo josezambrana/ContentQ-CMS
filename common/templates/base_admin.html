@@ -1,0 +1,66 @@
+{% extends "base_leftbar.html" %}
+{% load i18n block %}
+
+{% block bodyclass %}admin {{block.super}}{% endblock %}
+
+{% block leftbar %}
+  {% render_blocks "adminsidebar" request %}
+{% endblock %}
+
+{% block flash %}{% endblock %}
+
+{% block content %}
+  {% include 'flash.html' %}
+  {% block contenttitle %}
+    <div id="item-list" class="list">
+      <h1 title="item-list">{% block contentlisttitle %}List of items{% endblock %}</h1>
+    </div>
+  {% endblock %}
+
+  {% block aftercontenttitle %}
+  <div class="breadcrumb clearfix">
+  {% block breadcrumb %}<a href="{% url admin_dashboard %}">Dashboard</a>{% endblock %}
+  </div>
+  {% endblock %}
+
+  {% block beforecontentzone %}
+  {% endblock %}
+  
+  {% block contentzone %}
+  <div id="admin-zone" class="admin-zone">
+    {% block beforelistbody %}
+    {% endblock %}
+
+    {% block listbodytitles %}
+    {% endblock %}
+
+    {% block listbody %}
+      {% if items.object_list %}
+        <ul class="item-list admin-list clearfix">
+          {% for item in items.object_list %}
+          <li class='item-{{item.object_name}} item {{forloop.counter|divisibleby:"2"|yesno:"par,impar"}}'>
+            <div class="item-wrapper {{item.object_name}}-item">
+              {% block singleitem %}
+                {{item}}
+              {% endblock %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        {% include 'step_pagination.html' %}
+      {% else %}
+        <div class="entry count-0 error">
+          {% trans 'Not items found' %}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block afterlistbody %}
+    {% endblock %}
+  </div>
+  {% endblock %}
+
+  {% block aftercontentzone %}
+  {% endblock %}
+  
+{% endblock %}

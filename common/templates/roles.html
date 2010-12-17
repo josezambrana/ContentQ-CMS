@@ -1,0 +1,45 @@
+{% extends 'base_admin.html' %}
+
+{% block contentlisttitle %}Roles Management{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{% url users_admin %}">Users</a> &raquo;
+  Roles
+{% endblock %}
+
+{% block listbodytitles %}
+<div class="admin-titles clearfix">
+  <strong class="span name">Role</strong>
+</div>
+{% endblock %}
+
+{% block singleitem %}
+  <span class="span name">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </span>
+  <div class="span actions last">
+    <form action="" method="post">
+      <input type="hidden" value="delete" name="action"/>
+      <input type="hidden" value="{{item.uuid}}" name="role_uuid"/>
+      <input type="submit" value="delete" />
+    </form>
+  </div>
+{% endblock %}
+
+{% block beforelistbody %}
+  {% include 'forms/form_errors.html' %}
+  <form method="POST" action="{{content.edit_url}}" class="ckeditor">
+    <input type="hidden" value="role_create" name="action"/>
+    <input type="text" value="" name="role_name" />
+    <input type="submit" value="create" />
+  </form>
+{% endblock %}
+
+{% block bottomscripts %}
+  {{ block.super }}
+  <script type="text/javascript">
+    (function($){
+    })(jQuery)
+  </script>
+{% endblock %}

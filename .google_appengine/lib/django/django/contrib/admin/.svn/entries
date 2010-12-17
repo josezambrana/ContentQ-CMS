@@ -1,0 +1,105 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django/contrib/admin
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+media
+dir
+
+__init__.py
+file
+
+
+
+
+2009-11-24T14:17:04.396000Z
+d41d8cd98f00b204e9800998ecf8427e
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+utils.py
+file
+
+
+
+
+2009-11-24T14:17:04.403000Z
+d4988015bf5cc99ec8b272cab3f4e855
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+templatetags
+dir
+
+filterspecs.py
+file
+
+
+
+
+2009-11-24T14:17:04.410000Z
+8af8ea05491fe1ab4478298edcbd5af7
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+models.py
+file
+
+
+
+
+2009-11-24T14:17:04.420000Z
+648fd3c0ed8eb24bd6c86ee280152cca
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+urls.py
+file
+
+
+
+
+2009-11-24T14:17:04.427000Z
+0cf3bb560cca5db174518358f074a793
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+views
+dir
+
+templates
+dir
+

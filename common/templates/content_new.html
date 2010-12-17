@@ -1,0 +1,33 @@
+{% extends 'base_admin.html' %}
+{% load i18n format %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{{model.admin_url}}">{{model.class_name|plural|spacify}}</a> &raquo;
+  Create
+{% endblock %}
+
+{% block contenttitle %}
+  <div id="content-title" class="title">
+    <h1 title="new {% if item_name %}{{item_name}}{% endif %}">
+      New {{model.class_name|spacify}}
+    </h1>
+  </div>
+{% endblock %}
+
+{% block beforecontentzone %}
+{% endblock %}
+
+{% block contentzone %}
+  {% include 'form_errors.html' %}
+  <form method="POST" action="" class="ckeditor">
+    {% include 'forms/form_fields.html' %}
+    <div class="prepend-4">
+      <button>{% trans 'Add' %}</button>
+    </div>
+  </form>
+{% endblock %}
+
+{% block bottomscripts %}
+  {% include 'forms/js.ckeditor.html' %}
+{% endblock %}

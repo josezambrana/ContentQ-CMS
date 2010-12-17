@@ -1,0 +1,11 @@
+{% extends 'content_admin.html' %}
+
+{% block beforelistbody %}
+  <ul class="actions clearfix">
+    <li class="action-settings action">
+      <a href="{% url contact_settings %}">
+        Contact Settings
+      </a>
+    </li>
+  </ul>
+{% endblock beforelistbody %}

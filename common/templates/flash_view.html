@@ -1,0 +1,43 @@
+{% extends 'base_singlesmall.html' %}
+
+{% block contenttitle %}
+<h1>
+  {% if flash.error %}Error!{% endif %}
+  {% if flash.success %}Success!{% endif %}
+  {% if flash.notice %}Notice!{% endif %}
+</h1>
+{% endblock %}
+
+{% block flash %}
+{% endblock %}
+
+{% block content %}
+  {% if flash.error %}
+    <div id="error" class="error clearfix">
+      {% for msg in flash.error %}
+        <p class="{% if forloop.last %}bottom{% endif %}">{{msg}}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if flash.success %}
+    <div id="success" class="success clearfix">
+      {% for msg in flash.success %}
+        <p class="{% if forloop.last %}bottom{% endif %}">
+          {{msg}}
+        </p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if flash.notice %}
+    <div id="notice" class="notice clearfix">
+      {% for msg in flash.notice %}
+        <p class="{% if forloop.last %}bottom{% endif %}">
+          {{msg}}
+        </p>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <p><a href="{% url front %}">Proceed Home</a></p>
+{% endblock %}

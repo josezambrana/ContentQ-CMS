@@ -1,0 +1,305 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/54/trunk/python/lib/django/docs
+END
+tutorial01.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/54/trunk/python/lib/django/docs/tutorial01.txt
+END
+tutorial02.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/54/trunk/python/lib/django/docs/tutorial02.txt
+END
+flatpages.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/flatpages.txt
+END
+install.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/54/trunk/python/lib/django/docs/install.txt
+END
+request_response.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/docs/request_response.txt
+END
+tutorial03.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/54/trunk/python/lib/django/docs/tutorial03.txt
+END
+add_ons.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/54/trunk/python/lib/django/docs/add_ons.txt
+END
+contributing.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/docs/contributing.txt
+END
+tutorial04.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/54/trunk/python/lib/django/docs/tutorial04.txt
+END
+documentation.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/docs/documentation.txt
+END
+static_files.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/docs/static_files.txt
+END
+url_dispatch.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/docs/url_dispatch.txt
+END
+email.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/54/trunk/python/lib/django/docs/email.txt
+END
+db-api.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/54/trunk/python/lib/django/docs/db-api.txt
+END
+outputting_csv.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/docs/outputting_csv.txt
+END
+csrf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/54/trunk/python/lib/django/docs/csrf.txt
+END
+api_stability.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/docs/api_stability.txt
+END
+settings.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/lib/django/docs/settings.txt
+END
+newforms.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/lib/django/docs/newforms.txt
+END
+admin_css.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/admin_css.txt
+END
+distributions.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/docs/distributions.txt
+END
+apache_auth.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/lib/django/docs/apache_auth.txt
+END
+release_notes_0.95.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/54/trunk/python/lib/django/docs/release_notes_0.95.txt
+END
+cache.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/54/trunk/python/lib/django/docs/cache.txt
+END
+release_notes_0.96.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/54/trunk/python/lib/django/docs/release_notes_0.96.txt
+END
+sessions.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/lib/django/docs/sessions.txt
+END
+overview.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/lib/django/docs/overview.txt
+END
+model-api.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/model-api.txt
+END
+faq.txt
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/54/trunk/python/lib/django/docs/faq.txt
+END
+transactions.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/docs/transactions.txt
+END
+outputting_pdf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/docs/outputting_pdf.txt
+END
+legacy_databases.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/docs/legacy_databases.txt
+END
+middleware.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/54/trunk/python/lib/django/docs/middleware.txt
+END
+serialization.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/docs/serialization.txt
+END
+testing.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/54/trunk/python/lib/django/docs/testing.txt
+END
+authentication.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/docs/authentication.txt
+END
+i18n.txt
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/54/trunk/python/lib/django/docs/i18n.txt
+END
+fastcgi.txt
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/54/trunk/python/lib/django/docs/fastcgi.txt
+END
+modpython.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/modpython.txt
+END
+redirects.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/redirects.txt
+END
+sitemaps.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/lib/django/docs/sitemaps.txt
+END
+forms.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/54/trunk/python/lib/django/docs/forms.txt
+END
+databases.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/databases.txt
+END
+sites.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/54/trunk/python/lib/django/docs/sites.txt
+END
+django-admin.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/docs/django-admin.txt
+END
+generic_views.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/docs/generic_views.txt
+END
+syndication_feeds.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/docs/syndication_feeds.txt
+END
+templates.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/54/trunk/python/lib/django/docs/templates.txt
+END
+design_philosophies.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/54/trunk/python/lib/django/docs/design_philosophies.txt
+END
+templates_python.txt
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/docs/templates_python.txt
+END

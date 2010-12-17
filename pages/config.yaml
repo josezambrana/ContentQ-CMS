@@ -1,0 +1,14 @@
+author: Jose Maria Zambrana Arze <contact@josezambrana.com>
+
+default_auth:
+  administrator: '*'
+  authenticated: ['pages_show']
+  anonymous: ['pages_show']
+
+areas:
+  Pages:
+    area: pages
+    name: Pages
+    description: Create, edit and manage pages
+    link: pages_admin
+    sublinks: {}

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/116/trunk/python/google/appengine/ext/appstats/templates
+END
+test.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/100/trunk/python/google/appengine/ext/appstats/templates/test.html
+END
+file.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/100/trunk/python/google/appengine/ext/appstats/templates/file.html
+END
+main.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/100/trunk/python/google/appengine/ext/appstats/templates/main.html
+END
+details.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/109/trunk/python/google/appengine/ext/appstats/templates/details.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/116/trunk/python/google/appengine/ext/appstats/templates/base.html
+END

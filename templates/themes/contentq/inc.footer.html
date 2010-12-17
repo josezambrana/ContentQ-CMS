@@ -1,0 +1,17 @@
+{% load i18n block %}
+
+{% block footer %}
+  <div id="footer" class="container">
+    <div class="container-wrapper block-corner">
+      <div id="footer-blocks" class="clearfix">
+        {% render_blocks "footer" request %}
+      </div>
+      <div>
+        <p>
+          Copyright &copy; CollabQ.com 2010<br/>
+          Powered by ContentQ
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

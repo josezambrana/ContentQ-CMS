@@ -1,0 +1,22 @@
+{% extends 'content_list.html' %}
+{% load i18n %}
+
+{% block contenttitle %}
+  <h1 id="list-title" title="item-list" class="large">
+  {% if category %}
+    <strong>Category Archives</strong>: <em>{{category}}</em>
+  {% else %}
+    {% if tag %}
+      <strong>Filtered by Tag</strong>: <em>{{tag}}</em>
+    {% else %}
+      <strong>Latest Posts</strong>
+    {% endif %}
+  {% endif %}
+  </h1>
+{% endblock %}
+
+{% block singleitem %}
+  {% with item as postitem %}
+    {% include 'post_small.html' %}
+  {% endwith %}
+{% endblock %}

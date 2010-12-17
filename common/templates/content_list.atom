@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{SITE_NAME}}</title>
+    <link rel="alternate" href="http://{{DOMAIN}}/blog/"/>
+    <link rel="self" href="http://{{DOMAIN}}/blog/atom"/>
+    {% with entries.object_list|first as first_entry %}
+    <updated>{{first_entry.created_at|date:"Y-m-d\TH:i:s\Z"}}</updated>
+    {% endwith %}
+    <logo>http://{{DOMAIN}}/themes/{{DEFAULT_THEME|urlencode}}/logo.jpg</logo>
+    <id>tag:{{DOMAIN}},{% now "Y-m-d"%}:/</id>
+    <rights>Copyright 2010 {{SITE_NAME}}</rights>
+
+    {% for entry in entries.object_list %}
+    <entry xmlns="http://www.w3.org/2005/Atom"
+        xmlns:thr="http://purl.org/syndication/thread/1.0">
+      <title>{{entry.title}}</title>
+      {% if entry.entry %}
+        <content type="xhtml">
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            {% include "blog/templates/entry.html" %}
+          </div>
+        </content>
+      {% endif %}
+      <id>{{entry.url}}</id>
+      <link type="text/html" rel="alternate" href="{{entry.url}}"/>
+      <published>{{entry.created_at|date:"Y-m-d\TH:i:s\Z"}}</published>
+      <updated>{{entry.updated_at|date:"Y-m-d\TH:i:s\Z"}}</updated>
+    </entry>
+    {% endfor %}
+</feed>

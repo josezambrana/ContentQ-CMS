@@ -1,0 +1,46 @@
+{% extends "base_rightbar.html" %}
+
+{% load i18n %}
+
+{% block bodyclass %}{{block.super}} content-list{% endblock %}
+
+{% block content %}
+  {% block contenttitle %}
+    <h1 title="item-list">{% block contentlisttitle %}List of items{% endblock %}</h1>
+  {% endblock %}
+
+  {% block contentzone %}
+      <div id="list-zone">
+        {% block beforelistbody %}
+        {% endblock %}
+
+        {% block listbodytitles %}
+        {% endblock %}
+        
+        {% block listbody %}
+          
+          {% if items.object_list %}
+            <ul class="item-list clearfix">
+              {% for item in items.object_list %}
+              <li class="item-{{item.object_name}}">
+                {% block singleitem %}
+                {{item}}
+                {% endblock %}
+              </li>
+              {% endfor %}
+            </ul>
+
+            {% include 'step_pagination.html' %}
+            
+          {% else %}
+            <div class="entry count-0 error">
+              {% trans 'Not items found' %}
+            </div>
+          {% endif %}
+        {% endblock %}
+        
+        {% block afterlistbody %}
+    {% endblock %}
+  </div>
+  {% endblock %}
+{% endblock %}

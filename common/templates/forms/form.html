@@ -1,0 +1,9 @@
+{% include 'form_errors.html' %}
+{% load i18n %}
+
+<form method="POST" action="{% block form_action %}{% endblock %}" class="{% if ckeditor %}ckeditor{% endif %}" {% block extra_form %}{% endblock %}>
+  {% include 'forms/form_fields.html' %}
+  <div class="prepend-4">
+    <button>{% block button %}{% trans 'Add' %}{% endblock %}</button>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/lib/django/django/bin/profiling
+END
+gather_profile_stats.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/54/trunk/python/lib/django/django/bin/profiling/gather_profile_stats.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/54/trunk/python/lib/django/django/bin/profiling/__init__.py
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/54/trunk/python/lib/webob
+END
+test
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/54/trunk/python/lib/webob/test
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/54/trunk/python/lib/webob/LICENSE
+END
+setup.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/54/trunk/python/lib/webob/setup.py
+END
+PKG-INFO
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/54/trunk/python/lib/webob/PKG-INFO
+END
+setup.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/54/trunk/python/lib/webob/setup.cfg
+END

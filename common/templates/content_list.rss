@@ -1,0 +1,28 @@
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/">
+  <channel>
+    <title>{{SITE_NAME}}</title>
+    <link>http://{{DOMAIN}}/blog/</link>
+    <description>{{SITE_DESCRIPTION}}</description>
+    <language>es-ES</language>
+    <copyright>Copyright 2010 {{SITE_NAME}}</copyright>
+    {% with entries.object_list|first as first_entry %}<lastBuildDate>{{first_entry.created_at|date:"r"}}</lastBuildDate>{% endwith %}
+    <image>
+      <link>http://{{DOMAIN}}</link>
+      <url>http://{{DOMAIN}}/themes/{{DEFAULT_THEME|urlencode}}/logo.jpg</url>
+      <title>{{SITE_NAME}}</title>
+    </image>
+    {% for entry in entries.object_list %}
+      <item>
+        <title>{{entry.title}}</title>
+        <description>
+          <![CDATA[
+            {{entry.text}}
+           ]]>
+        </description>
+        <link>http://{{DOMAIN}}{{entry.url}}</link>
+        <guid>http://{{DOMAIN}}{{entry.url}}</guid>
+        <pubDate>{{entry.created_at|date:"r"}}</pubDate>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>

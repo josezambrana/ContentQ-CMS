@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/syndication
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/syndication/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/syndication/__init__.py
+END
+feeds.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/syndication/feeds.py
+END

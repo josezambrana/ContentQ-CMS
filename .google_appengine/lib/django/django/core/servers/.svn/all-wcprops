@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/73/trunk/python/lib/django/django/core/servers
+END
+basehttp.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/73/trunk/python/lib/django/django/core/servers/basehttp.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/servers/__init__.py
+END
+fastcgi.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/servers/fastcgi.py
+END

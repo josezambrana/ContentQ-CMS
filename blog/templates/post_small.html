@@ -1,0 +1,36 @@
+{% load i18n %}
+
+<h2 class="postitem-title">
+  <a href="{{postitem.url}}">{{postitem.name}}</a>
+</h2>
+<div class="content-extras">
+  {% trans 'Posted on' %} <span class="date">{{postitem.created_at|date:"F j, Y"}}</span>
+  {% if postitem.get_category %}
+    Category
+    <span class="category">
+      <a href="{% url post_category postitem.category %}">{{postitem.get_category}}</a>
+    </span>
+  {% endif %}
+  {% if postitem.tags %}
+    Tags
+    <ul class="tags">
+      {% for tag in postitem.tags %}
+      <li class="tag">
+        <a href="{% url post_tag tag %}">{{tag}}</a> {% if not forloop.last %}:{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+<div class="postitem">
+  <div id="postitem-text" class="content-text">
+    {% autoescape off %}
+      <div class="plain_description">
+        {{postitem.description}}
+      </div>
+    {% endautoescape %}
+  </div>
+</div>
+<div class="clearfix">
+  <a class="button" href="{{postitem.url}}">Read More</a>
+</div>

@@ -1,0 +1,20 @@
+{% extends 'email/email_base.txt' %}
+
+{% block body %}
+Welcome to {{SITE_NAME}}
+
+Thanks for registering at {{SITE_NAME}}.
+
+Your information:
+username: {{user.username}}
+email: {{user.email}}
+Profile: http://{{DOMAIN}}{{user.url}}
+
+
+About us
+{{SITE_DESCRIPTION}}
+
+thanks,
+{{SITE_NAME}}
+
+{% endblock %}

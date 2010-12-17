@@ -1,0 +1,21 @@
+{% extends 'email/email_base.txt' %}
+
+{% block body %}
+Email verification
+
+Hello {{user.username}},
+thanks for registering at {{SITE_NAME}}. To complete the
+registration process, you need to confirm your email
+address ({{user.email}}) by clicking the link:
+
+{{link}}
+
+Thanks,
+{{SITE_NAME}}
+{% endblock %}
+
+{% block footer %}
+If you did not register for {{SITE_NAME}}, then someone
+probably mis-typed their email address. You can ignore this message,
+and we apologize for the inconvenience.
+{% endblock %}

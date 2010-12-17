@@ -1,0 +1,27 @@
+{% extends "base_front.html" %}
+{% load i18n block %}
+
+{% block bodyclass %}front {{block.super}}{% endblock %}
+
+{% block extrascripts %}{% endblock %}
+
+{% block content %}
+    {% if items.object_list %}
+      <ul class="item-list clearfix">
+        {% for item in items.object_list %}
+        <li class="item-{{item.object_name}}">
+          {% with item as postitem %}
+            {% include 'post_small.html' %}
+          {% endwith %}
+        </li>
+        {% endfor %}
+      </ul>
+
+      {% include 'step_pagination.html' %}
+
+    {% else %}
+      <div class="entry count-0 error">
+        {% trans 'Not items found' %}
+      </div>
+    {% endif %}
+{% endblock %}

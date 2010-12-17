@@ -1,0 +1,75 @@
+{% load i18n block %}
+{% block doctype %}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">{% endblock %}
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  {% if LANGUAGE_CODE %}
+    <meta http-equiv="content-language" content="{{ LANGUAGE_CODE }}">
+  {% endif %}
+  {% block metatags %}
+    <meta name="keywords" content="{% block headkeywords %}{{ SITE_KEYWORDS }}{% endblock %}" />
+    <meta name="description" content="{% block headdescription %}{{ SITE_DESCRIPTION }}{% endblock %}" />
+    {% include "inc.metatags.html" %}
+  {% endblock %}
+  {% block shortcut %}
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/gif" />
+  {% endblock %}
+  <title>{% block pagetitle %}{{SITE_NAME}}{% endblock %}</title>
+
+  {% block cssstyles %}
+    {% include "inc.cssstyles.html" %}
+    {% block extrastyles %}{% endblock %}
+  {% endblock %}
+
+  {% block jsscripts %}
+    {% include "inc.jsfiles.html" %}
+    {% block extrascripts %}{% endblock %}
+  {% endblock %}
+
+  {% block extrahead %}{% endblock %}
+
+  {% block customstyle %}{% endblock %}
+</head>
+
+<body dir="ltr" {% block extrabodytag %}class="{{area}} {% block bodyclass %}{% endblock %}"{% endblock %}>
+{% block page %}
+  <div id="page-wrapper" class="pagewrapper {{area}} clearfix">
+    <div id="top" class="top-content clearfix container">
+      {% block headerblocks %}
+        {% render_blocks "header" request %}
+      {% endblock %}
+    </div>
+    <div id="flash" class="clearfix container">
+      {% block flash %}
+        {% include 'flash.html' %}
+      {% endblock %}
+    </div>
+
+    <div id="page" class="container">
+      {% block contenttop %}{% endblock %}
+      
+      {% block contentwrapper %}
+        <div id="content" class="{% block contentclass %}container{% endblock %}">
+          {% block content %}
+          {% endblock %}
+        </div>
+      {% endblock %}
+      {% include "inc.footer.html" %}
+    </div>
+    
+    {% block contentbottom %}{% endblock %}
+
+    {% block extrabody %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+<script src="{{ MEDIA_URL }}js/bottomscripts.js" type="text/javascript"></script>
+<!--[if IE]>
+  <script src="{{ MEDIA_URL }}js/ie.js" type="text/javascript"></script>
+<![endif]-->
+{% block bottomscripts %}
+{% endblock %}
+
+</body>
+</html>

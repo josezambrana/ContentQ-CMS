@@ -1,0 +1,24 @@
+{% load urls %}
+
+<div id="admin-menu-block" class="side-menu admin-menu-block">
+  <h3 class="clearfix"><span>Administration</span></h3>
+  <ul class="menu-list admin-menu menu">
+    {% for item in adminareas %}
+      <li {% ifequal area item.area %}class="current"{% endifequal %}>
+        <a href="{% url_for item.link %}"
+           {% ifequal area item.area %}class="current"{% endifequal %}>
+          {{item.name}}
+        </a>
+        {% if item.sublinks %}
+        <ul class="menu-list menu submenu">
+          {% for k, v in item.sublinks.iteritems %}
+            <li class="{% ifequal request.action_pattern.name v %}current{% endifequal %}">
+              <a href="{% url_for v %}" class="{% ifequal request.action_pattern.name v %}current{% endifequal %}">{{k}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

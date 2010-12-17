@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/54/trunk/python/lib/yaml/ext
+END
+_yaml.pyx
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/54/trunk/python/lib/yaml/ext/_yaml.pyx
+END
+_yaml.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/54/trunk/python/lib/yaml/ext/_yaml.c
+END
+_yaml.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/54/trunk/python/lib/yaml/ext/_yaml.h
+END
+_yaml.pxd
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/54/trunk/python/lib/yaml/ext/_yaml.pxd
+END

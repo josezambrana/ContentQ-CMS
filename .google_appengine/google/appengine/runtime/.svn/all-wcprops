@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/100/trunk/python/google/appengine/runtime
+END
+apiproxy.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/100/trunk/python/google/appengine/runtime/apiproxy.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/google/appengine/runtime/__init__.py
+END
+apiproxy_errors.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/97/trunk/python/google/appengine/runtime/apiproxy_errors.py
+END

@@ -1,0 +1,27 @@
+{% extends 'content_admin.html' %}
+
+{% block newactiontitle %}Add Menu Item{% endblock %}
+{% block categoryadminactiontitle %}Manage Menus{% endblock %}
+
+{% block listbodytitles %}
+  <div class="admin-titles clearfix">
+    <strong class="span name">Name</strong>
+    <strong class="span category">Menu</strong>
+    <strong class="span actions last">Actions</strong>
+  </div>
+{% endblock %}
+
+{% block singleitem %}
+<div class="count-{{forloop.counter}} {{item.object_name}}-item">
+  <span class="span name">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </span>
+  <span class="span category">
+    {{item.get_menu}}
+  </span>
+  <span class="span actions last">
+    <a href="{{item.edit_url}}">Edit</a>
+    <a href="{{item.delete_url}}">Delete</a>
+  </span>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{{SITE_NAME}}:
+===========================================================
+
+{% block body %}
+{% endblock %}
+
+{% block contentbottom %}
+-----------------------------------------------------------
+{% block footer %}
+{% endblock %}
+
+Please do not reply to this message; it was sent from an unmonitored email address.
+{% endblock %}

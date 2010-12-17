@@ -1,0 +1,36 @@
+{% extends 'base_admin.html' %}
+{% load i18n urls %}
+
+{% block contenttitle %}
+  <h1 title="item-list">
+    Dashboard
+  </h1>
+{% endblock %}
+
+{% block aftercontenttitle %}{% endblock %}
+
+{% block beforecontentzone %}
+<div id="shortcut-actions" class="shortcut-actions clearfix">
+  <h4 class="span help-text">Shortcuts:</h4>
+  <ul id="" class="actions span">
+    <li class="action-new action">
+      <a href="{% url post_new %}">Add Post</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block contentzone %}
+<div id="dashboard" class="dashboard">
+  <ul class="admin-blocks clearfix">
+    {% for item in adminareas %}
+    <li id="{{item.area}}-block" class="admin-block">
+      <a href="{% url_for item.link %}">
+      <span class="title">{{item.name}}</span>
+      <span class="description">{{item.description}}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

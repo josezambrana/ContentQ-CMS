@@ -1,0 +1,57 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django/contrib/sitemaps
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+views.py
+file
+
+
+
+
+2009-11-24T14:16:56.214000Z
+a4d04214c06efff3ab4978d5de52d114
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+__init__.py
+file
+
+
+
+
+2009-11-24T14:16:56.219000Z
+a667469d172c434da886e70381227596
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+templates
+dir
+

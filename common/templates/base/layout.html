@@ -1,0 +1,79 @@
+{% load i18n %}
+{% block doctype %}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">{% endblock %}
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  {% if LANGUAGE_CODE %}
+    <meta http-equiv="content-language" content="{{ LANGUAGE_CODE }}">
+  {% endif %}
+  {% block metatags %}
+    <meta name="keywords" content="{% block headkeywords %}{{ SITE_KEYWORDS }}{% endblock %}" />
+    <meta name="description" content="{% block headdescription %}{{ SITE_DESCRIPTION }}{% endblock %}" />
+    {% include "inc.metatags.html" %}
+  {% endblock %}
+  {% block shortcut %}
+    <link rel="shortcut icon" href="{{ THEME_MEDIA_URL }}img/favicon.ico" type="image/gif" />
+  {% endblock %}
+  <title>{% block pagetitle %}{{SITE_NAME}}{% endblock %}</title>
+
+  {% block cssstyles %}
+    {% include "inc.cssstyles.html" %}
+    {% block extrastyles %}{% endblock %}
+  {% endblock %}
+
+  {% block jsscripts %}
+    {% include "inc.jsfiles.html" %}
+  {% endblock %}
+
+  {% block extrascripts %}{% endblock %}
+
+  {% block extrahead %}{% endblock %}
+
+  {% block customstyle %}{% endblock %}
+</head>
+
+<body dir="ltr" {% block extrabodytag %}class="{% block bodyclass %}{% endblock %}"{% endblock %}>
+{% block page %}
+  <div id="page-wrapper" class="{{area}} clearfix">
+    
+    {% block contenttop %}{% endblock %}
+
+    {% block flash %}
+    <div class="container">
+      {% include 'flash.html' %}
+    </div>
+    {% endblock %}
+
+    <div class="container">
+      <div class="container-wrapper clearfix">
+      {% block contentwrapper %}
+        <div id="content" class="{% block contentclass %}container{% endblock %}">
+          {% block content %}
+          {% endblock %}
+        </div>
+      {% endblock %}
+      </div>
+    </div>
+    
+    {% block contentbottom %}{% endblock %}
+
+    {% block extrabody %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+<script type="text/javascript">
+  (function ($){
+    $('.action-close').log('trying to add click listener').click(function() {
+      rel_id = $(this).attr("rel");
+      $('#'+rel_id).log('id: '+rel_id).fadeOut(1000);
+      return false
+    });
+    $('.msg').log('waiting 6 sec to fadeout').delay(6000).fadeOut(1000);
+  })(jQuery)
+</script>
+{% block bottomscripts %}
+{% endblock %}
+
+</body>
+</html>

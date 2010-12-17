@@ -1,0 +1,8 @@
+{% extends "block.html" %}
+{% load menu %}
+
+{% block blocktitle %}{% endblock %}
+ 
+{% block blockbody %}
+  {% render_menu request menu.name %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{{SITE_NAME}}:
+===========================================================
+
+{% block body %}
+{% endblock %}
+
+{% block contentbottom %}
+{% endblock %}

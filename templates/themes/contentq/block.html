@@ -1,0 +1,12 @@
+<div class="{{ block.placed_at }}Block block" id="{{ block.name }}">
+  {% block blocktitle %}
+    <h3 class="clearfix">
+      <span>{{ block_title }}</span>
+    </h3>
+  {% endblock %}
+  <div class="blockBody clearfix">
+    {% block blockbody %}
+      {# to override #}
+    {% endblock %}
+  </div>
+</div>

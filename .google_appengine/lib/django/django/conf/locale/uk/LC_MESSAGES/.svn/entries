@@ -1,0 +1,53 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django/conf/locale/uk/LC_MESSAGES
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+django.po
+file
+
+
+
+
+2009-11-24T14:15:29.903000Z
+464062cd67c7d8c2920ccb478d874237
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+django.mo
+file
+
+
+
+
+2009-11-24T14:15:29.908000Z
+69df96ac3d4e3cc0bc7d8a7ef6b5fc9f
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+

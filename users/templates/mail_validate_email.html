@@ -1,0 +1,22 @@
+{% extends 'email/email_base.html' %}
+
+{% block body %}
+  <h1 style="color: #222;">Email verification</h1>
+  <p style="color: #444;">Hello {{user.username}},<br/>
+  thanks for registering at {{SITE_NAME}}. To complete the
+  registration process, you need to confirm your email
+  address ({{user.email}}) by clicking the link:</p>
+  <p style="color: #444;">{{link}}</p>
+  <p style="color: #444;">
+    Thanks,<br/>
+    <span style="color:#888">{{SITE_NAME}}</span>
+  </p>
+{% endblock %}
+
+{% block footer %}
+<p>
+  If you did not register for {{SITE_NAME}}, then someone
+  probably mis-typed their email address. You can ignore this message,
+  and we apologize for the inconvenience.
+</p>
+{% endblock %}

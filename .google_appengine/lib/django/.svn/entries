@@ -1,0 +1,122 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+django
+dir
+
+LICENSE
+file
+
+
+
+
+2009-11-24T14:17:26.954000Z
+913451059aa4d34bc6a52ca4ff138f07
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+AUTHORS
+file
+
+
+
+
+2009-11-24T14:17:26.959000Z
+324f3630056973183b64d2873f171d41
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+INSTALL
+file
+
+
+
+
+2009-11-24T14:17:26.963000Z
+f0ee851ede1143f1233c449a27deb2fc
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+scripts
+dir
+
+setup.py
+file
+
+
+
+
+2009-11-24T14:17:26.970000Z
+83884e7a572614641c591a757afa94eb
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+has-props
+
+docs
+dir
+
+PKG-INFO
+file
+
+
+
+
+2009-11-24T14:17:26.974000Z
+8c6061a0953bcad93ccb584d6d68a49e
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+
+README
+file
+
+
+
+
+2009-11-24T14:17:26.978000Z
+7fa0fbb81d24e0a02664ec3e4f64cdde
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+setup.cfg
+file
+
+
+
+
+2009-11-24T14:17:26.982000Z
+f4387e26fa52d506afdc943c6d5c6a7a
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+

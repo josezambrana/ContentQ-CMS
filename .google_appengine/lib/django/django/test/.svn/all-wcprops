@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/54/trunk/python/lib/django/django/test
+END
+simple.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/simple.py
+END
+client.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/client.py
+END
+testcases.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/testcases.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/__init__.py
+END
+signals.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/signals.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/utils.py
+END
+doctest.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/django/test/doctest.py
+END

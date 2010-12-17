@@ -1,0 +1,8 @@
+{% extends 'email/email_base.txt' %}
+
+{% block body %}
+{{name}} {% if email %}({{email}}){% endif %}
+-----------------------------------------------------------
+
+{{message}}
+{% endblock %}

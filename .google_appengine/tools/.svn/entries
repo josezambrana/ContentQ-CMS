@@ -1,0 +1,41 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/tools
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+bulkload_client.py
+file
+
+
+
+
+2009-11-24T14:15:24.195000Z
+3454b136f4d1215d52df1da5e3c87858
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+

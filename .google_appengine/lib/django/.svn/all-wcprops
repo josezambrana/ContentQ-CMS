@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/100/trunk/python/lib/django
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/54/trunk/python/lib/django/LICENSE
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/54/trunk/python/lib/django/AUTHORS
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/54/trunk/python/lib/django/INSTALL
+END
+setup.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/73/trunk/python/lib/django/setup.py
+END
+PKG-INFO
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/73/trunk/python/lib/django/PKG-INFO
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/54/trunk/python/lib/django/README
+END
+setup.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/54/trunk/python/lib/django/setup.cfg
+END

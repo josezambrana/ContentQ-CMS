@@ -1,0 +1,51 @@
+#slidernews {
+  border-radius: 10px 10px 10px 10px;
+  behavior: url(/themes/collabq/css/border-radius.htc);
+}
+
+button, .button {
+  border-radius:11px;
+  behavior: url(/themes/collabq/css/border-radius.htc);
+}
+
+.block-corner {
+  background: #fff;
+  border-radius: 10px;
+  behavior: url(/themes/collabq/css/border-radius.htc);
+}
+
+.single .block-corner {
+  border-radius: 0px 10px 10px 10px;
+  behavior: url(/themes/collabq/css/border-radius.htc);
+}
+#footer .container-wrapper {
+  border-radius: 10px;
+  behavior: url(/themes/collabq/css/border-radius.htc);
+  background: #0d1915;
+}
+
+#header-blocks .logo, #header-blocks .mainmenu li {
+  background: transparent url(/themes/collabq/img/bg_menuitem.png) no-repeat 0 -50px;
+  border: 0;
+  padding: 0 0 0 20px;
+  margin: 0 15px -1px 0;
+  position: relative;
+}
+
+#header-blocks .logo a,
+#header-blocks .mainmenu li a {
+  background: transparent url(/themes/collabq/img/bg_menuitem.png) no-repeat 100% -50px;
+  border: 0;
+  margin: 0 -10px 0 0;
+  padding: 10px 20px 10px 0;
+  position: relative;
+}
+
+#header-blocks span.current, #header-blocks .mainmenu li.current {
+  background: transparent url(/themes/collabq/img/bg_menuitem.png) no-repeat 0 0;
+}
+
+#header-blocks span.current a,
+#header-blocks .mainmenu li.current a {
+  background: transparent url(/themes/collabq/img/bg_menuitem.png) no-repeat 100% 0;
+}

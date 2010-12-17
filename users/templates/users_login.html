@@ -1,0 +1,26 @@
+{% extends "base_singlesmall.html" %}
+
+{% block content %}
+  {% if not request.user %}
+    {% include 'forms/form_errors.html' %}
+    <form method="POST" action="{{content.edit_url}}">
+      {% include 'forms/form_fields.html' %}
+      <div class="field-wrapper clearfix">
+        <span id="rememberme" class="small span">
+          <label>
+            <input type="checkbox" value="forever" id="rememberme-input" name="rememberme" />
+            Renember me
+          </label>
+        </span>
+        <span id="lost-password" class="span float-right">
+          <a href="{% url users_forgot %}">Lost your password?</a>
+        </span>
+      </div>
+      <div class="field-wrapper clearfix">
+        <button type="submit"><span>Login</span></button>
+      </div>
+    </form>
+  {% else %}
+  <p class="notice msg">You are already logged in</p>
+  {% endif %}
+{% endblock %}

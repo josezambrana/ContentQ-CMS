@@ -1,0 +1,14 @@
+author: Jose Maria Zambrana Arze <contact@josezambrana.com>
+
+default_auth:
+  administrator: '*'
+  authenticated: []
+  anonymous: []
+
+areas:
+  Media Blob:
+    area: blob
+    name: Media Blob
+    description: Manage blob media
+    link: blob_admin
+    sublinks: {}

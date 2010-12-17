@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n block %}
+
+{% block bodyclass %}withsidebar {{block.super}}{% endblock %}
+
+{% block contentwrapper %}
+<div class="container-wrapper clearfix">
+  <div id="leftbar" class="sidebar span">
+    {% block leftbar %}
+    {% endblock %}
+  </div>
+  <div id="content" class="content span last">
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+{% endblock contentwrapper %}

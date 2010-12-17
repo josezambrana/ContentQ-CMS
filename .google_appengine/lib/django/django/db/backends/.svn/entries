@@ -1,0 +1,78 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django/db/backends
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+ado_mssql
+dir
+
+mysql_old
+dir
+
+postgresql
+dir
+
+sqlite3
+dir
+
+util.py
+file
+
+
+
+
+2009-11-24T14:16:49.093000Z
+332f1062e018876083866024a525da7a
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+mysql
+dir
+
+oracle
+dir
+
+__init__.py
+file
+
+
+
+
+2009-11-24T14:16:49.099000Z
+d41d8cd98f00b204e9800998ecf8427e
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+has-props
+
+postgresql_psycopg2
+dir
+
+dummy
+dir
+

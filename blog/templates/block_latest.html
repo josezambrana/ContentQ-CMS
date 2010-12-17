@@ -1,0 +1,13 @@
+{% extends "block.html" %}
+
+{% block blockbody %}
+  <ul>
+  {% for postitem in post_list %}
+    <li>
+      <h4><a href="{{ postitem.url }}" title="{{ postitem }}">{{ postitem }}</a></h4>
+      <p>
+        {% autoescape off %}{{postitem.plain_description|truncatewords_html:12}}{% endautoescape %}</p>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

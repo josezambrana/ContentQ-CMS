@@ -1,0 +1,20 @@
+author: Jose Maria Zambrana Arze <contact@josezambrana.com>
+
+default_auth:
+  administrator: '*'
+  authenticated: ['post_list',
+                  'post_show',
+                  'post_tag']
+  anonymous: ['post_category',
+              'post_category_format',
+              'post_list',
+              'post_show',
+              'post_tag']
+
+areas:
+  Blog:
+    area: post
+    name: Blog
+    description: Publish, edit and manage post
+    link: post_admin
+    sublinks: {}

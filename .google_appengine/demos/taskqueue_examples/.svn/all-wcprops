@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/62/trunk/python/demos/taskqueue_examples
+END
+app.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/61/trunk/python/demos/taskqueue_examples/app.yaml
+END
+mail.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/61/trunk/python/demos/taskqueue_examples/mail.html
+END
+counters.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/61/trunk/python/demos/taskqueue_examples/counters.html
+END
+names.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/61/trunk/python/demos/taskqueue_examples/names.html
+END
+index.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/61/trunk/python/demos/taskqueue_examples/index.yaml
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/61/trunk/python/demos/taskqueue_examples/index.html
+END
+main.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/62/trunk/python/demos/taskqueue_examples/main.py
+END

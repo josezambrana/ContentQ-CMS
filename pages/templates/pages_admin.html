@@ -1,0 +1,22 @@
+{% extends 'content_admin.html' %}
+
+{% block listbodytitles %}
+<div class="admin-titles clearfix">
+  <strong class="span name">Name</strong>
+  <strong class="span created-at">Created at</strong>
+  <strong class="span actions last">Actions</strong>
+</div>
+{% endblock %}
+
+{% block singleitem %}
+<div class="count-{{forloop.counter}} {{item.object_name}}-item">
+  <span class="span name">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </span>
+  <span class="span created-at">{{item.created_at|date:"d/m/Y"}}</span>
+  <span class="span actions last">
+    <a href="{{item.edit_url}}">Edit</a>
+    <a href="{{item.delete_url}}">Delete</a>
+  </span>
+</div>
+{% endblock %}

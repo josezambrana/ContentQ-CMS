@@ -1,0 +1,38 @@
+{% if flash.success %}
+  <div id="success" class="success msg clearfix">
+    <a href="#" id="flash-close" class="action-close float-right" rel="success">
+      <strong>Close</strong>
+    </a>
+    {% for msg in flash.success %}
+      <p class="{% if forloop.last %}bottom{% endif %}">
+        {{msg}}
+      </p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if flash.notice %}
+  <div id="notice" class="notice msg clearfix">
+    <a href="#" id="flash-close" class="action-close float-right" rel="notice">
+      <strong>Close</strong>
+    </a>
+    {% for msg in flash.notice %}
+      <p class="{% if forloop.last %}bottom{% endif %}">
+        {{msg}}
+      </p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if flash.error %}
+  <div id="error" class="error msg clearfix">
+    <a href="#" id="flash-close" class="action-close float-right" rel="error">
+      <strong>Close</strong>
+    </a>
+    {% for msg in flash.error %}
+      <p class="{% if forloop.last %}bottom{% endif %}">
+        {{msg}}
+      </p>
+    {% endfor %}
+  </div>
+{% endif %}

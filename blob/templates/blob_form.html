@@ -1,0 +1,13 @@
+{% load format %}
+
+<form action="{{upload_url}}" enctype="multipart/form-data" method="POST">
+  <div class="field-wrapper">
+    <label for="file">File</label>
+    <input id="file" type="file" name="file" class="file" />
+  </div>
+  <div class="float-left buttons">
+    <input id="redirect_to" type="hidden" name="redirect_to"
+           value="{{redirect_to}}" />
+    <input id="submit" type="submit" name="upload" value="Upload" />
+  </div>
+</form>

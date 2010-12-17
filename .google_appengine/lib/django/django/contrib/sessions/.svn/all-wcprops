@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/sessions
+END
+middleware.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/sessions/middleware.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/sessions/__init__.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/sessions/models.py
+END

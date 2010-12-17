@@ -1,0 +1,32 @@
+{% extends 'base_admin.html' %}
+{% load i18n format %}
+
+{% block contenttitle %}
+  <h1>New {{model.class_name|spacify}}</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{{model.subitems_admin_url}}">{{model.subitems_classname|plural|spacify}}</a> &raquo;
+  <a href="{{model.admin_url}}">{{model.class_name|plural|spacify}}</a> &raquo;
+  Add {{model.subitems_classname}}
+{% endblock %}
+
+{% block contentzone %}
+  {% if form.errors %}
+    <p class="error">Please correct the error{{ form.errors|pluralize }}.
+    {% if form.errors %}
+      {% for error in form.errors %}
+        <br />{{ error }}
+      {% endfor %}
+    {% endif %}
+    </p>
+  {% endif %}
+
+  <form method="POST" action="{{request.path}}" class="ckeditor">
+    {% include 'forms/form_fields.html' %}
+    <div class="prepend-4">
+      <button>{% trans 'Add' %}</button>
+    </div>
+  </form>
+{% endblock %}

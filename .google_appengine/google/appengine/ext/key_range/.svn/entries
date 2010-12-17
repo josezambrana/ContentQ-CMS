@@ -1,0 +1,41 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/google/appengine/ext/key_range
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+__init__.py
+file
+
+
+
+
+2010-08-10T01:18:54.235144Z
+37cc4fa2fc467030c12b0ecf672be0b4
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+has-props
+

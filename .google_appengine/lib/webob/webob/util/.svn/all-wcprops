@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/54/trunk/python/lib/webob/webob/util
+END
+dictmixin.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/webob/webob/util/dictmixin.py
+END
+safegzip.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/webob/webob/util/safegzip.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/webob/webob/util/__init__.py
+END
+reversed.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/webob/webob/util/reversed.py
+END
+stringtemplate.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/54/trunk/python/lib/webob/webob/util/stringtemplate.py
+END

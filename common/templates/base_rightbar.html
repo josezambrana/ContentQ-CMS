@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n block %}
+
+{% block bodyclass %}{{block.super}} withsidebar{% endblock %}
+
+{% block  contentwrapper %}
+  <div id="content" class="content span">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <div id="rightbar" class="sidebar span last">
+    {% block rightbar %}
+      {% render_blocks "rightsidebar" request %}
+    {% endblock %}
+  </div>
+{% endblock contentwrapper %}

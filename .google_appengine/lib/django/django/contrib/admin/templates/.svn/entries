@@ -1,0 +1,40 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django/contrib/admin/templates
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+widget
+dir
+
+admin
+dir
+
+registration
+dir
+
+admin_doc
+dir
+

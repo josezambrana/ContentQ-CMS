@@ -1,0 +1,9 @@
+{% extends 'common/templates/base_block.html' %}
+{% load i18n %}
+{% block block_content %}
+<p>
+  <strong>{% trans 'Name'%}</strong>: {{entry.name}} <br/>
+  <strong>{% trans 'Email'%}</strong>: {{entry.email}}<br/>
+  <strong>{% trans 'Message'%}</strong>: {{entry.message}}
+</p>
+{% endblock %}

@@ -1,0 +1,145 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django/conf/locale
+http://googleappengine.googlecode.com/svn
+
+
+
+2009-04-24T02:48:33.474581Z
+54
+j.s@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+uk
+dir
+
+da
+dir
+
+sr
+dir
+
+de
+dir
+
+sv
+dir
+
+es_AR
+dir
+
+ja
+dir
+
+he
+dir
+
+fi
+dir
+
+bn
+dir
+
+ta
+dir
+
+pt_BR
+dir
+
+fr
+dir
+
+te
+dir
+
+nl
+dir
+
+pl
+dir
+
+no
+dir
+
+hu
+dir
+
+ro
+dir
+
+lv
+dir
+
+pt
+dir
+
+ca
+dir
+
+tr
+dir
+
+ru
+dir
+
+zh_TW
+dir
+
+el
+dir
+
+zh_CN
+dir
+
+gl
+dir
+
+en
+dir
+
+ar
+dir
+
+cs
+dir
+
+mk
+dir
+
+es
+dir
+
+kn
+dir
+
+cy
+dir
+
+is
+dir
+
+it
+dir
+
+sk
+dir
+
+sl
+dir
+

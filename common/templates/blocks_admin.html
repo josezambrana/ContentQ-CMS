@@ -1,0 +1,28 @@
+{% extends 'content_admin.html' %}
+{% load format %}
+
+{% block listbodytitles %}
+<div class="admin-titles clearfix">
+  <strong class="span name">Name</strong>
+  <strong class="span position">Position</strong>
+  <strong class="span created-at">Created at</strong>
+  <strong class="span actions last">Actions</strong>
+</div>
+{% endblock %}
+
+{% block singleitem %}
+  <span class="span name">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </span>
+  <span class="span">{{item.position}}</span>
+  <span class="span created-at">{{item.created_at|date:"d/m/Y"}}</span>
+  <span class="span actions last">
+    {% if item.active %}
+      <a href="{{item.unpublish_url}}">Unpublish</a>
+    {% else %}
+      <a href="{{item.publish_url}}">Publish</a>
+    {% endif %}
+    <a href="{{item.edit_url}}">Edit</a>
+    <a href="{{item.delete_url}}">Delete</a>
+  </span>
+{% endblock %}

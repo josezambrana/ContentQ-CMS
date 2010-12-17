@@ -1,0 +1,11 @@
+author: Jose Maria Zambrana Arze <contact@josezambrana.com>
+
+exclude_auth: ['contact_form']
+
+areas:
+  Contact Form:
+    area: contact,
+    name: Contact Form
+    description: Manage contact form
+    link: contact_admin
+    sublinks: {}

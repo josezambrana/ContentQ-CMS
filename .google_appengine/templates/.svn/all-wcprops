@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/54/trunk/python/templates
+END
+logging_console.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/templates/logging_console.js
+END
+logging_console_header.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/templates/logging_console_header.html
+END
+logging_console_footer.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/templates/logging_console_footer.html
+END
+logging_console_middle.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/templates/logging_console_middle.html
+END

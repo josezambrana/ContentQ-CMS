@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% include 'form_errors.html' %}
+
+<form method="POST" action="{% url contact_form %}">
+  {% include 'forms/form_fields.html' %}
+  <div class="field-wrapper clearfix">
+    <button>{% trans 'Send' %}</button>
+  </div>
+</form>

@@ -1,0 +1,5 @@
+[DEFAULT]
+author = Jose Maria Zambrana Arze <contact@josezambrana.com>
+license = Apache License, Version 2.0
+name = Default Theme
+description = ContentQ CMS default theme

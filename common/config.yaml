@@ -1,0 +1,60 @@
+author: Jose Maria Zambrana Arze <contact@josezambrana.com>
+
+exclude_auth: ['admin_dashboard',
+               'admin_site',
+               'config_admin',
+               'install',
+               'blocks_admin',
+               'blocks_new',
+               'blocks_edit',
+               'blocks_publish',
+               'blocks_unpublish',
+               'blocks_delete',
+               'menuitem_admin',
+               'menuitem_new',
+               'menuitem_edit',
+               'menuitem_delete',
+               'menuitem_show',
+               'menu_admin',
+               'menu_new',
+               'menu_edit',
+               'menu_delete',
+               'permissions',
+               'success',
+               'notice',
+               'error',
+               'roles']
+               
+default_auth:  
+  administrator: '*'
+  authenticated: ['success',
+                  'notice',
+                  'error']
+  anonymous: ['success',
+              'notice',
+              'error']
+               
+areas:
+  Site:
+   area: site
+   name: Site
+   description: Manage site configurations
+   link: admin_site
+   sublinks: {}
+   order: 0
+
+  Blocks:
+   area: blocks
+   name: Blocks
+   description: Manage blocks
+   link: blocks_admin
+   sublinks: {}
+   order: 2
+
+  Menus:
+   area: menus
+   name: Menus
+   description: Create, edit and manage menuitems and menus
+   link: menuitem_admin
+   sublinks: {}
+   order: 3

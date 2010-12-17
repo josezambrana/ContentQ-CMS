@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/templates/admin/auth/user
+END
+change_password.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/templates/admin/auth/user/change_password.html
+END
+add_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/templates/admin/auth/user/add_form.html
+END

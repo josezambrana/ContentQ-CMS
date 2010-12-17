@@ -1,0 +1,19 @@
+{% extends 'email/email_base_notification.html' %}
+
+{% block body %}
+<h1 style="color: #222;">Welcome to {{SITE_NAME}}</h1>
+<p>Thanks for registering at {{SITE_NAME}}.</p>
+<p>
+Your information:<br/>
+<strong>username</strong>: {{user.username}}<br/>
+<strong>email</strong>: {{user.email}}<br/>
+<strong>profile</strong>: http://{{DOMAIN}}{{user.url}}</p>
+
+<h3 style="color: #222;">About us</h3>
+<p>{{SITE_DESCRIPTION}}</p>
+
+<p>
+  Thanks,<br/>
+  <span style="color:#888">{{SITE_NAME}}</span>
+</p>
+{% endblock %}

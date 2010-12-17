@@ -1,0 +1,30 @@
+{% extends 'content_edit.html' %}
+{% load format %}
+
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{{model.admin_url}}">{{model.class_name|plural}}</a> &raquo;
+  Editing
+{% endblock %}
+
+{% block bottomscripts %}
+  {{ block.super }}
+  <script type="text/javascript">
+    (function($){
+      $('.menus input[type=radio]').click(function(){
+        selected = $(this).val();
+        if (selected =='all'){
+          $('#id_visibility').attr('disabled','disabled')
+          $('#id_visibility option').removeAttr('selected');
+        } else if ($(this).val()=='none') {
+          $('#id_visibility').attr('disabled','disabled')
+          $('#id_visibility option').removeAttr('selected');
+        } else if ($(this).val()=='select') {
+          $('#id_visibility option').attr('selected', 'selected')
+          $('#id_visibility').removeAttr('disabled')
+        }
+      })
+    })(jQuery)
+  </script>
+{% endblock %}

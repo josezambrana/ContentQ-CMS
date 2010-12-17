@@ -1,0 +1,92 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/django/django
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+test
+dir
+
+http
+dir
+
+oldforms
+dir
+
+db
+dir
+
+conf
+dir
+
+forms
+dir
+
+__init__.py
+file
+
+
+
+
+2009-11-24T14:17:12.626000Z
+83ee64c3f19a58d744424ab01969a9d1
+2009-09-03T21:41:50.723349Z
+73
+apijason@google.com
+has-props
+
+core
+dir
+
+templatetags
+dir
+
+views
+dir
+
+shortcuts
+dir
+
+dispatch
+dir
+
+utils
+dir
+
+newforms
+dir
+
+contrib
+dir
+
+bin
+dir
+
+template
+dir
+
+middleware
+dir
+

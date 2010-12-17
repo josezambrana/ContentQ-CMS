@@ -1,0 +1,22 @@
+{% extends 'base_admin.html' %}
+{% load i18n %}
+
+{% block contenttitle %}
+  <div id="content-title" class="{{ content.object_name }} title">
+    <h1 title="{{ content.name }}">{{ content.name }}</h1>
+  </div>
+{% endblock %}
+
+{% block contentzone %}
+  {% include 'forms/form_errors.html' %}
+  <form method="POST" action="{{content.edit_url}}" class="ckeditor">
+    {% include 'forms/form_fields.html' %}
+    <div class="prepend-4">
+      <input type="submit" value="Update" />
+    </div>
+  </form>
+{% endblock %}
+
+{% block bottomscripts %}
+  {% include 'forms/js.ckeditor.html' %}
+{% endblock %}

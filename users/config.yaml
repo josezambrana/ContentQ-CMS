@@ -1,0 +1,18 @@
+author: Jose Maria Zambrana Arze <contact@josezambrana.com>
+
+exclude_auth: ['users_login',
+               'users_logout',
+               'users_register',
+               'users_roles']
+default_auth:
+  administrator: '*'
+  authenticated: ['users_profile', 'users_profile_username', 'users_settings']
+  anonymous: ['users_profile_username']
+
+areas:
+  Users:
+    area: users
+    name: Users
+    description: "Manage users, roles and permissions"
+    link: users_admin
+    sublinks: {"Permissions":"permissions","Roles":"roles",}

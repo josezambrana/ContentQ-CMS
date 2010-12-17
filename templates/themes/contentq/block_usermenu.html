@@ -1,0 +1,14 @@
+{% load %}
+
+<ul id="topmenu" class="topmenu menu clearfix">
+  {% if request.user %}
+    <li><a href="{% url users_settings %}">Settings</a></li>
+    {% if request.user.is_admin %}
+      <li><a href="{% url admin_dashboard %}">Site Admin</a></li>
+    {% endif %}
+    <li><a href="{% url users_logout %}">Logout</a></li>
+  {% else %}
+    <li><a href="{% url users_register %}">Register</a></li>
+    <li class="action-login action"><a href="{% url users_login %}">Login</a></li>
+  {% endif %}
+</ul>

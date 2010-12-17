@@ -1,0 +1,6 @@
+{% extends 'email/email_base.html' %}
+
+{% block body %}
+<h1>{{name}} {% if email %}({{email}}){% endif %}</h1>
+<p>{{message}}</p>
+{% endblock %}

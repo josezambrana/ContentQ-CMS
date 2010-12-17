@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/109/trunk/python/google/appengine/dist
+END
+socket.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/56/trunk/python/google/appengine/dist/socket.py
+END
+subprocess.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/54/trunk/python/google/appengine/dist/subprocess.py
+END
+py_imp.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/109/trunk/python/google/appengine/dist/py_imp.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/61/trunk/python/google/appengine/dist/__init__.py
+END
+select.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/google/appengine/dist/select.py
+END
+ftplib.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/google/appengine/dist/ftplib.py
+END
+neo_cgi.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/google/appengine/dist/neo_cgi.py
+END
+_library.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/83/trunk/python/google/appengine/dist/_library.py
+END
+py_zipimport.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/73/trunk/python/google/appengine/dist/py_zipimport.py
+END
+tempfile.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/google/appengine/dist/tempfile.py
+END
+httplib.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/69/trunk/python/google/appengine/dist/httplib.py
+END

@@ -1,0 +1,6 @@
+{% extends 'forms/form.html' %}
+{% load i18n %}
+
+{% block extra_form %}enctype="multipart/form-data"{% endblock %}
+
+{% block button %}{% trans 'Save' %}{% endblock %}

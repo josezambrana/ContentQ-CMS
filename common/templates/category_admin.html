@@ -1,0 +1,20 @@
+{% extends 'content_admin.html' %}
+{% load i18n format %}
+
+{% block contentlisttitle %}List of {{model.class_name|plural|spacify}}{% endblock %}
+
+{% block beforelistbody %}
+  <ul class="actions clearfix">
+    <li class="action-new action">
+      <a href="{{model.new_url}}">New {{model.class_name|spacify}}</a>
+    </li>
+  </ul>
+{% endblock beforelistbody %}
+
+{% block listbodytitles %}
+  <div class="admin-titles clearfix">
+    <strong class="span name">{% trans 'Name' %}</strong>
+    <strong class="span created-at">{% trans 'Created at' %}</strong>
+    <strong class="span actions last">{% trans 'Actions' %}</strong>
+  </div>
+{% endblock %}

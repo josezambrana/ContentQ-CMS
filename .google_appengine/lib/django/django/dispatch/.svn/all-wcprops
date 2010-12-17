@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/73/trunk/python/lib/django/django/dispatch
+END
+saferef.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/dispatch/saferef.py
+END
+errors.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/django/dispatch/errors.py
+END
+robust.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/django/dispatch/robust.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/54/trunk/python/lib/django/django/dispatch/__init__.py
+END
+robustapply.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/54/trunk/python/lib/django/django/dispatch/robustapply.py
+END
+dispatcher.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/54/trunk/python/lib/django/django/dispatch/dispatcher.py
+END

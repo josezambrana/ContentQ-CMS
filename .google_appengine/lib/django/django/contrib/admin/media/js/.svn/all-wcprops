@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js
+END
+SelectFilter.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/SelectFilter.js
+END
+SelectFilter2.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/SelectFilter2.js
+END
+SelectBox.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/SelectBox.js
+END
+core.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/core.js
+END
+dateparse.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/dateparse.js
+END
+getElementsBySelector.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/getElementsBySelector.js
+END
+calendar.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/calendar.js
+END
+timeparse.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/timeparse.js
+END
+urlify.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/54/trunk/python/lib/django/django/contrib/admin/media/js/urlify.js
+END

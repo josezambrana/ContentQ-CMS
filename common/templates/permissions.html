@@ -1,0 +1,47 @@
+{% extends "base_admin.html" %}
+{% load util %}
+
+{% block contentlisttitle %}Permission Management{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{% url users_admin %}">Users</a> &raquo;
+  Permissions
+{% endblock %}
+
+{% block beforelistbody %}
+{% endblock %}
+
+{% block listbodytitles %}
+<div class="admin-titles roles-titles clearfix">
+  <strong class="span item-action">Action</strong>
+  {% for role in roles %}
+    <span class="span rolename">{{role.name}}</span>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block listbody %}
+  <form action="" method="post" >
+    {% for app, actionlist in apps.iteritems %}
+    <h4 class="bottom permissions-app-title">{{app}}</h4>
+    <ul class="permissions-list item-list admin-list clearfix">
+    {% for action in actionlist %}
+      <li class='item-{{action.object_name}} item {{forloop.counter|divisibleby:"2"|yesno:"par, impar"}}'>
+        <div class="item-wrapper {{action.object_name}}-item clearfix">
+          <span class="span action">{{action.name}}</span>
+          {% for role in roles %}
+            <span class="span checkbox-wrapper">
+              <input type="checkbox" value='{{action.name}}'
+                     {% if permissions|get:role.name|get:action.name %}checked="checked"{% endif %}
+                     name="{{role.name}}" />
+            </span>
+          {% endfor %}
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+    {% endfor %}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

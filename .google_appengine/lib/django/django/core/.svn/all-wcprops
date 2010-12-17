@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/100/trunk/python/lib/django/django/core
+END
+validators.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/100/trunk/python/lib/django/django/core/validators.py
+END
+management.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/73/trunk/python/lib/django/django/core/management.py
+END
+handler.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/handler.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/__init__.py
+END
+signals.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/signals.py
+END
+template_loader.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/template_loader.py
+END
+exceptions.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/exceptions.py
+END
+mail.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/mail.py
+END
+xheaders.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/xheaders.py
+END
+paginator.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/paginator.py
+END
+context_processors.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/context_processors.py
+END
+urlresolvers.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/54/trunk/python/lib/django/django/core/urlresolvers.py
+END

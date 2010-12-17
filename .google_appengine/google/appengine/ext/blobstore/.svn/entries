@@ -1,0 +1,53 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/google/appengine/ext/blobstore
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+blobstore.py
+file
+
+
+
+
+2010-08-10T01:18:55.459144Z
+e55174def4a31d00103391a4b3e74c06
+2010-07-01T16:17:34.026551Z
+116
+jasonacooper@google.com
+has-props
+
+__init__.py
+file
+
+
+
+
+2009-12-31T15:24:26.513000Z
+e2266e885366c09853c30da3bc6565bd
+2009-12-15T20:08:12.453892Z
+97
+apijason@google.com
+

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/54/trunk/python/demos/guestbook
+END
+app.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/54/trunk/python/demos/guestbook/app.yaml
+END
+guestbook.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/54/trunk/python/demos/guestbook/guestbook.py
+END

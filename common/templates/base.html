@@ -1,0 +1,35 @@
+{% extends "base/layout.html" %}
+{% load i18n %}
+
+{% block shortcut %}
+<link rel="shortcut icon" href="{{ THEME_MEDIA_URL }}img/favicon.ico" type="image/gif" />
+{% endblock %}
+
+{% block contenttop %}
+  <!-- start layout.headerwrapper -->
+  <div id="header-blocks" class="container">
+    <div class="container-wrapper">
+    <div id="headerlogo">
+      {% block headerlogo %}
+        {% include "inc.headerlogo.html" %}
+      {% endblock %}
+    </div>
+    {% block headerblocks %}
+      {% include "inc.headerblocks.html" %}
+    {% endblock %}
+    </div>
+  </div>
+  <!-- end layout.headerwrapper -->
+{% endblock  %}
+
+{% block  contentwrapper %}
+    <!-- start base.contentwrapper -->
+    {% block content %}
+    {% endblock %}
+    <!-- end base.contentwrapper -->
+{% endblock contentwrapper %}
+
+
+{% block contentbottom %}
+      {% include "inc.footer.html" %}
+{% endblock %}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/93/trunk/python/google/appengine/ext/admin/templates/js
+END
+multipart_form_data.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/73/trunk/python/google/appengine/ext/admin/templates/js/multipart_form_data.js
+END
+webhook.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/93/trunk/python/google/appengine/ext/admin/templates/js/webhook.js
+END
+rfc822_date.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/73/trunk/python/google/appengine/ext/admin/templates/js/rfc822_date.js
+END

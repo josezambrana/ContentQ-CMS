@@ -1,0 +1,5 @@
+<li id="menuitem-{{item.uuid}}" class="{% if item.current %}current{% endif %}">
+  <a href="{{item.link}}">{{item.name}}</a>
+  {% block extra_content %}
+  {% endblock %}
+</li>

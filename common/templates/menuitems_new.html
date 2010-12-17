@@ -1,0 +1,74 @@
+{% extends 'content_new.html' %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="{{ THEME_MEDIA_URL }}css/jquery.fancybox.css" type="text/css" media="screen" />
+{% endblock %}
+
+{% block extrascripts %}
+<script src="{{ THEME_MEDIA_URL }}js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="{{ THEME_MEDIA_URL }}js/jquery.dimensions.js" type="text/javascript"></script>
+<script src="{{ THEME_MEDIA_URL }}js/jquery.accordion.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block beforecontentzone %}
+<ul class="actions clearfix">
+  <li class="action-new action">
+    <a id="action-show-content" href="#content-list">Select Content</a>
+  </li>
+</ul>
+
+<div style="display:none">
+  <div id="content-list" class="content-list">
+   <h2>Please select the content</h2>
+   <div id="list-wrapper" class="list-wrapper">
+   {% for sectionname, section in content_dir.iteritems %}
+      <h3><a href="#">{{sectionname}}</a></h3>
+      <div id="{{sectionname}}" class="subaccordion section wrapper">
+        {% for itemname, items  in section.iteritems %}
+          <h4>{{itemname}}</h4>
+          <div class="wrapper">
+            {% for item in items %}
+              <a href="{{item.url}}" class="item" title="{{item.name}}">{{item.name}}</a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+   {% endfor %}
+   </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block bottomscripts %}
+  {{block.super}}
+  <script type="text/javascript">
+    var options = {
+      scrolling: "no",
+      onComplete: function () {
+          var accordion1 = {
+              clearStyle: true,
+              active: false,
+              collapsible: true
+            }
+          jQuery('#list-wrapper').accordion(accordion1);
+          
+          var accordion2 = {
+              clearStyle: true,
+              active: false,
+              collapsible: true,
+              header: 'h4'
+            }
+          jQuery('.subaccordion').accordion(accordion2);
+          jQuery('.content-list .section .item').click(function(){
+            var url = jQuery(this).attr('href');
+            var name = jQuery(this).attr('title');
+            jQuery("form #id_link").val(url);
+            jQuery("form #id_name").val(name);
+            jQuery.fancybox.close();
+            return false;
+          });
+        }
+    }
+    jQuery("a#action-show-content").fancybox(options);
+  </script>
+{% endblock %}

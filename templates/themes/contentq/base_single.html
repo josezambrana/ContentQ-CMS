@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block contenttop %}
+  <div id="header-blocks" class="container">
+    {% include 'inc.headerlogo.html' %}
+  </div>
+{% endblock %}
+
+{% block bodyclass %}{{block.super}} single{% endblock %}
+
+{% block contentwrapper %}
+  <div id="body" class="container">
+    {% block contenttitle %}
+    {% endblock %}
+      
+    {% block content %}
+    {% endblock %}
+  </div>
+{% endblock contentwrapper %}
+
+{% block contentbottom %}{% endblock %}

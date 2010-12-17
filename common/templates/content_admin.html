@@ -1,0 +1,54 @@
+{% extends 'base_admin.html' %}
+{% load i18n format %}
+
+{% block contenttitle %}
+  <h1 title="item-list">{% block contentlisttitle %}{{model.class_name|plural|spacify}}{% endblock %}</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  {% if model.subitems_classname %}
+  <a href="{{model.subitems_admin_url}}">{{model.subitems_classname|plural|spacify}}</a> &raquo;
+  {% endif %}
+  {{model.class_name|plural|spacify}}
+{% endblock %}
+
+{% block beforelistbody %}
+  <ul class="actions clearfix">
+    <li class="action-new action">
+      <a href="{{model.new_url}}">
+        {% block newactiontitle %}New {{model.class_name|spacify}}{% endblock %}
+      </a>
+    </li>
+    {% if model.category_admin %}
+    <li class="action-categories action">
+      <a href="{{model.category_admin}}">
+        {% block categoryadminactiontitle %}{{model.category_model.class_name|plural|spacify}} Admin{% endblock %}
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+{% endblock beforelistbody %}
+
+{% block listbodytitles %}
+  <div class="admin-titles clearfix">
+    <strong class="span name">{% trans 'Name' %}</strong>
+    <strong class="span status">{% trans 'Status' %}</strong>
+    <strong class="span created-at">{% trans 'Created at' %}</strong>
+    <strong class="span actions last">{% trans 'Actions' %}</strong>
+  </div>
+{% endblock %}
+
+{% block singleitem %}
+<div class="count-{{forloop.counter}} {{item.object_name}}-item">
+  <span class="span name">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </span>
+  <span class="span status">{{item.status}}</span>
+  <span class="span created-at">{{item.created_at|date:"d/m/Y"}}</span>
+  <span class="span actions last">
+    <a href="{{item.edit_url}}">Edit</a>
+    <a href="{{item.delete_url}}">Delete</a>
+  </span>
+</div>
+{% endblock %}

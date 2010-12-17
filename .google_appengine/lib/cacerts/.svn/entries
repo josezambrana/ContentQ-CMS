@@ -1,0 +1,40 @@
+8
+
+dir
+117
+http://googleappengine.googlecode.com/svn/trunk/python/lib/cacerts
+http://googleappengine.googlecode.com/svn
+
+
+
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+80f5ef21-4148-0410-bacc-cfb02402ada8
+
+cacerts.txt
+file
+
+
+
+
+2010-02-16T15:52:06.997000Z
+ef31736a184205b4531b42f1408ab826
+2010-02-11T00:33:59.505461Z
+100
+apijason@google.com
+

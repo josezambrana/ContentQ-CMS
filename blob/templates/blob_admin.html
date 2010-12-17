@@ -1,0 +1,29 @@
+{% extends 'base_admin.html' %}
+{% load i18n %}
+
+{% block contentlisttitle %}List of Media{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo; Files
+{% endblock %}
+
+{% block beforelistbody %}
+  <ul class="actions clearfix">
+    <li class="action-new action">
+      <a href="{% url blobinfo_upload %}">
+        Upload a File
+      </a>
+    </li>
+    {% comment %}
+    <li class="action-new action">
+      <a href="">
+        Upload a file (1 Mb max)
+      </a>
+    </li>
+    {% endcomment %}
+  </ul>
+{% endblock beforelistbody %}
+
+{% block singleitem %}
+  <strong><a href="/blobstore/serve/{{item.key}}/{{item.filename}}">{{item.filename}}</a></strong> {{item.size}} {{item.creation}}
+{% endblock %}

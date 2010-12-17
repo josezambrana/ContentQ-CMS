@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/73/trunk/python/lib/django/django/utils
+END
+termcolors.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/termcolors.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/__init__.py
+END
+autoreload.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/autoreload.py
+END
+dates.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/dates.py
+END
+functional.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/functional.py
+END
+cache.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/cache.py
+END
+html.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/html.py
+END
+stopwords.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/stopwords.py
+END
+decorators.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/decorators.py
+END
+images.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/images.py
+END
+itercompat.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/itercompat.py
+END
+tzinfo.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/tzinfo.py
+END
+feedgenerator.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/feedgenerator.py
+END
+daemonize.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/daemonize.py
+END
+datastructures.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/datastructures.py
+END
+_threading_local.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/_threading_local.py
+END
+timesince.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/timesince.py
+END
+xmlutils.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/xmlutils.py
+END
+synch.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/synch.py
+END
+text.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/text.py
+END
+dateformat.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/54/trunk/python/lib/django/django/utils/dateformat.py
+END

@@ -1,0 +1,41 @@
+{% extends 'content_admin.html' %}
+{% block contenttitle %}
+  <h1 title="item-list">Users</h1>
+{% endblock %}
+
+{% block beforelistbody %}
+<ul class="actions clearfix">
+  <li class="action-roles action">
+    <a href="{% url roles %}">
+      Manage Roles
+    </a>
+  </li>
+  <li class="action-permissions action">
+    <a href="{% url permissions %}">
+      Manage Permissions
+    </a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block listbodytitles %}
+<div class="admin-titles clearfix">
+  <strong class="span name">Username</strong>
+  <strong class="span created-at">Last Login</strong>
+  <strong class="span actions last">Actions</strong>
+</div>
+{% endblock %}
+
+{% block singleitem %}
+  <span class="span name">
+    <a href="{{item.url}}">{{item.username}}</a>
+  </span>
+  <span class="span created-at">{{item.last_login|date:"d/m/Y"}}</span>
+  <span class="span actions last">
+    {% if item.active %}
+      <a href="">Desactive</a>
+    {% else %}
+      <a href="">Active</a>
+    {% endif %}
+  </span>
+{% endblock %}
