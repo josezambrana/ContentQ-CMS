@@ -2,25 +2,27 @@ Documentation
 =============
 ContentQ CMS is an open source managemen system to deploy a site on Google cloud.
 
-Jose Maria Zambrana Arze "contact@josezambrana.com"
+Jose Maria Zambrana Arze <contact@josezambrana.com>
 
 Documentation
 -------------
 
 ### Windows Installation
+Instructions to deploy ContentQ on google app engine in a windows machine.
 
-Instructions to deploy ContentQ on google app engine in a windows machine.  
-Requeriments  
-* Python 2.5
-* ContentQ CMS
-* A google account
+####Requeriments
+
+  - Python 2.5
+  - ContentQ CMS
+  - A google account
+
 
 #### Step 1: Install Python
 Download and install python 2.5 for windows.  
-[http://www.python.org/ftp/python/2.5/python-2.5.msi](http://www.python.org/ftp/python/2.5/python-2.5.msi)
+<http://www.python.org/ftp/python/2.5/python-2.5.msi>
 
 #### Step 2: Create a google app engine app.
-1. Sign in [appengine.appspot.com](http://appengine.appspot.com) with your google account.
+1. Sign in <http://appengine.appspot.com> with your google account.
 2. Click on **create application** button.
 3. If it is not your first application go to 6.
 4. Verify your account by sms. enter your country, carrier (if needed) and your mobile phone number. Click **Send**.
@@ -29,11 +31,11 @@ Download and install python 2.5 for windows.
 7. An application is now created. You can deploy your contentq instance.
 
 #### Step 3 - Get ContentQ CMS
-Download ContentQ source code from github:  
-  
-**Github URL** [https://github.com/josezambrana/ContentQ-CMS/tree/master](https://github.com/josezambrana/ContentQ-CMS/tree/master)
-**Github Download URL** [https://github.com/josezambrana/ContentQ-CMS/tree/master](https://github.com/josezambrana/ContentQ-CMS/tarball/master)
-**Public Clone URL** [git://github.com/josezambrana/ContentQ-CMS.git](git://github.com/josezambrana/ContentQ-CMS.git)
+Download ContentQ source code from github:
+
+**Github URL** <https://github.com/josezambrana/ContentQ-CMS/tree/master>  
+**Github Download URL** <https://github.com/josezambrana/ContentQ-CMS/tarball/master>  
+**Public Clone URL** git://github.com/josezambrana/ContentQ-CMS.git  
 
 Extract the ZIP archive and save to a folder (c:/)
 
