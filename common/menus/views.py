@@ -24,7 +24,7 @@ from common import util
 
 @decorator.admin_required
 def admin(request):
-  return common_views.content_list(request, 'menus', MenuItem, [],
+  return common_views.content_admin(request, 'menus', MenuItem, [],
                                 'menuitems_admin.html')
                                 
 def list(request):
@@ -34,15 +34,12 @@ def list(request):
 def new(request):
   content_dir = {}
   for app in settings.INSTALLED_APPS:
-    logging.info("   app: %s " % app)
     _config = ConfigData.get(name=app, label='installed_app')
     if _config:
       _config = "%s.config.get_content" % app
       get_content = util.get_attr_from_safe(_config)
       if get_content is not None:
         content_dir.update({app:get_content()})
-
-  logging.info("   content_dir: %s " % content_dir)
       
   return common_views.content_new(request, 'menus', MenuItemForm, 'menuitems_new.html', redirect_to=MenuItem.admin_url(), model=MenuItem, extra_context={"content_dir":content_dir})
 

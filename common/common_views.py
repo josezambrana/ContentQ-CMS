@@ -14,7 +14,7 @@
 
 import logging
 
-from django import http, template, forms
+from django import http, template
 from django.conf import settings
 from django.core import serializers
 from django.core.urlresolvers import reverse
@@ -24,15 +24,18 @@ from django.utils.translation import ugettext_lazy as _
 from common import decorator
 from common import util
 
-from common.handlers import ContentViewHandler
-
 from users import decorator as users_decorator
 from users import authenticate
 
-from common.models import Action, Block, ConfigData, Permission, Role
+from common.models import Action, Block, ConfigData, Permission, Role, Theme
 from common.forms import AdminSiteForm, InstallForm, BlockForm, BlockNewForm
 
 ENTRIES_PER_PAGE = 10
+
+def _flag_as_admin(context):
+  logging.info("** common.common_views._flag_as_admin")
+  admin_theme_url = settings.THEME_URL + Theme.get_admin().directory_name + '/'
+  context.update({"admin":True, "THEME_MEDIA_URL":admin_theme_url})
 
 def _get_content(id, model):
   content = model.get(uuid=id)
@@ -52,6 +55,7 @@ def dashboard(request):
       adminareas += _config.extra.get('adminareas')
 
   c = template.RequestContext(request, locals())
+  _flag_as_admin(c)
   return render_to_response("dashboard.html", c)
 
 @decorator.admin_required
@@ -66,6 +70,7 @@ def admin_site(request):
       return http.HttpResponseRedirect(reverse('admin_dashboard'))
   
   c = template.RequestContext(request, locals())
+  _flag_as_admin(c)
   return render_to_response("admin_site.html", c)
 
 @decorator.admin_required
@@ -87,11 +92,12 @@ def install(request):
       return http.HttpResponseRedirect(reverse('admin_dashboard'))
 
   c = template.RequestContext(request, locals())
+  _flag_as_admin(c)
   return render_to_response('install.html', c)
 
 @decorator.admin_required
 def config_admin(request):
-  return content_list(request, 'config', ConfigData,
+  return content_admin(request, 'config', ConfigData,
                       extra_context={},
                       tpl='config_admin', order='label')
 
@@ -105,8 +111,7 @@ def category_edit(request, slug, area='category', model=None, tpl='category_edit
 
 @decorator.admin_required
 def category_admin(request, area='category', tpl='category_admin', model=None):
-  return content_list(request, area, model, [], tpl,
-                      extra_context={})
+  return content_admin(request, area, model, [], tpl, extra_context={})
 
 @decorator.admin_required
 def category_delete(request, slug, model=None):
@@ -168,6 +173,7 @@ def content_new(request, area='content', model_form=None, tpl='content_new.html'
   
   c = template.RequestContext(request, locals())
   c.update(extra_context)
+  _flag_as_admin(c)
   return render_to_response(tpl, c)
 
 def content_edit(request, id, area='content', model=None, model_form=None, tpl='content_edit.html', redirect_to=None, extra_context={}):
@@ -192,6 +198,7 @@ def content_edit(request, id, area='content', model=None, model_form=None, tpl='
   
   c = template.RequestContext(request, locals())
   c.update(extra_context)
+  _flag_as_admin(c)
   return render_to_response(tpl, c)
 
 def content_show(request, id, area='content', model=None, tpl='content_show.html', extra_context={}, format='html'):
@@ -216,7 +223,7 @@ def content_delete(request, slug, model=None):
 
 @decorator.admin_required
 def blocks_admin(request):
-  return content_list(request, 'blocks', Block, extra_context={}, tpl='blocks_admin.html')
+  return content_admin(request, 'blocks', Block, extra_context={}, tpl='blocks_admin.html')
 
 @decorator.admin_required
 def blocks_new(request):
@@ -261,6 +268,7 @@ def roles(request):
   items = util.paginate(request, Role.all())
 
   c = template.RequestContext(request, locals())
+  _flag_as_admin(c)
   return render_to_response('roles.html', c)
 
 @decorator.permission(['administrator'])
@@ -294,4 +302,5 @@ def permissions(request):
       permissions[role.name].setdefault(action.name, (action.name in permission.actions and True))
 
   c = template.RequestContext(request, locals())
+  _flag_as_admin(c)
   return render_to_response('permissions.html', c)

@@ -20,6 +20,7 @@ from django.template import loader
 from django.core.urlresolvers import reverse
 
 from common import common_views
+from common.common_views import _flag_as_admin
 from common import util
 
 from contact.models import ContactMessage
@@ -38,6 +39,7 @@ def contact_settings(request):
       return http.HttpResponseRedirect(reverse('contact_admin'))
   
   c = template.RequestContext(request, locals())
+  _flag_as_admin(c)
   return render_to_response('contact_settings.html', c)
 
 def contact_show(request, key_name):
@@ -45,8 +47,8 @@ def contact_show(request, key_name):
   area = 'contact'
   
   c = template.RequestContext(request, locals())
-  t = loader.get_template('contact_show.html')
-  return http.HttpResponse(t.render(c))
+  _flag_as_admin(c)
+  return render_to_response('contact_show.html', c)
 
 
 def contact_form(request):

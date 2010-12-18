@@ -113,6 +113,10 @@ class Theme(BaseModel):
     return '%s%s/' % (settings.THEME_URL, self.directory_name)
 
   @classmethod
+  def get_admin(cls):
+    return cls.get(directory_name=settings.DEFAULT_THEME)
+  
+  @classmethod
   def get_active(cls):
     return super(Theme, cls).get(active=True)
   

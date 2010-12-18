@@ -18,7 +18,7 @@ from django.conf import settings
 from common import util
 from common.models import Theme, ConfigData
 
-def get_global_vars():
+def get_global_vars(request):
   params = getattr(settings, 'GLOBALS')
   params.update({'SITE_NAME':ConfigData.get_configdata('SITE_NAME'),
                 'SITE_DESCRIPTION':ConfigData.get_configdata('SITE_DESCRIPTION'),
@@ -29,7 +29,7 @@ def get_global_vars():
   return params
 
 def globals(request):
-  return get_global_vars()
+  return get_global_vars(request)
 
 def flash(request):
   flash = {

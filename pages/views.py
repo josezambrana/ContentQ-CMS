@@ -27,7 +27,7 @@ WORDS_NUM = 60
 
 @decorator.admin_required
 def admin(request): 
-  return common_views.content_list(request, 'pages', Page, tpl='pages_admin.html')
+  return common_views.content_admin(request, 'pages', Page, tpl='pages_admin.html')
 
 def show(request, slug):
   return common_views.content_show(request, slug, 'pages', Page, tpl='pages_show.html')

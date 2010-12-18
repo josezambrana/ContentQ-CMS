@@ -32,7 +32,7 @@ WORDS_NUM = 60
 
 @user_decorator.login_required
 def admin(request, format='html'):
-  return common_views.content_list(request, 'post', PostItem, [], 'blog_admin.html')
+  return common_views.content_admin(request, 'post', PostItem, [], 'blog_admin.html')
 
 def index(request, format='html', category=None, tag=None):
   view_handler = BlogIndexHandler(request, format=format, category=category, tag=tag)
@@ -48,7 +48,7 @@ def new(request):
 
 @user_decorator.login_required
 def edit(request, slug):
-  return common_views.content_edit(request, slug, 'post', PostItem, PostItemForm, 'blog_edit.html', redirect_to=True,)
+  return common_views.content_edit(request, slug, 'post', PostItem, PostItemForm, 'blog_edit.html', redirect_to=True)
 
 @user_decorator.login_required
 def delete(request, slug):

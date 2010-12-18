@@ -17,8 +17,8 @@ Loading templates from active theme looking for directories in TEMPLATE_DIRS/the
 """
 import os
 
-from common.merengue.theming import check_themes
-from common.merengue.theming import get_theme_root_dirs
+from common.theming import check_themes
+from common.theming import get_theme_root_dirs
 from django.conf import settings
 from django.template import TemplateDoesNotExist
 from django.utils._os import safe_join

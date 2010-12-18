@@ -23,7 +23,7 @@ from django.conf import settings
 
 from common import exception
 from common import util
-from common.merengue import theming
+from common import theming
 from common.models import Action, ConfigData, Permission
 
 class VerifyInstallMiddleware(object):

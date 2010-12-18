@@ -24,7 +24,7 @@ TEMPLATE_DIRS = (
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'common.merengue.theming.loader.load_template_source', # for enabling theme support in Merengue
+    'common.theming.loader.load_template_source', # for enabling theme support in Merengue
     'django.template.loaders.app_directories.load_template_source',
     'django.template.loaders.filesystem.load_template_source',
 )
@@ -42,7 +42,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'common.context_processors.flash',
 )
 
-# merengue usual installed apps. you can use this variable in your INSTALLED_APPS project settings
+# ContentQ usual installed apps. you can use this variable in your INSTALLED_APPS project settings
 INSTALLED_APPS = (
      'appengine_django',
      'common',
