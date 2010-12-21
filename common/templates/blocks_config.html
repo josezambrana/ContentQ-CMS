@@ -1,0 +1,9 @@
+{% extends 'content_edit.html' %}
+{% load format %}
+
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{{model.admin_url}}">{{model.class_name|plural}}</a> &raquo;
+  Config
+{% endblock %}

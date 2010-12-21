@@ -18,7 +18,8 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
-from common.models import Menu, ConfigData
+from common.models import Menu, ConfigData, Block as BlockModel
+from common.forms import BlockForm, StaticBlockForm
 
 class BaseBlock:
   @classmethod
@@ -36,13 +37,17 @@ class BaseBlock:
 
 class Block(BaseBlock):
   @classmethod
+  def get_form(self):
+    return BlockForm
+  
+  @classmethod
   def render(cls, place, context, * args, ** kwargs):
     raise NotImplementedError()
 
 class MenuBlock(Block):
   @classmethod
   def render(cls, context, name=''):
-    menu = Menu.get(name=name)
+    menu = Menu.get(slug=name)
     context.update({'menu': menu})
     return cls.render_block(template_name='block_menu.html',
                             block_title=_(name),
@@ -67,4 +72,18 @@ class AdminMenuBlock(Block):
     context.update({"adminareas":adminareas})
     return cls.render_block(template_name='block_adminmenu.html',
                             block_title=_(name),
+                            context=context)
+
+class StaticBlock(Block):
+  @classmethod
+  def get_form(self):
+    return StaticBlockForm
+  
+  @classmethod
+  def render(cls, context, name=''):
+    logging.info(">> StaticBlock.render")
+    block_ref = BlockModel.get(slug=name)
+    context.update({"params":block_ref.params})
+    return cls.render_block(template_name="block_static.html",
+                            block_title=_(block_ref.name),
                             context=context)

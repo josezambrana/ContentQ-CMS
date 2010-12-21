@@ -327,12 +327,15 @@ class Commentable:
 class Block(Base):
   position = db.StringProperty(required=True, choices=settings.BLOCK_POSITIONS)
   model = db.StringProperty(required=True)
-  active = db.BooleanProperty(default=True)
   args = properties.DictProperty()
-  order = db.IntegerProperty(required=True, default=0)
   menus = db.StringProperty(default='all', choices=settings.BLOCK_MENUS_OPTION.keys())
   visibility = db.StringListProperty()
 
+  params = properties.DictProperty(default={})
+
+  active = db.BooleanProperty(default=True)
+  order = db.IntegerProperty(required=True, default=0)
+  
   key_template = '%(model)s/%(slug)s'
   
   def __unicode__(self):
@@ -370,9 +373,20 @@ class Block(Base):
     self.active = True
     self.put()
 
+  def get_block_class(self):
+    logging.info("**** common.models.Block.get_block_class")
+    return util.get_attr_from_safe(self.model)
+
+  def get_block_form(self):
+    logging.info("**** common.models.Block.get_block_form")
+    _class = self.get_block_class()
+    logging.info("     _class: %s " % _class)
+    _form = _class.get_form()
+    logging.info("     _form: %s " % _form)
+    return self.get_block_class().get_form()
+
   def put(self):
     return super(Block, self).put()
-
   
   def save(self):
     return super(Block, self).save()
@@ -404,7 +418,7 @@ class Menu(BaseCategory):
     return MenuItem.all().filter('menu =', self.uuid)
 
   def top_items(self):
-    return MenuItem.all().filter('active', True).filter('parentlink =', None).order('order')
+    return MenuItem.all().filter('active', True).filter('menu = ', self.slug).filter('parentlink =', None).order('order')
 
   @classmethod
   def urltag(cls):
@@ -427,7 +441,10 @@ class Menu(BaseCategory):
     return Block.get(uuid=self.block)
 
   def delete(self):
-    self.get_block.delete()
+    try:
+      self.get_block().delete()
+    except:
+      pass
     return super(Menu, self).delete()
 
   def __str__(self):

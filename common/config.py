@@ -19,6 +19,7 @@ from common.models import Menu, MenuItem, Role
 
 def install():
   logging.info("> common.config.install")
+  staticblock_ref = Block.add_model('staticblock', 'common.blocks.StaticBlock')
   block = Block(name='Main Menu', slug='mainmenu', position='mainmenu',
                 model='common.blocks.MenuBlock', args={'name':'mainmenu'},
                 active=True)

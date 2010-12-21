@@ -1,0 +1,12 @@
+{% extends "block.html" %}
+{% load menu %}
+
+{% block blocktitle %}{% endblock %}
+ 
+{% block blockbody %}
+<!-- Block static -->
+  {% autoescape off %}
+    {{params.content}}
+  {% endautoescape %}
+<!-- Block static -->
+{% endblock %}

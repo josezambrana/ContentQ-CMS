@@ -23,6 +23,7 @@
       <a href="{{item.publish_url}}">Publish</a>
     {% endif %}
     <a href="{{item.edit_url}}">Edit</a>
+    <a href="{% url blocks_config item.uuid %}">Config</a>
     <a href="{{item.delete_url}}">Delete</a>
   </span>
 {% endblock %}

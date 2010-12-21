@@ -32,18 +32,23 @@ class MenuForm(common_forms.CategoryForm):
     return super(MenuForm, self).save()
 
   def save_block(self):
-    if self.instance:
-      block = Block.get(uuid=self.instance.block)
-      block.position = self.cleaned_data['position']
-      return block.put()
-
+    logging.info("****** MenuForm.save_block")
     params = {'name':self.cleaned_data['name'],
-              'slug':slugify(self.cleaned_data['name']),
+              'slug':unicode(slugify(self.cleaned_data['name'])),
               'position':self.cleaned_data['position'],
               'model':'common.blocks.MenuBlock',
-              'args':{},}
+              'args':{}}
+    logging.info("       params: %s" % params)
+    if self.instance:
+      block = Block.get(uuid=self.instance.block)
+    else:
+      block = Block(**params)
+    logging.info("       block: %s" % block)
+    logging.info("       block.uuid: %s" % block.uuid)
+      
+    block.position = self.cleaned_data['position']
+    block.put()
 
-    block = Block(**params)
     return block
 
 

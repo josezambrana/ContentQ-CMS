@@ -69,4 +69,4 @@ CACHE_BACKEND = 'memcached://'
 
 DEFAULT_THEME = 'contentq'
 
-MEMCACHE_CONFIG = True
+MEMCACHE_CONFIG = False

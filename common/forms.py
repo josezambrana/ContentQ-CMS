@@ -141,7 +141,7 @@ class CommentForm(ModelForm):
 class BlockNewForm(BaseForm):
   class Meta:
     model = Block
-    exclude = ['uuid', 'slug', 'args', 'deleted_at']
+    exclude = ['uuid', 'slug', 'args', 'deleted_at', 'params']
 
   def __init__(self, *args, **kwargs):
     super(BlockNewForm, self).__init__(*args, **kwargs)
@@ -161,7 +161,7 @@ class BlockNewForm(BaseForm):
 class BlockForm(BaseForm):
   class Meta:
     model = Block
-    exclude = ['uuid', 'slug', 'model', 'args', 'deleted_at']
+    exclude = ['uuid', 'slug', 'model', 'args', 'deleted_at', 'params']
 
   def __init__(self, *args, **kwargs):
     super(BlockForm, self).__init__(*args, **kwargs)
@@ -178,6 +178,28 @@ class BlockForm(BaseForm):
     else:
       self.cleaned_data['visibility'] = []
     return super(BlockForm, self).save()
+
+class StaticBlockForm(BlockForm):
+  static_content = forms.CharField(widget=forms.Textarea, label=_("Static Content"))
+  
+  class Meta:
+    model = Block
+    exclude = ['uuid', 'slug', 'model', 'args', 'deleted_at']
+  
+  def __init__(self, *args, **kwargs):
+    logging.info("****** common.forms.StaticBlockForm")
+    super(StaticBlockForm, self).__init__(*args, **kwargs)
+    logging.info("       instance: %s " % self.instance)
+    logging.info("       params: %s " % self.instance.params)
+    self.fields['static_content'].initial = self.instance.params.get('content', '')
+    self.fields.keyOrder = ['name', 'position', 'menus', 'visibility', 'order', 'static_content']
+    
+  def save(self):
+    logging.info("** common.forms.StaticBlockForm")
+    block_ref = super(StaticBlockForm, self).save()
+    block_ref.params['content'] = self.cleaned_data['static_content']
+    block_ref.put()
+    return block_ref
 
 class AdminSiteForm(Form):
   site_name = forms.CharField()

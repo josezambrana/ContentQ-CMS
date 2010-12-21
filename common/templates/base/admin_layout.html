@@ -1,0 +1,105 @@
+{% load i18n block %}
+{% block doctype %}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">{% endblock %}
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  {% if LANGUAGE_CODE %}
+    <meta http-equiv="content-language" content="{{ LANGUAGE_CODE }}">
+  {% endif %}
+  {% block metatags %}
+    <meta name="keywords" content="{% block headkeywords %}{{ SITE_KEYWORDS }}{% endblock %}" />
+    <meta name="description" content="{% block headdescription %}{{ SITE_DESCRIPTION }}{% endblock %}" />
+    {% include "inc.metatags.html" %}
+  {% endblock %}
+  {% block shortcut %}
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/gif" />
+  {% endblock %}
+  <title>{% block pagetitle %}{{SITE_NAME}}{% endblock %}</title>
+
+  {% block cssstyles %}<!-- Talent Styles -->
+    <link href="/themes/contentq/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/themes/contentq/css/style.css" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+      <link rel="stylesheet" type="text/css" href="/themes/contentq/css/iefixes.css" />
+    <![endif]-->
+    {% block extrastyles %}{% endblock %}
+  {% endblock %}
+
+  {% block jsscripts %}
+    {% include "inc.jsfiles.html" %}
+    {% block extrascripts %}{% endblock %}
+  {% endblock %}
+
+  {% block extrahead %}{% endblock %}
+
+  {% block customstyle %}{% endblock %}
+</head>
+
+<body dir="ltr" {% block extrabodytag %}class="{{area}} withsidebar admin"{% endblock %}>
+{% block page %}
+  <div id="page-wrapper" class="pagewrapper {{area}} clearfix">
+    <div id="top" class="top-content clearfix container">
+      <ul id="topmenu" class="topmenu menu clearfix">
+        {% if request.user %}
+          <li><a href="{% url users_settings %}">Settings</a></li>
+          {% if request.user.is_admin %}
+            <li><a href="{% url admin_dashboard %}">Site Admin</a></li>
+          {% endif %}
+          <li><a href="{% url users_logout %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url users_register %}">Register</a></li>
+          <li class="action-login action"><a href="{% url users_login %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div id="flash" class="clearfix container">
+      {% block flash %}
+        {% include 'flash.html' %}
+      {% endblock %}
+    </div>
+
+    <div id="page" class="container">
+      {% block contenttop %}
+        <!-- start layout.headerwrapper -->
+        <div id="header-blocks" class="container-wrapper clearfix">
+          {% block headerlogo %}
+            {% include "inc.headerlogo.html" %}
+          {% endblock %}
+
+          {% render_blocks "mainmenu" request %}
+        </div>
+        <!-- end layout.headerwrapper -->
+      {% endblock  %}
+
+      {% block contentwrapper %}
+        <div id="leftbar" class="sidebar span">
+          {% block leftbar %}
+          {% endblock %}
+        </div>
+        <div id="content" class="content span last">
+          {% block content %}
+          {% endblock %}
+        </div>
+      {% endblock contentwrapper %}
+      <div id="footer" class="span last">
+        <div id="footer-wrapper" class="container-wrapper block-corner">
+          <span>Pro Soft Resouces inc. Copyright &copy; 2010</span>
+        </div>
+      </div>
+    </div>
+    {% block contentbottom %}{% endblock %}
+
+    {% block extrabody %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+<script src="{{ MEDIA_URL }}js/bottomscripts.js" type="text/javascript"></script>
+<!--[if IE]>
+  <script src="{{ MEDIA_URL }}js/ie.js" type="text/javascript"></script>
+<![endif]-->
+{% block bottomscripts %}
+{% endblock %}
+
+</body>
+</html>

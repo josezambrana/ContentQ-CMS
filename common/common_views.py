@@ -227,7 +227,7 @@ def blocks_admin(request):
 
 @decorator.admin_required
 def blocks_new(request):
-  return content_new(request, 'blocks', BlockNewForm, redirect_to=Block.admin_url(), model=Block)
+  return content_new(request, 'blocks', BlockNewForm, redirect_to=Block.admin_url(), model=Block, tpl='blocks_new.html',)
                                 
 @decorator.admin_required
 def blocks_publish(request, uuid):
@@ -243,7 +243,23 @@ def blocks_unpublish(request, uuid):
 
 @decorator.admin_required
 def blocks_edit(request, uuid):
-  return content_edit(request, uuid, 'blocks', Block, BlockForm, tpl='blocks_edit.html', redirect_to_admin=True)
+  return content_edit(request, uuid, 'blocks', Block, BlockForm, tpl='blocks_edit.html', redirect_to=Block.admin_url())
+
+@decorator.admin_required
+def blocks_config(request, uuid):
+  block_ref = Block.get(uuid=uuid)
+  model = Block
+  form_class = block_ref.get_block_form()
+  form = form_class(instance=block_ref)
+  if request.method == 'POST':
+    form = form_class(request.POST, instance=block_ref)
+    if form.is_valid():
+      block_ref = form.save()
+      util.add_success(request, "Config saved successfully")
+      return http.HttpResponseRedirect(Block.admin_url())
+
+  c = template.RequestContext(request, locals())
+  return render_to_response('blocks_config.html', c)
 
 @decorator.admin_required
 def blocks_delete(request, uuid):
