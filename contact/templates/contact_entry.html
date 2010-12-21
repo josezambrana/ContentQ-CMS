@@ -1,6 +1,17 @@
-{% extends 'common/templates/base_block.html' %}
+{% extends 'content_admin.html' %}
 {% load i18n %}
-{% block block_content %}
+
+{% block contenttitle %}
+  <h1 class="title">Message</h1>
+{% endblock %}
+
+{% block breadcrumb %}
+  {{block.super}}
+  <a href="{% url contact_admin %}">Contact Messages</a> &raquo;
+  Contact entry
+{% endblock %}
+
+{% block contentzone %}
 <p>
   <strong>{% trans 'Name'%}</strong>: {{entry.name}} <br/>
   <strong>{% trans 'Email'%}</strong>: {{entry.email}}<br/>

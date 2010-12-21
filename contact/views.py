@@ -48,14 +48,23 @@ def contact_show(request, key_name):
   
   c = template.RequestContext(request, locals())
   _flag_as_admin(c)
-  return render_to_response('contact_show.html', c)
+  return render_to_response('contact_entry.html', c)
 
 
 def contact_form(request):
   contact_form = loader.render_to_string("contact_form.html", {"form":ContactForm()})
   tpl = ContactMessage.get_intro()
   contact_content = tpl.replace('{{form}}', contact_form)
-  return common_views.content_new(request, "contact", ContactForm,
-                                  'contact_send.html', model=ContactMessage,
-                                  redirect_to=ContactMessage.form_url(),
-                                  extra_context={"contact_content":contact_content})
+  model=ContactMessage
+
+  if request.method == 'POST':
+    form = ContactForm(request.POST)
+    if form.is_valid():
+      item = form.save()
+      msg_key = "success_%s_new" % ContactForm._meta.model.object_name()
+      message = util.get_message(msg_key, 'success_content_new')
+      util.add_success(request, message)
+      return http.HttpResponseRedirect(ContactMessage.form_url())
+
+  c = template.RequestContext(request, locals())
+  return render_to_response('contact_send.html', c)
