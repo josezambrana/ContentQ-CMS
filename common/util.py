@@ -94,9 +94,15 @@ def HttpJsonResponse(content, request):
   response['Content-type']  = 'text/javascript; charset=utf-8'
   return response
 
-def RedirectError(request, message):
+def RedirectError(request, message, redirect_to=None):
   add_error(request, message)
-  return http.HttpResponseRedirect(reverse('error'))
+  if redirect_to is None:
+    redirect_to = reverse('error')
+  return http.HttpResponseRedirect(redirect_to)
+
+def RedirectLoginError(request, message):
+  redirect_to = "%s?redirect_to=%s" % (reverse('users_login'), request.get_full_path())
+  return RedirectError(request, message, redirect_to)
 
 def proccess_form(form, fieldclass, attr, value):
   for field in form:

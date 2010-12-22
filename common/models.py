@@ -533,6 +533,7 @@ class Action(BaseModel):
     
     items_excluded = util.get_config_value(app, 'exclude_auth', [])
 
+    # Get all actions from app
     actions_list_name = []
     for action in actions:
       if action.name:
@@ -550,6 +551,7 @@ class Action(BaseModel):
         
     default_auth = util.get_config_value(app, 'default_auth', {'administrator':actions_list_name})
 
+    # Create permissions
     for role, items in default_auth.iteritems():
       permission_ref = Permission.get_by_role(role)
       if items == '*':

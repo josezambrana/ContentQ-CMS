@@ -85,6 +85,8 @@ class AuthorizationMiddleware(object):
       if not request.user.superuser and \
          Action.get(name=pattern.name) and \
          not Permission.can_access(request.user.roles, pattern.name):
+        if request.user.username == 'anonymous':
+          return util.RedirectLoginError(request, "You can not access to this page, try to login")
         logging.error("   the user %s can NOT access to %s " % (request.user.username, pattern.name))
         return util.RedirectError(request, "   the user %s can NOT access to %s " % (request.user.username, pattern.name))
 
