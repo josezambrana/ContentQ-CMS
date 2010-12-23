@@ -19,6 +19,7 @@ from django.conf import settings
 from django.core import serializers
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
+from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
 from common import decorator
@@ -44,6 +45,14 @@ def _get_content(id, model):
     if not content:
       raise http.Http404(_("Item not found"))
   return content
+
+def error_404(request):
+  c = template.RequestContext(request, locals())
+  return http.HttpResponse(render_to_string( '404.html', c), status=404)
+
+def error_500(request):
+  c = template.RequestContext(request, locals())
+  return http.HttpResponse(render_to_string( '500.html', c), status=500)
 
 @decorator.admin_required
 @users_decorator.login_required

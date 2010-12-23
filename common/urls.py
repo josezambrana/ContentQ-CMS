@@ -18,15 +18,17 @@ from common.models import Menu
 from common.menus.forms import MenuForm
 
 urlpatterns = patterns('common.common_views',
+  url(r'^install$', 'install', name='install'),
   url(r'^admin/dashboard$', 'dashboard', name='admin_dashboard'),
   url(r'^admin/site$', 'admin_site', name='admin_site'),
   url(r'^config/?$', 'config_admin', name='config_admin'),
-  url(r'^install$', 'install', name='install'),
+  url(r'^permissions$', 'permissions', name='permissions'),
+  url(r'^roles$', 'roles', name='roles'),
   url(r'^error$', 'flash_view', name='error'),
   url(r'^notice$', 'flash_view', name='notice'),
   url(r'^success$', 'flash_view', name='success'),
-  url(r'^permissions$', 'permissions', name='permissions'),
-  url(r'^roles$', 'roles', name='roles'),
+  url(r'^404$', 'error_404', name='error_404'),
+  url(r'^500$', 'error_404', name='error_404'),
 )
 urlpatterns += patterns('',
   url(r'^admin$', 'django.views.generic.simple.redirect_to', {'url': 'admin/dashboard'}),

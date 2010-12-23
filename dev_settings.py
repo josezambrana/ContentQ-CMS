@@ -13,3 +13,4 @@
 # under the License.
 
 DOMAIN = 'localhost:8080'
+DEBUG = True
