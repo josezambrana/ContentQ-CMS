@@ -117,6 +117,7 @@ class BaseRequestHandler(webapp.RequestHandler):
     base_path = self.base_path()
     values = {
       'application_name': self.request.environ['APPLICATION_ID'],
+      'sdk_version': self.request.environ.get('SDK_VERSION', 'Unknown'),
       'user': users.get_current_user(),
       'request': self.request,
       'home_path': base_path + DefaultPageHandler.PATH,
@@ -304,7 +305,7 @@ class QueuesPageHandler(BaseRequestHandler):
   def post(self):
     """Handle modifying actions and/or redirect to GET page."""
 
-    if self.request.get('action:flushqueue'):
+    if self.request.get('action:purgequeue'):
       self.stub.FlushQueue(self.request.get('queue'))
     self.redirect(self.request.path_url)
 
@@ -640,13 +641,21 @@ class DatastoreQueryHandler(DatastoreRequestHandler):
 
   PATH = '/datastore'
 
-  def get_kinds(self):
+  def get_kinds(self, namespace):
     """Get sorted list of kind names the datastore knows about.
 
     This should only be called in the development environment as GetSchema is
     expensive and no caching is done.
+
+    Args:
+      namespace: The namespace to fetch the schema for e.g. 'google.com'. It
+          is an error to pass in None.
+
+    Returns:
+      A sorted list of kinds e.g. ['Book', 'Guest', Post'].
     """
-    schema = datastore_admin.GetSchema()
+    assert namespace is not None
+    schema = datastore_admin.GetSchema(namespace=namespace)
     kinds = []
     for entity_proto in schema:
       kinds.append(entity_proto.key().path().element_list()[-1].type())
@@ -722,7 +731,7 @@ class DatastoreQueryHandler(DatastoreRequestHandler):
     if in_production:
       kinds = None
     else:
-      kinds = self.get_kinds()
+      kinds = self.get_kinds(self.request.get('namespace'))
 
     values = {
         'request': self.request,
@@ -804,6 +813,7 @@ class DatastoreEditHandler(DatastoreRequestHandler):
       key_instance = datastore.Key(entity_key)
       entity_key_name = key_instance.name()
       entity_key_id = key_instance.id()
+      namespace = key_instance.namespace()
       parent_key = key_instance.parent()
       kind = key_instance.kind()
       entity = datastore.Get(key_instance)
@@ -832,6 +842,7 @@ class DatastoreEditHandler(DatastoreRequestHandler):
       key_instance = None
       entity_key_name = None
       entity_key_id = None
+      namespace = self.request.get('namespace')
       parent_key = None
       entity = None
 
@@ -864,7 +875,7 @@ class DatastoreEditHandler(DatastoreRequestHandler):
       'key_id': entity_key_id,
       'fields': fields,
       'focus': self.request.get('focus'),
-      'namespace': self.request.get('namespace'),
+      'namespace': namespace,
       'next': self.request.get('next'),
       'parent_key': parent_key,
       'parent_kind': parent_kind,

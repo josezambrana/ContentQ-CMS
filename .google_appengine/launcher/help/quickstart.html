@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Google App Engine Launcher Help</title>
+    <link href="../main.css" rel="stylesheet" media="all" />
+  </head>
+  <body>
+    <div id="banner">
+      <a name="GoogleAppEngineLauncher_quickstart"></a>
+      <a class="bread" href="index.html">Google App Engine Launcher Help</a>
+    </div>
+
+    <h1>Running the demo application</h1>
+
+    <p>Google App Engine Launcher includes a fully functional demo application that you can create, run, and modify.</p>
+
+    <div class="procedure">
+      <p class="procname">To create the demo application:</p>
+      <ul>
+	<li>
+	  <p>Select the menu option Help&nbsp;&gt;&nbsp;Demos&nbsp;&gt;&nbsp;guestbook.  The application files are created in a directory named "guestbook" in your My Documents directory, and the project is added to the project list.</p>
+	</li>
+      </ul>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To run the demo application using the local app server:</p>
+      <ol>
+	<li>
+	  <p>With the guestbook application selected in the project list, click the "Run" button (or select Control&nbsp;&gt;&nbsp;Run; or press Control-R).  The local app server starts, and the green "running" icon appears next to the project in the project list.<br />
+	    <img src="button_run.png" alt="" />
+	  </p>
+	</li>
+	<li>
+	  <p>Click the "Browse" button (or select Control &lt; Browse; or press Control-B).<br />
+	    <img src="button_browse.png" alt="" />
+	  </p>
+	  <p>A web browser window opens with the demo application's home page.<br />
+	    <img src="quickstart_browse.png" alt="" style="border: 1px solid black;" />
+	  </p>
+	  <p><b>Note:</b> If the browser reports an error when it tries to connect to the server for the first time, wait a few seconds and try again.</p>
+	</li>
+	<li>
+	  <p>Test the application: In the browser window, click in the text box, type some text, then click the "Sign Guestbook" button.<br />
+	    <img src="quickstart_browse_filled.png" alt="" border="1" style="border: 1px solid black;" />
+	  </p>
+	  <p>The application responds by adding the message to the page.<br />
+	    <img src="quickstart_browse_submitted.png" alt="" border="1" style="border: 1px solid black;" />
+	  </p>
+	</li>
+      </ol>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To modify the demo application:</p>
+      <ol>
+	<li>
+	  <p>In the Launcher window, click the "Edit" button (or select Edit&nbsp;&gt;&nbsp;Open in External Editor..., then select a text editor application; or press Control-E).<br />
+	    <img src="button_edit.png" alt="" /><br />
+	  </p>
+	  <p>A text editor opens with the files for the project.</p>
+	</li>
+	<li>
+	  <p>In the text editor, open the file named "guestbook.py".  Find the line containing "An anonymous person wrote:".  Change the phrase to "A very nice person wrote:", or anything else you want.</p>
+	</li>
+	<li>
+	  <p>If the local app server is not running for this project (the green icon does not appear to the left of the project in the project list), click the Run button.</p>
+	  <p><b>Tip:</b> You don't have to restart the local app server for most changes to application source files.  If the server is still running from a previous step, you can leave it running.</p>
+	</li>
+	<li>
+	  <p>Select the browser window, then reload the page.  Previously entered messages are displayed, but with the new phrase ("A very nice person wrote:").</p>
+	</li>
+      </ol>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Google App Engine Launcher Help</title>
+    <link href="../main.css" rel="stylesheet" media="all" />
+  </head>
+  <body>
+    <div id="banner">
+      <a name="GoogleAppEngineLauncher_sdk_console"></a>
+      <a class="bread" href="index.html">Google App Engine Launcher Help</a>
+    </div>
+
+    <h1>Using the Local App Server SDK Console</h1>
+    <p>The Google App Engine local app server includes a web-based console for browsing the local datastore and interacting with the live application using Python code.  You can use the Launcher to access this console with a click of a button.</p>
+
+    <div class="procedure">
+      <p class="procname">To open the local app server console:</p>
+      <ol>
+	<li>
+	  <p>Make sure the local app server for the project is running.  (See <a href="running.html">Running a project with a local app server</a>.)</p>
+	</li>
+	<li>
+	  <p>Click the "SDK Console" button.<br />
+	    <img src="button_sdk_console.png" alt="" />
+	  </p>
+	  <p><i>Or:</i> Select the menu option Control&nbsp;&gt;&nbsp;SDK Console.</p>
+	  <p><i>Or:</i> Press Control-K.</p>
+	  <p>A web browser window opens with the local app server console for the application.</p>
+	</li>
+      </ol>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To list datastore entities of a given kind in the local app server's datastore for an application:</p>
+      <ol>
+	<li>
+	  <p>Open the local app server console, as described above.</p>
+	</li>
+	<li>
+	  <p>In the console, make sure "Datastore Viewer" is selected.</p>
+	</li>
+	<li>
+	  <p>Enter the name of the datastore kind in the "Entry Kind" field.  For example, the <a href="quickstart.html">guestbook demo application</a> has entities with a kind of "Greeting".</p>
+	</li>
+	<li>
+	  <p>Click the "List Entities" button.  A list of datastore entities of the given kind for the running application is displayed.  You can select entities to edit property values and delete entities.</p>
+	</li>
+      </ol>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To create a new datastore entity in the local app server's datastore for an application:</p>
+      <ol>
+	<li>
+	  <p>Open the local app server console, as above.</p>
+	</li>
+	<li>
+	  <p>In the console, make sure "Datastore Viewer" is selected.</p>
+	</li>
+	<li>
+	  <p>Enter the name of the datastore kind for the entity you want to create in the "Entry Kind" field.  For example, the <a href="quickstart.html">guestbook demo application</a> has entities with a kind of "Greeting".</p>
+	  <p><b>Note:</b> The local app server datastore must contain at least one entity of the given kind for you to be able to create it from the console.  The console is unaware of data models the application may have defined, and must base the structure of the new entity on an existing entity.</p>
+	</li>
+	<li>
+	  <p>Enter data for the property values.  Click the "Save Changes" button.  The entity is created.</p>
+	</li>
+      </ol>
+    </div>
+
+  </body>
+</html>

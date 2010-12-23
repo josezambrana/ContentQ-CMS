@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Google App Engine Launcher Help</title>
+    <link href="../main.css" rel="stylesheet" media="all" />
+  </head>
+  <body>
+    <div id="banner">
+      <a name="GoogleAppEngineLauncher_running"></a>
+      <a class="bread" href="index.html">Google App Engine Launcher Help</a>
+    </div>
+
+    <h1>Running a Project With a Local App Server</h1>
+    <p>The Google App Engine Launcher includes the App Engine local app server for running and testing your application on your computer.  The local app server can run in "strict" mode, which disables the app server's automatic index configuration feature for verifying indexes.  The app server can also be configured to clear its datastore each time it is started.</p>
+
+    <div class="procedure">
+      <p class="procname">To run a project with the local app server:</p>
+      <ol>
+	<li>
+	  <p>Select the project in the project list.</p>
+	</li>
+	<li>
+	  <p>Click the "Run" button.<br />
+	    <img src="button_run.png" alt="" />
+	  </p>
+	  <p><i>Or:</i> Select the menu option Control&nbsp;&gt;&nbsp;Run.</p>
+	  <p><i>Or:</i> Press Control-R.</p>
+	  <p>The local app server for the project starts, and a green icon appears next to the project in the project list.<br />
+	    <img src="project_running.png" alt="" />
+	  </p>
+	</li>
+      </ol>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To stop the local app server:</p>
+      <ol>
+	<li>
+	  <p>Select the project in the project list.</p>
+	</li>
+	<li>
+	  <p>Click the "Stop" button.<br />
+	    <img src="button_stop.png" alt="" />
+	  </p>
+	  <p><i>Or:</i> Select the menu option Control&nbsp;&gt;&nbsp;Stop.</p>
+	  <p><i>Or:</i> Press Control-Shift-R.</p>
+	  <p>The local app server stops, and the green icon next to the project in the project list disappears.</p>
+	</li>
+      </ol>
+    </div>
+
+
+    <div class="procedure">
+      <p class="procname">To run a project with the local app server using "strict" mode:</p>
+      <ol>
+	<li>
+	  <p>Select the project in the project list.</p>
+	</li>
+	<li>
+	  <p>Select the menu option Control&nbsp;&gt;&nbsp;Run Strict.</p>
+	  <p><i>Or:</i> Press Control-Shift-R.</p>
+	  <p>The local app server for the project starts in strict mode, and a green icon appears next to the project in the project list.  If the application performs a query that requires index configuration that isn't present in the <code>index.yaml</code> file, the application will return an error.</p>
+	</li>
+      </ol>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To clear the local datastore every time the local app server starts:</p>
+      <ol>
+	<li>
+	  <p>Select the project in the project list.</p>
+	</li>
+	<li>
+	  <p>Select the menu option Edit&nbsp;&gt;&nbsp;Application Settings...</p>
+	  <p><i>Or:</i> Press Control-I.</p>
+	  <p>The application settings dialog opens.</p>
+	</li>
+	<li>
+	  <p>Enter --clear_datastore in the Extra Command Line Flags box.</p>
+	</li>
+	<li>
+	  <p>Click the "Update" button.  The dialog closes.</p>
+	</li>
+	<li>
+	  <p>Run the app server as you normally would, stopping it first if necessary.  Each time you start the app server, the local datastore will be cleared.</p>
+	</li>
+      </ol>
+    </div>
+
+    <div class="procedure">
+      <p class="procname">To preserve the local datastore between sessions of the local app server:</p>
+      <ol>
+	<li>
+	  <p>Select the project in the project list.</p>
+	</li>
+	<li>
+	  <p>Select the menu option Edit&nbsp;&gt;&nbsp;Application Settings...</p>
+	  <p><i>Or:</i> Press Control-I.</p>
+	  <p>The application settings dialog opens.</p>
+	</li>
+	<li>
+	  <p>Remove any occurrences of "--clear_datastore"  in the Extra
+		Command Line Flags box.</p>
+	</li>
+	<li>
+	  <p>Click the "Update" button.  The dialog closes.  From now on, the datastore will not be cleared when the app server is run.</p>
+	</li>
+      </ol>
+    </div>
+
+  </body>
+</html>
