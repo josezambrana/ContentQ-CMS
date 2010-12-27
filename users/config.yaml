@@ -6,8 +6,11 @@ exclude_auth: ['users_login',
                'users_roles']
 default_auth:
   administrator: '*'
-  authenticated: ['users_profile', 'users_profile_username', 'users_settings']
-  anonymous: ['users_profile_username']
+  authenticated: ['users_profile',
+                  'users_profile_username',
+                  'users_settings',
+                  'users_logout']
+  anonymous: ['users_profile_username', 'users_login', 'users_register']
 
 areas:
   Users:

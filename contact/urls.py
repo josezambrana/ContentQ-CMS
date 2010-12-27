@@ -16,7 +16,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('contact.views',
   url('^$', 'contact_form', name='contact_form'),
-  url('^list$', 'contact_admin', name='contact_admin'),
+  url('^admin$', 'contact_admin', name='contact_admin'),
   url('^show/(?P<key_name>.+)$', 'contact_show', name='contact_show'),
   url('^settings$', 'contact_settings', name='contact_settings'),
 )

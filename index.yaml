@@ -79,6 +79,14 @@ indexes:
   properties:
   - name: active
   - name: deleted_at
+  - name: menu
+  - name: parentlink
+  - name: order
+
+- kind: MenuItem
+  properties:
+  - name: active
+  - name: deleted_at
   - name: parentlink
   - name: order
 

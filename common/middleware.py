@@ -57,15 +57,22 @@ class VerifyInstallMiddleware(object):
 
 class ExceptionMiddleware(object):
   def process_exception(self, request, exc):
+    # Authentication Error
     if isinstance(exc, exception.AuthenticationException):
       response = http.HttpResponse()
       response.status_code = 401
       return response
+
+    # Redirect Error
     if isinstance(exc, exception.RedirectException):
       url = exc.build_url(request)
       return http.HttpResponseRedirect(url)
+    
+    # Redirect Error
     if isinstance(exc, exception.Error):
       return util.RedirectError(request, exc.message)
+
+    # Shows traceback
     if settings.DEBUG and not isinstance(exc, http.Http404):
       import sys
       from django.views import debug
@@ -77,7 +84,6 @@ class ExceptionMiddleware(object):
 
 class AuthorizationMiddleware(object):
   def process_request(self, request):
-    logging.info(">> AuthorizationMiddleware ")
     resolver = get_resolver(None)
     pattern = self._get_pattern(resolver, request.path)
     if pattern is not None:
@@ -89,8 +95,7 @@ class AuthorizationMiddleware(object):
           return util.RedirectLoginError(request, "You can not access to this page, try to login")
         logging.error("   the user %s can NOT access to %s " % (request.user.username, pattern.name))
         return util.RedirectError(request, "   the user %s can NOT access to %s " % (request.user.username, pattern.name))
-
-
+    return None
 
   def _get_pattern(self, resolver, path):
     match = resolver.regex.search(path)

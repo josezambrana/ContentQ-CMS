@@ -16,9 +16,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',)
 
-urlpatterns += patterns('',
-    (r'^', include('common.urls')),
-)
+urlpatterns += patterns('', (r'^', include('common.urls')))
 
 # front
 urlpatterns += patterns('front.views', url(r'^$', 'page_front', name='front'),)
@@ -37,3 +35,7 @@ urlpatterns += patterns('', (r'^blog/', include('blog.urls')),)
 
 # pages
 urlpatterns += patterns('', (r'^pages/', include('pages.urls')),)
+
+#Server Errors
+handler404 = 'common.common_views.error_404'
+handler500 = 'common.common_views.error_500'
