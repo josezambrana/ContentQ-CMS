@@ -1,0 +1,25 @@
+{% extends "base/admin.html" %}
+{% load i18n %}
+
+{% block contenttop %}{% endblock %}
+
+{% block bodyclass %}{{block.super}} single{% endblock %}
+
+{% block contentwrapper %}
+<div id="single-page">
+  <div class="wrapper">
+    <div id="header_wrapper" class="clearfix">
+      <div id="headerlogo" class="logo">
+        {% include 'inc.headerlogo.html' %}
+      </div>
+    </div>
+
+    <div id="body" class="body">
+      {% block contenttitle %}{% endblock %}
+
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock contentwrapper %}
