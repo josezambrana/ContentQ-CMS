@@ -34,7 +34,6 @@ from common.forms import AdminSiteForm, InstallForm, BlockForm, BlockNewForm
 ENTRIES_PER_PAGE = 10
 
 def _flag_as_admin(context):
-  logging.info("** common.common_views._flag_as_admin")
   admin_theme_url = settings.THEME_URL + Theme.get_admin().directory_name + '/'
   context.update({"admin":True, "THEME_MEDIA_URL":admin_theme_url})
 
@@ -53,6 +52,13 @@ def error_404(request):
 def error_500(request):
   c = template.RequestContext(request, locals())
   return http.HttpResponse(render_to_string( '500.html', c), status=500)
+
+@decorator.admin_required
+def serializer(request, app=None, model=None):
+  _model = util.get_attr_from_safe("%s.models.%s" % (app, model))
+  if model is not None:
+    return content_list(request, "serializer", _model, format='json', paginate=False)
+  raise Exception('Not model found')
 
 @decorator.admin_required
 @users_decorator.login_required
@@ -105,10 +111,12 @@ def install(request):
   return render_to_response('install.html', c)
 
 @decorator.admin_required
-def config_admin(request):
+def config_admin(request, format='html'):
   return content_admin(request, 'config', ConfigData,
                       extra_context={},
-                      tpl='config_admin', order='label')
+                      tpl='config_admin',
+                      order='label',
+                      format=format)
 
 @decorator.admin_required
 def category_new(request, area='category', category_form=None, model=None, tpl='category_new.html'):
@@ -126,11 +134,11 @@ def category_admin(request, area='category', tpl='category_admin', model=None):
 def category_delete(request, slug, model=None):
   return content_delete(request, slug, model)
 
-def content_admin(request, area='content', model=None, filters=[], tpl='content_admin', format='html', extra_context={}):
+def content_admin(request, area='content', model=None, filters=[], tpl='content_admin', format='html', extra_context={}, order=None):
   extra_context.update({'admin':True})
-  return content_list(request, area, model, filters, tpl, format, extra_context)
+  return content_list(request, area, model, filters, tpl, format, extra_context, order)
   
-def content_list(request, area='content', model=None, filters=[], tpl='content_list', format='html', extra_context={}, order=None):
+def content_list(request, area='content', model=None, filters=[], tpl='content_list', format='html', extra_context={}, order=None, paginate=True):
   items = model.all()
   
   if order is not None:
@@ -141,8 +149,9 @@ def content_list(request, area='content', model=None, filters=[], tpl='content_l
       items = filter.filter(items)
     except AttributeError:
       items = []
-
-  items = util.paginate(request, items, ENTRIES_PER_PAGE)
+      
+  if paginate:
+    items = util.paginate(request, items, ENTRIES_PER_PAGE)
   
   c = template.RequestContext(request, locals())
   c.update(extra_context)
@@ -157,7 +166,9 @@ def content_list(request, area='content', model=None, filters=[], tpl='content_l
     return render_to_response(tpl, c,
                               mimetype='application/rss+xml; charset=utf-8')
   elif format == 'json':
-    return util.HttpJsonResponse(serializers.serialize('json', items.object_list), request)
+    if paginate:
+      items = items.object_list
+    return util.HttpJsonResponse(serializers.serialize('json', items), request)
   
   return render_to_response(tpl, c)
 
@@ -278,7 +289,7 @@ def flash_view(request):
   c = template.RequestContext(request, locals())
   return render_to_response('flash_view.html', c)
 
-@decorator.permission(['administrator'])
+#@decorator.permission(['administrator'])
 def roles(request):
   if request.method == 'POST':
     action = request.POST.get('action', None)
@@ -296,7 +307,7 @@ def roles(request):
   _flag_as_admin(c)
   return render_to_response('roles.html', c)
 
-@decorator.permission(['administrator'])
+#@decorator.permission(['administrator'])
 def permissions(request):
   logging.info(">> users.views.permissions")
   roles = Role.all()

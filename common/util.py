@@ -75,7 +75,7 @@ def paginate(request, items, num_items=ITEMS_BY_PAGE):
   try:
     items_paginated = paginator.page(page)
   except (EmptyPage, InvalidPage):
-    items_paginated = paginator.page(paginator.num_pages)
+    raise http.Http404
 
   return items_paginated
 
@@ -142,8 +142,6 @@ def get_config(app):
   return None
 
 def get_config_value(app, var, default=None):
-  logging.info(">> util.get_config_value")
-  logging.info("   app: %s ; var: %s ; default: %s ;" % (app, var, default))
   config = get_config(app)
   if config:
     return config.get(var, default)
