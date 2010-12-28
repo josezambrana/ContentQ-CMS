@@ -37,16 +37,14 @@ class BlockNode(template.Node):
     self.request = template.Variable(request)
     
   def render(self, context):
-    logging.info("******** BlockNode.render")
-    logging.info("         self.position: %s " % self.position)
     request = self.request.resolve(context)
     blocks = Block.get_by_position(self.position, request)
     res = ''
-#    try:
-    for block in blocks:
-      res = res + self.render_block(block, context)
-#    except:
-#      logging.error("error rendering blocks from: %s" % self.position)
+    try:
+      for block in blocks:
+        res = res + self.render_block(block, context)
+    except:
+      logging.error("error rendering blocks from: %s" % self.position)
     return res
 
   def render_block(self, block, context):
