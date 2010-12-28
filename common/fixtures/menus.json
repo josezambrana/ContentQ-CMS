@@ -1,61 +1,28 @@
-[
-  {"pk": "mainmenublock",
-  "model": "common.block",
-  "fields": {
-    "name": "Main Menu",
-    "uuid": "049aaf947c204527a1785ee261410445",
-    "slug": "main-menu",
-    "position": "mainmenu",
-    "model": "common.blocks.MenuBlock",
-    "args": {"name": "mainmenu"},
-    "active":true
-    }
+[ { "fields" : { "active" : true,
+        "created_at" : "2010-12-28 17:08:49.789000",
+        "deleted_at" : null,
+        "link" : "/",
+        "menu" : "mainmenu",
+        "name" : "Home",
+        "order" : 0,
+        "parentlink" : null,
+        "slug" : "home",
+        "updated_at" : "2010-12-28 17:08:49.789000",
+        "uuid" : "8b36fb0fbf884cafa5ef7ccae148a19b"
+      },
+    "model" : "common.menuitem",
+    "pk" : "agxjb250ZW50cS1kZXZyGwsSCE1lbnVJdGVtIg1tYWlubWVudS9ob21lDA"
   },
-  {"pk": "mainmenu",
-  "model": "common.menu",
-  "fields": {
-    "name": "mainmenu",
-    "uuid": "bff0a450685a473399e76030bc0f0663",
-    "slug": "mainmenu",
-    "position": "mainmenu",
-    "block":"049aaf947c204527a1785ee261410445"
-    }
-  },
-  {"pk": "menuitemfront",
-  "model": "common.menuitem",
-  "fields": {
-    "name": "Home",
-    "slug": "home",
-    "link": "/",
-    "menu": "bff0a450685a473399e76030bc0f0663"
-    }
-  },
-  {"pk": "menuitempraesent",
-  "model": "common.menuitem",
-  "fields": {
-    "name": "Praesent",
-    "slug": "praesent",
-    "link": "/pages/praesent-aliquam-sem-sed-sem-luctus_f7a16e",
-    "menu": "bff0a450685a473399e76030bc0f0663"
-    }
-  },
-  {"pk": "menuitemlorem",
-  "model": "common.menuitem",
-  "fields": {
-    "name": "Lorem",
-    "slug": "lorem",
-    "link": "/pages/lorem-ipsum-dolor-sit-amet_520dea",
-    "menu": "bff0a450685a473399e76030bc0f0663"
-    }
-  },
-  {"pk": "configmenus",
-  "model": "common.configdata",
-  "fields": {
-      "name": "common",
-      "active": true,
-      "order": 0,
-      "extra": {"value": true},
-      "label": "installed_app"
-    }
+  { "fields" : { "block" : "b5f49a278eed4702876013735b95bffe",
+        "created_at" : "2010-12-28 17:08:49.778000",
+        "deleted_at" : null,
+        "name" : "mainmenu",
+        "position" : "mainmenu",
+        "slug" : "mainmenu",
+        "updated_at" : "2010-12-28 17:08:49.778000",
+        "uuid" : "6a84c1d8b0644e67a886aabc72d48b29"
+      },
+    "model" : "common.menu",
+    "pk" : "agxjb250ZW50cS1kZXZyEgsSBE1lbnUiCG1haW5tZW51DA"
   }
 ]

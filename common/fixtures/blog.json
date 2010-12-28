@@ -13,7 +13,7 @@
       "plain_description" : "Welcome to ContentQ CMS. This is your first post. Edit or delete it, then start blogging!",
       "slug" : "hello-world",
       "status" : "published",
-      "tags" : "[]",
+      "tags" : [],
       "updated_at" : "2010-12-28 14:40:51.176000",
       "uuid" : "f93a3591eb0d4bbebf12af816bf69b01"
     },
