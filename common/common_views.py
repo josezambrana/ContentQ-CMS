@@ -111,12 +111,11 @@ def install(request):
   return render_to_response('install.html', c)
 
 @decorator.admin_required
-def config_admin(request, format='html'):
+def config_admin(request):
   return content_admin(request, 'config', ConfigData,
                       extra_context={},
                       tpl='config_admin',
-                      order='label',
-                      format=format)
+                      order='label')
 
 @decorator.admin_required
 def category_new(request, area='category', category_form=None, model=None, tpl='category_new.html'):
