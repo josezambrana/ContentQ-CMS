@@ -1,0 +1,38 @@
+[
+  {
+    "pk": "agxjb250ZW50cS1kZXZyHQsSClBlcm1pc3Npb24iDWFkbWluaXN0cmF0b3IM",
+    "model": "common.permission",
+    "fields": {
+      "uuid": "3cc1649d0e514d2eab48b8b5fe0df926",
+      "created_at": "2010-12-27 20:31:24.885000",
+      "updated_at": "2010-12-27 20:31:26.865000",
+      "actions": "[u'install', u'admin_dashboard', u'admin_site', u'config_admin', u'permissions', u'roles', u'error', u'notice', u'success', u'error_404', u'error_404', u'blocks_new', u'blocks_admin', u'blocks_edit', u'blocks_config', u'blocks_publish', u'blocks_unpublish', u'blocks_delete', u'menuitem_admin', u'menuitem_new', u'menuitem_edit', u'menuitem_delete', u'menuitem_show', u'menu_admin', u'menu_new', u'menu_edit', u'menu_delete', u'users_admin', u'users_login', u'users_logout', u'users_register', u'users_settings', u'users_profile', u'users_forgot', u'users_passwordreset', u'users_profile_username', u'postcategory_admin', u'postcategory_new', u'postcategory_edit', u'postcategory_delete', u'post_admin', u'post_list', u'post_category', u'post_category_format', u'post_tag', u'post_list', u'post_new', u'post_edit', u'post_delete', u'post_show', u'post_show_format', u'pages_admin', u'pages_new', u'pages_edit', u'pages_delete', u'pages_show', u'blobinfo_upload', u'blob_admin', u'blob_serve', u'contact_form', u'contact_admin', u'contact_show', u'contact_settings']",
+      "role": "administrator",
+      "deleted_at": null
+    }
+  },
+  {
+    "pk": "agxjb250ZW50cS1kZXZyGQsSClBlcm1pc3Npb24iCWFub255bW91cww",
+    "model": "common.permission",
+    "fields": {
+      "uuid": "f5e20e7d4be44a96829517f39d9c962f",
+      "created_at": "2010-12-27 20:31:24.937000",
+      "updated_at": "2010-12-27 20:31:26.917000",
+      "actions": "[u'success', u'notice', u'error', u'users_profile_username', u'users_login', u'users_register', u'post_category', u'post_category_format', u'post_list', u'post_show', u'post_tag', u'pages_show', u'contact_form']", 
+      "role": "anonymous",
+      "deleted_at": null
+    }
+  },
+  {
+    "pk": "agxjb250ZW50cS1kZXZyHQsSClBlcm1pc3Npb24iDWF1dGhlbnRpY2F0ZWQM",
+    "model": "common.permission",
+    "fields": {
+      "uuid": "516252827298417fa30a137389f2922c",
+      "created_at": "2010-12-27 20:31:24.914000",
+      "updated_at": "2010-12-27 20:31:26.897000",
+      "actions": "[u'success', u'notice', u'error', u'users_profile', u'users_profile_username', u'users_settings', u'users_logout', u'post_list', u'post_show', u'post_tag', u'pages_show', u'contact_form']",
+      "role": "authenticated",
+      "deleted_at": null
+    }
+  }
+]

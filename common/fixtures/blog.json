@@ -1,26 +1,35 @@
 [
-  {"pk": "pellentesque-dictumest-eu-aliquet",
-  "model": "news.newsitem",
-  "fields": {
-    "name":"Hello world!",
-    "slug":"Hello-world",
-    "plain_description":"Welcome to ContentQ CMS. This is your first post. Edit or delete it, then start blogging!",
-    "description":"Welcome to ContentQ CMS. This is your first post. Edit or delete it, then start blogging!",
-    "status":"published",
-    "created_at":"2010-30-11 21:07:37",
-    "updated_at":"2010-30-11 21:07:37",
-    "tags":[],
-    "meta_desc":"Pellentesque laoreet, tortor ac hendrerit laoreet, purus nisi suscipit libero, a pellentesque velit nunc in orci. Nullam lobortis consectetur lorem a pretium.",
-    "category":"uncategorized",
-    "body":"<p>Ellentesque laoreet, tortor ac hendrerit laoreet, purus nisi suscipit libero, a pellentesque velit nunc in orci. Nullam lobortis consectetur lorem a pretium. </p><p>Nullam augue velit, varius quis commodo sit amet, accumsan ac dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin non risus nulla. Duis molestie luctus mauris, nec elementum felis volutpat in. Praesent sodales cursus commodo. Curabitur lacinia fermentum sem, sed aliquam metus tempor congue. Integer justo tortor, iaculis id sodales et, lobortis vel quam. In convallis facilisis elit sit amet ornare. Donec faucibus rhoncus sapien. Phasellus accumsan eleifend ornare. Proin accumsan, felis nec suscipit tristique, ante enim adipiscing quam, id pellentesque elit sapien in velit. Sed convallis elit at eros posuere bibendum. Praesent eros lectus, commodo sed mollis non, fermentum eget elit. Nulla placerat vestibulum viverra.</p>"
-    }
+  {
+    "fields" : {
+      "body" : "<p>this is an example content</p>",
+      "category" : "uncategorized",
+      "commentable" : true,
+      "created_at" : "2010-12-28 14:40:51.175000",
+      "deleted_at" : null,
+      "description" : "Welcome to ContentQ CMS. This is your first post. Edit or delete it, then start blogging!",
+      "meta_desc" : "hello world",
+      "name" : "Hello world!",
+      "owner" : "admin",
+      "plain_description" : "Welcome to ContentQ CMS. This is your first post. Edit or delete it, then start blogging!",
+      "slug" : "hello-world",
+      "status" : "published",
+      "tags" : "[]",
+      "updated_at" : "2010-12-28 14:40:51.176000",
+      "uuid" : "f93a3591eb0d4bbebf12af816bf69b01"
+    },
+    "model" : "blog.postitem",
+    "pk" : "agxjb250ZW50cS1kZXZyLgsSCFBvc3RJdGVtIiBmOTNhMzU5MWViMGQ0YmJlYmYxMmFmODE2YmY2OWIwMQw"
   },
   {
-    "pk": "uncategorized",
-    "model": "blog.postcategory",
-    "fields": {
-      "name":"Uncategorized",
-      "slug":"uncategorized"
-    }
+    "fields" : {
+      "created_at" : "2010-12-28 14:40:51.188000",
+      "deleted_at" : null,
+      "name" : "Uncategorized",
+      "slug" : "uncategorized",
+      "updated_at" : "2010-12-28 14:40:51.188000",
+      "uuid" : "3fdad1c2168f4e899a4378e72d70c939"
+    },
+    "model" : "blog.postcategory",
+    "pk" : "agxjb250ZW50cS1kZXZyMgsSDFBvc3RDYXRlZ29yeSIgM2ZkYWQxYzIxNjhmNGU4OTlhNDM3OGU3MmQ3MGM5MzkM"
   }
 ]

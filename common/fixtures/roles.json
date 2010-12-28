@@ -1,0 +1,41 @@
+[
+  {
+    "pk": "agxjb250ZW50cS1kZXZyEwsSBFJvbGUiCWFub255bW91cww",
+    "model": "common.role",
+    "fields": {
+      "core": true,
+      "uuid": "1f713c8922be4ac0a569e7d1299775b2",
+      "created_at": "2010-12-27 20:31:25.83000",
+      "updated_at": "2010-12-27 20:31:25.83000",
+      "deleted_at": null,
+      "order": 0,
+      "name": "anonymous"
+    }
+  },
+  {
+    "pk": "agxjb250ZW50cS1kZXZyFwsSBFJvbGUiDWF1dGhlbnRpY2F0ZWQM",
+    "model": "common.role",
+    "fields": {
+      "core": true,
+      "uuid": "7462dcf45d2e4367bc18a472394ac9b8",
+      "created_at": "2010-12-27 20:31:25.94000",
+      "updated_at": "2010-12-27 20:31:25.94000",
+      "deleted_at": null,
+      "order": 1,
+      "name": "authenticated"
+    }
+  },
+  {
+    "pk": "agxjb250ZW50cS1kZXZyFwsSBFJvbGUiDWFkbWluaXN0cmF0b3IM",
+    "model": "common.role",
+    "fields": {
+      "core": true,
+      "uuid": "1d940b99ca45415d82ec67c4b8acbff7",
+      "created_at": "2010-12-27 20:31:25.104000",
+      "updated_at": "2010-12-27 20:31:25.104000",
+      "deleted_at": null,
+      "order": 5,
+      "name": "administrator"
+    }
+  }
+]

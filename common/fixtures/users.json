@@ -1,0 +1,20 @@
+[ { "fields" : { "active" : true,
+        "code" : "2da025c67fef4cc098f79c1eaf8e9c5b",
+        "created_at" : "2010-12-28 14:40:48.62000",
+        "deleted_at" : null,
+        "email" : "contact@josezambrana.com",
+        "extra" : {},
+        "first_name" : "Jose Maria",
+        "last_login" : "2010-12-28 14:40:48.110000",
+        "last_name" : "Zambrana Arze",
+        "password" : "sha1$6a60d$caca52209adfd34b6a23402a1c28987ba9e8af01",
+        "privacy" : "public",
+        "roles" : ["authenticated", "administrator"],
+        "superuser" : true,
+        "updated_at" : "2010-12-28 14:40:48.110000",
+        "username" : "admin",
+        "uuid" : "ab21315710d541ceabebc24cfe36a7c7"
+      },
+    "model" : "users.user",
+    "pk" : "agxjb250ZW50cS1kZXZyKgsSBFVzZXIiIGFiMjEzMTU3MTBkNTQxY2VhYmViYzI0Y2ZlMzZhN2M3DA"
+  } ]
