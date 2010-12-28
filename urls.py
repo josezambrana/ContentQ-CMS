@@ -22,13 +22,13 @@ urlpatterns += patterns('', (r'^', include('common.urls')))
 urlpatterns += patterns('front.views', url(r'^$', 'page_front', name='front'),)
 
 # blob
-urlpatterns += patterns('', (r'media/', include('blob.urls')))
+urlpatterns += patterns('', (r'^media/', include('blob.urls')))
 
 # contact
-urlpatterns += patterns('', (r'contact/', include('contact.urls')))
+urlpatterns += patterns('', (r'^contact/', include('contact.urls')))
 
 # users
-urlpatterns += patterns('', (r'users/', include('users.urls')))
+urlpatterns += patterns('', (r'^users/', include('users.urls')))
 
 # blog
 urlpatterns += patterns('', (r'^blog/', include('blog.urls')),)
