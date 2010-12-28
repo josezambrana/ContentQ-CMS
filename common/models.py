@@ -143,6 +143,8 @@ class ConfigData(BaseModel):
   extra = properties.DictProperty()
   label = db.StringProperty(required=True)
 
+  key_template = '%(label)s/%(name)s'
+
   def get_value(self):
     return self.extra.get('value', None)
 
