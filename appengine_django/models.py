@@ -36,6 +36,9 @@ class ModelManager(object):
     """Pass all attribute requests through to the real model"""
     return getattr(self.owner, name)
 
+  # Django 1.2.1 compat
+  def using(self, alias):
+    return self.owner
 
 class ModelOptions(object):
   """Replacement for the default Django options class.
@@ -46,8 +49,7 @@ class ModelOptions(object):
 
   # Django 1.1 compat
   proxy = None
-
-  # Django 1.2 compat
+  # Django 1.2.1 compat
   auto_created = False
 
   def __init__(self, cls):
@@ -174,7 +176,6 @@ class BaseModel(db.Model):
 
   # Required for Django 1.1.2 and 1.2.1
   _deferred = False
-  using = lambda x: x
 
   def __eq__(self, other):
     if not isinstance(other, self.__class__):
