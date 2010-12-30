@@ -157,7 +157,7 @@ class CommentableHandler(ContentViewHandler):
       params = {'author':self.request.user.username,
                 'owner':self.content.owner,
                 'content':self.content.uuid,
-                'content_type':self.content.urltag()}
+                'content_type':self.content.app_label}
 
       comment_form = CommentForm(self.request.POST, extra_params=params)
 

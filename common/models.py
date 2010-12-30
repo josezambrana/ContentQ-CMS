@@ -12,7 +12,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import sys
 import logging
+
 from operator import itemgetter
 from datetime import datetime
 
@@ -49,6 +51,7 @@ class BaseModel(models.BaseModel):
       kw['key_name'] = self.key_from(**kw)
       
     super(BaseModel, self).__init__(*args, **kw)
+    self.app_label = self.applabel()
 
   @classmethod
   def key_from(cls, **kw):
@@ -97,6 +100,11 @@ class BaseModel(models.BaseModel):
       return cls._meta.object_name.lower()
     return cls._meta.object_name
 
+  @classmethod
+  def applabel(cls):
+    model_module = sys.modules[cls.__module__]
+    return model_module.__name__.split('.')[-2]
+  
 class Theme(BaseModel):
   name = db.StringProperty(required=True)
   description = db.TextProperty(required=True)
@@ -228,28 +236,22 @@ class Base(BaseModel):
   def __unicode__(self):
     return self.name or ugettext('Without name')
 
-  def urltag(self):
-    raise NotImplementedError
-
   def url(self):
-    return reverse('%s_show' % self.urltag(), args=[self.slug])
-
-  def url_json(self):
-    return reverse('%s_show_format' % self.urltag(), args=[self.slug, 'json'])
+    return reverse('%s_show' % self.app_label, args=[self.slug])
 
   def edit_url(self):
-    return reverse('%s_edit' % self.urltag(), args=[self.slug])
+    return reverse('%s_edit' % self.app_label, args=[self.slug])
 
   def delete_url(self):
-    return reverse('%s_delete' % self.urltag(), args=[self.slug])
+    return reverse('%s_delete' % self.app_label, args=[self.slug])
 
   @classmethod
   def new_url(cls):
-    return reverse('%s_new' % cls.urltag())
+    return reverse('%s_new' % cls.applabel())
 
   @classmethod
   def admin_url(cls):
-    return reverse('%s_admin' % cls.urltag())
+    return reverse('%s_admin' % cls.applabel())
 
 class BaseCategory(Base):
   class Meta:
@@ -319,12 +321,12 @@ class Commentable:
     return True
   
   def add_comment(self, author, comment):
-    comment_ref = Comment(author=author, comment=comment, content_type=self.urltag())
+    comment_ref = Comment(author=author, comment=comment, content_type=self.app_label)
     comment_ref.put()
     return comment_ref
 
   def get_comments(self):
-    return Comment.all().filter("content_type =", self.urltag()).filter("content =", self.uuid).order('created_at')
+    return Comment.all().filter("content_type =", self.app_label).filter("content =", self.uuid).order('created_at')
 
 class Block(Base):
   position = db.StringProperty(required=True, choices=settings.BLOCK_POSITIONS)
@@ -345,10 +347,6 @@ class Block(Base):
 
   def __str__(self):
     return self.name
-
-  @classmethod
-  def urltag(cls):
-    return 'blocks'
 
   @classmethod
   def get_by_position(self, position, request):
@@ -423,7 +421,7 @@ class Menu(BaseCategory):
     return MenuItem.all().filter('active', True).filter('menu = ', self.slug).filter('parentlink =', None).order('order')
 
   @classmethod
-  def urltag(cls):
+  def app_label(cls):
     return 'menu'
     
   @classmethod
@@ -474,7 +472,7 @@ class MenuItem(Base):
     return res
 
   @classmethod
-  def urltag(cls):
+  def app_label(cls):
     return 'menuitem'
 
   @classmethod

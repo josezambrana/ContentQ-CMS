@@ -17,7 +17,3 @@ from google.appengine.ext import db
 
 class Page(BaseContent):
   body = db.TextProperty(required=True)
-
-  @classmethod
-  def urltag(cls):
-    return 'pages'

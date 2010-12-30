@@ -27,10 +27,6 @@ class PostCategory(BaseCategory):
     verbose_name_plural = _('post categories')
 
   @classmethod
-  def urltag(cls):
-    return 'postcategory'
-
-  @classmethod
   def subitems_admin_url(cls):
     return PostItem.admin_url()
 
@@ -55,7 +51,3 @@ class PostItem(BaseContent, Categorizable, Commentable):
   @classmethod
   def category_model(cls):
     return PostCategory
-  
-  @classmethod
-  def urltag(cls):
-    return 'post'
