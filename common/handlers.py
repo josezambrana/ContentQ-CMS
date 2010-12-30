@@ -13,6 +13,7 @@
 # under the License.
 
 import logging
+
 from django import http, template
 from django.shortcuts import render_to_response
 
@@ -64,6 +65,39 @@ class ViewHandler(HandlerBase):
 
   def get_context(self):
     return template.RequestContext(self.request, self.extra_context)
+  
+  def set_message(self, msg_key, type='success'):
+    message = util.get_message(msg_key, 'success_content_new')
+    util.add_msg(self.request, type, message)
+
+class NewHandler(ViewHandler):
+  def __init__(self, request, model=None, model_form=None, redirect_to=None, 
+                              tpl="content_new.html", **kwargs):
+    
+    super(NewHandler, self).__init__(request, tpl=tpl, **kwargs)
+    self.model = model
+    self.model_form = model_form
+    self.redirect_to = redirect_to
+    self.update_context({"model":self.model, "model_form":model_form, 
+                         "ckeditor":'.ckeditor textarea'})
+    
+  def handle(self):
+    form = self.model_form()
+    if self.request.method == 'POST':
+      form = self.model_form(request.POST)
+      if form.is_valid():
+        item = form.save()
+  
+        msg_key = "success_%s_new" % self.model_form._meta.model.object_name()
+        self.set_message(msg_key)
+  
+        if self.redirect_to is not None:
+          if self.redirect_to == True:
+            return http.HttpResponseRedirect(item.url())
+          return http.HttpResponseRedirect(self.redirect_to)
+        
+    self.update_context({"form":form})
+    return self.get_response()
 
 class ContentViewHandler(ViewHandler):
   def __init__(self, request, id, **kwargs):
