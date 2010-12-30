@@ -22,6 +22,8 @@ from common import common_views
 from common import decorator
 from common import util
 
+from common.handlers import NewHandler
+
 @decorator.admin_required
 def admin(request):
   return common_views.content_admin(request, 'menus', MenuItem, [],
@@ -40,8 +42,14 @@ def new(request):
       get_content = util.get_attr_from_safe(_config)
       if get_content is not None:
         content_dir.update({app:get_content()})
-      
-  return common_views.content_new(request, 'menus', MenuItemForm, 'menuitems_new.html', redirect_to=MenuItem.admin_url(), model=MenuItem, extra_context={"content_dir":content_dir})
+        
+  handler = NewHandler(request, area='menus', 
+                                model=MenuItem,
+                                model_form=MenuItemForm, 
+                                tpl='menuitems_new.html', 
+                                redirect_to=MenuItem.admin_url(), 
+                                extra_context={"content_dir":content_dir})
+  return handler.handle() 
 
 @decorator.admin_required
 def edit(request, slug):

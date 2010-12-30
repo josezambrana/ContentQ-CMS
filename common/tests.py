@@ -12,5 +12,19 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
+
+
+from common.test.base import ViewTestCase
+from common.models import MenuItem
+
+from users.messages import messages 
+
 __author__="Jose Maria Zambrana Arze <contact@josezambrana.com>"
 __date__ ="$22-dic-2010 14:38:55$"
+
+class MenusTest(ViewTestCase):
+  def test_newhandler_get(self):
+    logging.info("#### common.HandlerTest.test_new_handler")
+    r = self.login_and_get('admin', MenuItem.new_url())
+    self.failUnlessEqual(r.status_code, 200)

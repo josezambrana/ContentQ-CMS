@@ -84,7 +84,7 @@ class NewHandler(ViewHandler):
   def handle(self):
     form = self.model_form()
     if self.request.method == 'POST':
-      form = self.model_form(request.POST)
+      form = self.model_form(self.request.POST)
       if form.is_valid():
         item = form.save()
   
