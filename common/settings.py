@@ -70,3 +70,4 @@ CACHE_BACKEND = 'memcached://'
 DEFAULT_THEME = 'contentq'
 
 MEMCACHE_CONFIG = False
+TESTING = False

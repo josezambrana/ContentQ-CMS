@@ -24,8 +24,19 @@ __date__ ="$22-dic-2010 14:38:55$"
 
 class ViewTestCase(test.TestCase):
   fixtures = ['actions', 'roles', 'permissions', 'configdata', 'themes', 'users']
+  passwords = {'admin':'.admin.'}
   def setUp(self):
-    self.client = client.Client()
+    settings.DEBUG = False
+    settings.TESTING = True
+    self.client = client.Client(SERVER_NAME=settings.DOMAIN)
 
   def login(self, username, password):
-    r = self.client.post(reverse('users_login'), {'username':username, 'password':password})
+    return self.client.post(reverse('users_login'), {'username':username, 'password':password})
+
+  def login_and_get(self, user, url):
+    l = self.login(user, self.passwords.get(user))
+    return self.client.get(url)
+  
+  def login_and_post(self, user, url):
+    l = self.login(user, self.passwords.get(user))
+    return self.client.post(url)

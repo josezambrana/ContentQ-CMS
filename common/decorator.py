@@ -16,18 +16,20 @@ import logging
 
 from google.appengine.api import users
 from django import http
+from django.conf import settings
 from common import exception
 
 def admin_required(function):
   def _wrap(request, *args, **kw):
     q = request.META['PATH_INFO']
-
-    user = users.get_current_user()
-    if not user:
-      return http.HttpResponseRedirect(users.create_login_url(q))
-    else:
-      if not users.is_current_user_admin():
-        raise exception.AdminRequiredError
+    
+    if not settings.TESTING:
+      user = users.get_current_user()
+      if not user:
+        return http.HttpResponseRedirect(users.create_login_url(q))
+      else:
+        if not users.is_current_user_admin():
+          raise exception.AdminRequiredError
 
     return function(request, *args, **kw)
   return _wrap
