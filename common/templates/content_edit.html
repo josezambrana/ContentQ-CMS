@@ -1,5 +1,11 @@
 {% extends 'base/admin.html' %}
-{% load i18n %}
+{% load i18n format %}
+
+{% block breadcrumb %}
+  {{block.super}} &raquo;
+  <a href="{{model.admin_url}}">{{model.class_name|plural|spacify}}</a> &raquo;
+  Editing
+{% endblock %}
 
 {% block contenttitle %}
   <div id="content-title" class="{{ content.object_name }} title">
