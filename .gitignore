@@ -5,3 +5,5 @@ nbproject*
 static/default/img/1*.jpg
 static/default/img/0*.jpg
 docs/*
+.project
+.pydevproject
