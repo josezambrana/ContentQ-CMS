@@ -115,13 +115,13 @@ def get_attr_from(path):
     _module, _attr = path[:dot], path[dot+1:]
     mod = import_module(_module)
   except ImportError, e:
-    logging.error('   Error importing %s: "%s"' % (_module, e))
+    #logging.error('   Error importing %s: "%s"' % (_module, e))
     raise exceptions.ImproperlyConfigured, 'Error importing %s: "%s"' % (_module, e)
 
   try:
     attr = getattr(mod, _attr)
   except AttributeError:
-    logging.error('   Module "%s" does not define a "%s" attribute' % (_module, _attr))
+    #logging.error('   Module "%s" does not define a "%s" attribute' % (_module, _attr))
     raise exceptions.ImproperlyConfigured, 'Module "%s" does not define a "%s" attribute' % (_module, _attr)
   return attr
 
@@ -129,7 +129,7 @@ def get_attr_from_safe(path, default=None):
   try:
     return get_attr_from(path)
   except exceptions.ImproperlyConfigured:
-    logging.error('   get_attr_from_safe>> "%s" is not defined' % (path))
+    #logging.error('   get_attr_from_safe>> "%s" is not defined' % (path))
     return default
 
 def get_config(app):
@@ -154,7 +154,7 @@ def cached_messages():
     try:
       msgs = get_attr_from('%s.messages.messages' % app)
     except:
-      logging.error("   messages not found for %s" % app)
+      #logging.error("   messages not found for %s" % app)
       msgs = {}
     messages.update(msgs)
     
