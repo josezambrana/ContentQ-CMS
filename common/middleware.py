@@ -79,7 +79,9 @@ class ExceptionMiddleware(object):
       exc_info = sys.exc_info()
       reporter = debug.ExceptionReporter(request, *exc_info)
       html = reporter.get_traceback_html()
-      return http.HttpResponse(html, mimetype='text/html')
+      response = http.HttpResponse(html, mimetype='text/html')
+      response.status_code = 500
+      return response
     return None
 
 class AuthorizationMiddleware(object):
