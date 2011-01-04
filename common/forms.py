@@ -23,12 +23,25 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
 
 from common.models import Block, MenuItem, Theme, ConfigData, Comment
-from common.widgets import SelectMultiple
+from common.widgets import SelectMultiple, SelectDateTimeWidget
 from common import util
 
 from users.models import User, UserDoesNotExist
 
 from beautifulsoup.BeautifulSoup import BeautifulSoup
+
+class SelectDateTimeField(forms.DateTimeField):
+  widget = SelectDateTimeWidget
+
+class DateTimeProperty(djangoforms.DateTimeProperty):
+  __metaclass__ = djangoforms.monkey_patch
+
+  def get_form_field(self, **kwargs):
+    if self.name == 'deleted_at' or self.auto_now or self.auto_now_add:
+      return None
+    defaults = {'form_class': SelectDateTimeField}
+    defaults.update(kwargs)
+    return super(DateTimeProperty, self).get_form_field(**defaults)
 
 class StringListProperty(djangoforms.StringListProperty):
   __metaclass__ = djangoforms.monkey_patch
