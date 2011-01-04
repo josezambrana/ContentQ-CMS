@@ -48,8 +48,6 @@ class BlockNode(template.Node):
     return res
 
   def render_block(self, block, context):
-    logging.info("******** BlockNode.render_block")
-    logging.info("         block: %s" % block)
     params = {}
     for key, arg in block.args.iteritems():
       params[str(key)] = arg
