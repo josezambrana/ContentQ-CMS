@@ -51,3 +51,7 @@ class PostItem(BaseContent, Categorizable, Commentable):
   @classmethod
   def category_model(cls):
     return PostCategory
+
+  @classmethod
+  def applabel(cls):
+    return 'post'
