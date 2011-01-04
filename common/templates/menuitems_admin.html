@@ -1,7 +1,15 @@
 {% extends 'content_admin.html' %}
 
-{% block newactiontitle %}Add Menu Item{% endblock %}
-{% block categoryadminactiontitle %}Manage Menus{% endblock %}
+{% block beforelistbody %}
+  <ul class="actions clearfix">
+    <li class="action-new action">
+      <a href="{% url menuitem_new %}">Add Menu Item</a>
+    </li>
+    <li class="action-menus action">
+      <a href="{% url menu_admin %}">Manage Menus</a>
+    </li>
+  </ul>
+{% endblock beforelistbody %}
 
 {% block listbodytitles %}
   <div class="admin-titles clearfix">
