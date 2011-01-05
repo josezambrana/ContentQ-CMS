@@ -22,6 +22,11 @@ from django.core.urlresolvers import reverse
 __author__="Jose Maria Zambrana Arze <contact@josezambrana.com>"
 __date__ ="$22-dic-2010 14:38:55$"
 
+class BaseTestCase(test.TestCase):
+  def setUp(self):
+    settings.DEBUG = False
+    settings.TESTING = True
+
 class ViewTestCase(test.TestCase):
   fixtures = ['actions', 'roles', 'permissions', 'configdata', 'themes', 'users']
   passwords = {'admin':'.admin.'}
