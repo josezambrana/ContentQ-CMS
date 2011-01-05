@@ -24,6 +24,15 @@ from django.utils.translation import ugettext_lazy as _
 
 ENTRIES_PER_PAGE = 10
 
+
+def _getcontent(id, model):
+  content = model.get(uuid=id)
+  if not content:
+    content = model.get(slug=id)
+    if not content:
+      raise http.Http404(_("Content not found"))
+  return content
+
 class HandlerBase(object):
   def __init__(self, request, extra_context={}, **kwargs):
     self.request = request
@@ -115,12 +124,7 @@ class ContentViewHandler(ViewHandler):
 
   @classmethod
   def __get_content(cls, id, model):
-    content = model.get(uuid=id)
-    if not content:
-      content = model.get(slug=id)
-      if not content:
-        raise http.Http404(_("Content not found"))
-    return content
+    return _getcontent(id, model)
 
 class EditHandler(ContentViewHandler):
   def __init__(self, request, id, redirect_to=None, tpl="content_edit", **kwargs):
@@ -150,7 +154,7 @@ class DeleteHandler(ViewHandler):
   def __init__(self, request, id, model, redirect_to=None, **kwargs):
     super(DeleteHandler, self).__init__(request, **kwargs)
     self.model = model
-    self.content = ContentViewHandler.__get_content(id, self.model)
+    self.content = _getcontent(id, self.model)
     self.redirect_to = redirect_to or self.content.admin_url()
 
   def handle(self):
