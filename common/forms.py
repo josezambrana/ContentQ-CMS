@@ -46,8 +46,14 @@ class DateTimeProperty(djangoforms.DateTimeProperty):
 class StringListProperty(djangoforms.StringListProperty):
   __metaclass__ = djangoforms.monkey_patch
 
+  def get_form_field(self, **kwargs):
+    defaults = {'widget': forms.Textarea,
+                'initial': '',
+                'required':False}
+    defaults.update(kwargs)
+    return super(StringListProperty, self).get_form_field(**defaults)
+
   def get_value_for_form(self, instance):
-    logging.info(">> StringListProperty.get_value_for_form ")
     value = super(StringListProperty, self).get_value_for_form(instance)
     if not value:
      return None
@@ -56,7 +62,6 @@ class StringListProperty(djangoforms.StringListProperty):
     return value
 
   def make_value_from_form(self, value):
-    logging.info(">> StringListProperty.make_value_from_form ")
     if not value:
       return []
     if isinstance(value, basestring):
