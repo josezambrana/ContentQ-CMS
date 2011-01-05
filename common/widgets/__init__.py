@@ -30,7 +30,7 @@ class SelectMultiple(widgets.SelectMultiple):
 
 __all__ = ('SelectDateTimeWidget',)
 
-RE_DATETIME = re.compile(r'(\d{4})-(\d\d?)-(\d\d?) (\d\d):(\d\d)$')
+RE_DATETIME = re.compile(r'(\d{4})-(\d\d?)-(\d\d?) (\d\d):(\d\d).*$')
 
 def _generate_time_choices(size):
   _choices = []
@@ -64,6 +64,9 @@ class SelectDateTimeWidget(widgets.Widget):
             self.years = range(this_year, this_year+10)
 
     def render(self, name, value, attrs=None):
+        if value is None:
+          value = datetime.datetime.now()
+          
         try:
             year_val, month_val, day_val, hour_val, minute_val = \
             value.year, value.month, value.day, value.hour, value.minute
