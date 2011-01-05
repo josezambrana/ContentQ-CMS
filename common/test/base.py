@@ -30,13 +30,15 @@ class ViewTestCase(test.TestCase):
     settings.TESTING = True
     self.client = client.Client(SERVER_NAME=settings.DOMAIN)
 
-  def login(self, username, password):
+  def login(self, username, password=None):
+    if password is None:
+      password = self.passwords.get(username)
     return self.client.post(reverse('users_login'), {'username':username, 'password':password})
 
-  def login_and_get(self, user, url):
+  def login_and_get(self, user, url, data={}):
     l = self.login(user, self.passwords.get(user))
-    return self.client.get(url)
+    return self.client.get(url, data)
   
-  def login_and_post(self, user, url):
+  def login_and_post(self, user, url, data={}):
     l = self.login(user, self.passwords.get(user))
-    return self.client.post(url)
+    return self.client.post(url, data)
