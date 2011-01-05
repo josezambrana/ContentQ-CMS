@@ -20,6 +20,8 @@ from django.shortcuts import render_to_response
 from common.forms import CommentForm
 from common import util
 
+from django.utils.translation import ugettext_lazy as _
+
 ENTRIES_PER_PAGE = 10
 
 class HandlerBase(object):
@@ -99,29 +101,6 @@ class NewHandler(ViewHandler):
     self.update_context({"form":form})
     return self.get_response()
 
-class EditHandler(NewHandler):
-  def __init__(self, request, **kwargs):
-    tpl = kwargs.pop("tpl", "content_edit.html")
-    super(EditHandler, self).__init__(request, tpl=tpl, **kwargs)
-
-  def handle(self):
-    form = self.model_form(instance=self.content)
-    if self.request.method == 'POST':
-      form = self.model_form(self.request.POST, instance=self.content)
-      if form.is_valid():
-        item = form.save()
-
-        msg_key = "success_%s_edit" % self.model_form._meta.model.object_name()
-        self.set_message(msg_key)
-
-        if self.redirect_to is not None:
-          if self.redirect_to == True:
-            return http.HttpResponseRedirect(item.url())
-          return http.HttpResponseRedirect(self.redirect_to)
-
-    self.update_context({"form":form})
-    return self.get_response()
-
 class ContentViewHandler(ViewHandler):
   def __init__(self, request, id, **kwargs):
     tpl = kwargs.pop('tpl', 'content_show')
@@ -142,6 +121,30 @@ class ContentViewHandler(ViewHandler):
       if not content:
         raise http.Http404(_("Content not found"))
     return content
+
+class EditHandler(ContentViewHandler):
+  def __init__(self, request, id, redirect_to=None, tpl="content_edit", **kwargs):
+    super(EditHandler, self).__init__(request, id, tpl=tpl, **kwargs)
+    self.model_form = kwargs.pop("model_form")
+    self.redirect_to = redirect_to
+
+  def handle(self):
+    form = self.model_form(instance=self.content)
+    if self.request.method == 'POST':
+      form = self.model_form(self.request.POST, instance=self.content)
+      if form.is_valid():
+        item = form.save()
+
+        msg_key = "success_%s_edit" % self.model_form._meta.model.object_name()
+        self.set_message(msg_key)
+
+        if self.redirect_to is not None:
+          if self.redirect_to == True:
+            return http.HttpResponseRedirect(item.url())
+          return http.HttpResponseRedirect(self.redirect_to)
+
+    self.update_context({"form":form})
+    return self.get_response()
 
 class DeleteHandler(ViewHandler):
   def __init__(self, request, id, model, redirect_to=None, **kwargs):
