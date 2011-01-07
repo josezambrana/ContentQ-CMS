@@ -6,6 +6,7 @@
 {% block contentwrapper %}
   <div id="leftbar" class="sidebar span">
     {% block leftbar %}
+      {% render_blocks "leftsidebar" request %}
     {% endblock %}
   </div>
   <div id="content" class="content span last">
