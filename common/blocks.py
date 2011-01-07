@@ -23,10 +23,7 @@ from common.forms import BlockForm, StaticBlockForm
 
 class BaseBlock:
   @classmethod
-  def render_block(cls, template_name='block.html', block_title=None, context=None):
-    if context is None:
-      context = {}
-            
+  def render_block(cls, template_name='block.html', block_title=None, context={}):
     block_context = {
       'block_title': block_title,
       'block': {"name":block_title},
