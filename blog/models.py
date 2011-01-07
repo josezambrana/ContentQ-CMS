@@ -22,6 +22,8 @@ from django.utils.translation import ugettext_lazy as _
 from common.models import BaseCategory, BaseContent, Categorizable, Commentable
 
 class PostCategory(BaseCategory):
+  key_template = '%(name)s'
+
   class Meta:
     verbose_name = _('post category')
     verbose_name_plural = _('post categories')
