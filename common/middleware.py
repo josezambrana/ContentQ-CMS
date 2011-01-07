@@ -13,6 +13,7 @@
 # under the License.
 
 import logging
+import traceback
 
 from google.appengine.api import memcache
 
@@ -73,7 +74,7 @@ class ExceptionMiddleware(object):
       logging.warning("RedirectError: %s", traceback.format_exc())
       return util.RedirectError(request, exc.message)
 
-    if not isinstance(exc, Http404):
+    if not isinstance(exc, http.Http404):
       logging.error("5xx: %s", traceback.format_exc())
       
     # Shows traceback
