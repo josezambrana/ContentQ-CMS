@@ -168,8 +168,9 @@ class ContentListViewHandler(ViewHandler):
     super(ContentListViewHandler, self).__init__(request, **kwargs)
     self.model = kwargs.pop('model')
     self.filters = kwargs.pop('filters', [])
-    self.items = self.model.all()
+    self.items = kwargs.pop('items', self.model.all())
     self.order = kwargs.pop('order', None)
+    self.per_age = kwargs.pop('per_page', ENTRIES_PER_PAGE)
     self.update_context({"model":self.model})
 
   def filter(self):
@@ -186,7 +187,7 @@ class ContentListViewHandler(ViewHandler):
 
   def handle(self):
     self.items = self.filter()
-    self.items = util.paginate(self.request, self.items, ENTRIES_PER_PAGE)
+    self.items = util.paginate(self.request, self.items, self.per_age)
     self.update_context({"items":self.items})
     return self.get_response()
 
