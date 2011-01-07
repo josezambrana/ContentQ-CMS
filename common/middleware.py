@@ -70,8 +70,12 @@ class ExceptionMiddleware(object):
     
     # Redirect Error
     if isinstance(exc, exception.Error):
+      logging.warning("RedirectError: %s", traceback.format_exc())
       return util.RedirectError(request, exc.message)
 
+    if not isinstance(exc, Http404):
+      logging.error("5xx: %s", traceback.format_exc())
+      
     # Shows traceback
     if settings.DEBUG and not isinstance(exc, http.Http404):
       import sys
