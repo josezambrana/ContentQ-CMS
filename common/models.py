@@ -407,6 +407,10 @@ class Block(Base):
       if menuitem.uuid in self.visibility:
         return True
     return False
+  
+  @classmethod
+  def applabel(cls):
+    return 'blocks'
 
 class Menu(BaseCategory):
   position = db.StringProperty(choices=settings.BLOCK_POSITIONS)
