@@ -340,7 +340,7 @@ input.checkbox, input.radio {
 .normal      { font-size: 1em; }
 .large      { font-size: 1.2em; }
 
-.hide       { display: none; }
+.hidden       { display: none; }
 
 .quiet      { color: #888; }
 .loud       { color: #000; }
