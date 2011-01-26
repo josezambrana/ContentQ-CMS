@@ -13,8 +13,10 @@
 # under the License.
 
 messages = {
+  'success_action':"Action done succesfully",
   'success_content_new':"Page created successfully",
   'success_content_edit':"Page edited successfully",
   'success_content_delete':"Page deleted successfully",
   'success_comment_new':"Commented succesfully",
+  'success_content_upload':"Content uploaded succesfully",
 }

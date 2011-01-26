@@ -93,7 +93,7 @@ def install(request):
   area = 'install'
 
   if ConfigData.get_configdata('site_installed', default=False):
-    util.add_error(request, "Site is already installed")
+    util.error(request, "Site is already installed")
     return http.HttpResponseRedirect(reverse('front'))
   
   form = InstallForm()
@@ -103,7 +103,7 @@ def install(request):
       user = form.save()
       ConfigData.set_configdata('site_installed', True)
       authenticate(request, user)
-      util.add_success(request, "Site has been installed successfully")
+      util.success(request, "Site has been installed successfully")
       return http.HttpResponseRedirect(reverse('admin_dashboard'))
 
   c = template.RequestContext(request, locals())
@@ -181,7 +181,7 @@ def content_new(request, area='content', model_form=None, tpl='content_new.html'
 
       msg_key = "success_%s_new" % model_form._meta.model.object_name()
       message = util.get_message(msg_key, 'success_content_new')
-      util.add_success(request, message)
+      util.success(request, message)
 
       if redirect_to is not None:
         if redirect_to == True:
@@ -206,7 +206,7 @@ def content_edit(request, id, area='content', model=None, model_form=None, tpl='
 
       msg_key = "success_%s_edit" % model_form._meta.model.object_name()
       message = util.get_message(msg_key, 'success_content_edit')
-      util.add_success(request, message)
+      util.success(request, message)
       
       if redirect_to is not None:
         if redirect_to == True:
@@ -236,7 +236,7 @@ def content_delete(request, slug, model=None):
   
   msg_key = "success_%s_delete" % model.object_name()
   message = util.get_message(msg_key, 'success_content_delete')
-  util.add_success(request, message)
+  util.success(request, message)
 
   return http.HttpResponseRedirect(content.admin_url())
 
@@ -274,7 +274,7 @@ def blocks_config(request, uuid):
     form = form_class(request.POST, instance=block_ref)
     if form.is_valid():
       block_ref = form.save()
-      util.add_success(request, "Config saved successfully")
+      util.success(request, "Config saved successfully")
       return http.HttpResponseRedirect(Block.admin_url())
 
   c = template.RequestContext(request, locals())

@@ -18,7 +18,7 @@ from common import util
 def login_required(handler):
   def _wrapper(request, *args, **kw):
     if not request.user:
-      util.add_notice(request, 'Please login')
+      util.notice(request, 'Please login')
       raise exception.LoginRequiredException()
     return handler(request, *args, **kw)
   _wrapper.__name__ = handler.__name__
@@ -27,7 +27,7 @@ def login_required(handler):
 def logout_required(handler):
   def _wrapper(request, *args, **kw):
     if request.user:
-      util.add_notice(request, 'You are already logged in')
+      util.notice(request, 'You are already logged in')
       raise exception.LogoutRequiredException()
     return handler(request, *args, **kw)
   _wrapper.__name__ = handler.__name__

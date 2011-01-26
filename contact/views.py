@@ -35,7 +35,7 @@ def contact_settings(request):
     form = ContactSettings(request.POST)
     if form.is_valid():
       form.save()
-      util.add_success(request, "Contact Settings saved successfully")
+      util.success(request, "Contact Settings saved successfully")
       return http.HttpResponseRedirect(reverse('contact_admin'))
   
   c = template.RequestContext(request, locals())
@@ -63,7 +63,7 @@ def contact_form(request):
       item = form.save()
       msg_key = "success_%s_new" % ContactForm._meta.model.object_name()
       message = util.get_message(msg_key, 'success_content_new')
-      util.add_success(request, message)
+      util.success(request, message)
       return http.HttpResponseRedirect(ContactMessage.form_url())
 
   c = template.RequestContext(request, locals())

@@ -67,7 +67,7 @@ def register(request):
       user = form.save()
       mail_welcome(user)
       authenticate(request, user)
-      util.add_success(request, "Welcome to %s" % ConfigData.get_configdata('SITE_NAME'))
+      util.success(request, "Welcome to %s" % ConfigData.get_configdata('SITE_NAME'))
       return redirect(reverse('admin_dashboard'))
 
   c = template.RequestContext(request, locals())
@@ -130,7 +130,7 @@ def passwordreset(request, code):
     form = ResetPassword(request.POST, user=user_ref)
     if form.is_valid():
       form.save()
-      util.add_success(request, 'success_users_passwordreset')
+      util.success(request, 'success_users_passwordreset')
       return redirect(reverse("success"))
 
   c = template.RequestContext(request, locals())

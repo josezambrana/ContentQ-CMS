@@ -95,7 +95,7 @@ def HttpJsonResponse(content, request):
   return response
 
 def RedirectError(request, message, redirect_to=None):
-  add_error(request, message)
+  error(request, message)
   if redirect_to is None:
     redirect_to = reverse('error')
   return http.HttpResponseRedirect(redirect_to)
@@ -174,13 +174,13 @@ def get_message(key, default_key='default_message'):
     message = get_messages().get(default_key)
   return message
 
-def add_success(request, msg):
+def success(request, msg):
   return add_msg(request, 'success', msg)
 
-def add_notice(request, msg):
+def notice(request, msg):
   return add_msg(request, 'notice', msg)
 
-def add_error(request, msg):
+def error(request, msg):
   return add_msg(request, 'error', msg)
 
 def add_msg(request, type, msg):

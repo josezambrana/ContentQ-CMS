@@ -175,7 +175,10 @@ class ContentListViewHandler(ViewHandler):
 
   def filter(self):
     if self.order is not None:
-      self.items.order(self.order)
+      try:
+        self.items.order(self.order)
+      except AttributeError:
+        self.items
 
     for filter in self.filters:
       try:
@@ -208,7 +211,7 @@ class CommentableHandler(ContentViewHandler):
       if comment_form.is_valid():
         comment_ref = comment_form.save()
         message = util.get_message('success_comment_new')
-        util.add_success(self.request, message)
+        util.success(self.request, message)
         return http.HttpResponseRedirect(self.content.url())
     self.update_context({"comment_form":comment_form})
 
