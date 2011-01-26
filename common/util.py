@@ -157,14 +157,17 @@ def cached_messages():
       #logging.error("   messages not found for %s" % app)
       msgs = {}
     messages.update(msgs)
+
+  if settings.MEMCACHE_ENABLED and settings.MEMCACHE_MESSAGES:
+    memcache.set("global_messages", messages)
     
-  #memcache.set("global_messages", messages)
   return messages
 
 def get_messages():
-  messages = memcache.get("global_messages")
-  if messages:
-    return messages
+  if settings.MEMCACHE_ENABLED and settings.MEMCACHE_MESSAGES:
+    messages = memcache.get("global_messages")
+    if messages:
+      return messages
   
   return cached_messages()
 

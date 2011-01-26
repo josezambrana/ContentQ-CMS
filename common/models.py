@@ -172,7 +172,7 @@ class ConfigData(BaseModel):
     configdata_ref.extra['value'] = value
     configdata_ref.put()
 
-    if settings.MEMCACHE_CONFIG:
+    if settings.MEMCACHE_ENABLED and settings.MEMCACHE_CONFIG:
       memcache.delete(_key)
       memcache.set(_key, value)
 
@@ -181,7 +181,7 @@ class ConfigData(BaseModel):
   @classmethod
   def get_configdata(cls, name, default=None, label='global'):
     _key = "configdata_%s_%s" % (label, name)
-    if settings.MEMCACHE_CONFIG:
+    if settings.MEMCACHE_ENABLED and settings.MEMCACHE_CONFIG:
       value = memcache.get(_key)
       if value is not None:
         return value
@@ -198,7 +198,7 @@ class ConfigData(BaseModel):
 
     res = default
 
-    if settings.MEMCACHE_CONFIG:
+    if settings.MEMCACHE_ENABLED and settings.MEMCACHE_CONFIG:
       memcache.set(_key, res)
 
     return res

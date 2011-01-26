@@ -69,5 +69,10 @@ CACHE_BACKEND = 'memcached://'
 
 DEFAULT_THEME = 'contentq'
 
+MEMCACHE_MESSAGES = False
 MEMCACHE_CONFIG = False
+MEMCACHE_ENABLED = True
+MEMCACHE_EXTERNAL_DEALS = True
+
 TESTING = False
+TEST_DATETIME_NOW = datetime.datetime(2011, 1, 06)
