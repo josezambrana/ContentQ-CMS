@@ -22,7 +22,7 @@
           {% if items.object_list %}
             <ul class="item-list clearfix">
               {% for item in items.object_list %}
-              <li class="item-{{item.object_name}}">
+              <li class="item-{{item.object_name}} {% block itemclass %}{% endblock %}">
                 {% block singleitem %}
                 {{item}}
                 {% endblock %}
