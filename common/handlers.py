@@ -25,6 +25,11 @@ from django.utils.translation import ugettext_lazy as _
 ENTRIES_PER_PAGE = 10
 
 
+MIME_TYPES = {'atom':'application/atom+xml; charset=utf-8',
+              'rss':'application/rss+xml; charset=utf-8',
+              'json':'text/javascript; charset=utf-8',
+              'xml':'text/xml; charset=utf-8'}
+
 def _getcontent(id, model):
   content = model.get(uuid=id)
   if not content:
@@ -33,6 +38,116 @@ def _getcontent(id, model):
       raise http.Http404(_("Content not found"))
   return content
 
+class ModelHandler(object):
+  def __init__(self, model, model_form):
+    self.model = model
+    self.model_form = model_form
+    self.initial_context = {'model':self.model, 'area':model.applabel, 'model_form':model_form}
+
+  def admin(self, request, tpl='content_admin', format='html', filters=[], order=None, paginate=True, per_page=ENTRIES_PER_PAGE):
+    return ModelHandler.list(self, request, tpl=tpl, format=format, filters=filters, order=order, paginate=paginate, per_page=per_page)
+
+  def list(self, request, tpl='content_list', format='html', filters=[], order=None, paginate=True, per_page=ENTRIES_PER_PAGE):
+    objects = self._get_items(filters, order)
+
+    if paginate:
+      objects = util.paginate(request, objects, per_page)
+
+    context = {"items":objects, "paginate":paginate}
+    return self._get_response(request, context, tpl, format)
+  
+  def show(self, request, id, tpl='content_show', format='html'):
+    content = self._get_content(id)
+    context = {'content':content}
+    return self._get_response(request, context, tpl, format)
+
+  def new(self, request, tpl='content_new.html', format='html', redirect_to=None):
+    form = self.model_form()
+    if request.method == 'POST':
+      form = self.model_form(request.POST)
+      if form.is_valid():
+        item = form.save()
+
+        msg_key = "success_%s_new" % self.model.object_name()
+        self._flash(request, msg_key)
+
+        if redirect_to is not None:
+          if redirect_to == True:
+            return http.HttpResponseRedirect(item.url())
+          return http.HttpResponseRedirect(redirect_to)
+        
+    context = {"form":form, "ckeditor":'.ckeditor textarea'}
+    return self._get_response(request, context, tpl, format)
+
+  def edit(self, request, id, tpl='content_edit', format='html', redirect_to=None):
+    content = self._get_content(id)
+    form = self.model_form(instance=content)
+    if request.method == 'POST':
+      form = self.model_form(request.POST, instance=content)
+      if form.is_valid():
+        item = form.save()
+
+        msg_key = "success_%s_edit" % self.model.object_name()
+        self._flash(request, msg_key)
+
+        if redirect_to is not None:
+          if redirect_to == True:
+            return http.HttpResponseRedirect(item.url())
+          return http.HttpResponseRedirect(redirect_to)
+
+    context = {"form":form, "content":content, "ckeditor":'.ckeditor textarea'}
+    return self._get_response(request, context, tpl, format)
+
+  def delete(self, request, id, redirect_to=None):
+    content = self._get_content(id)
+    content.delete()
+    msg_key = "success_%s_delete" % self.model.object_name()
+    self._flash(request, msg_key)
+    return http.HttpResponseRedirect(redirect_to)
+
+  def _get_items(self, filters=[], order=None):
+    objects = self.model.all()
+    objects = self._filter(objects, filters, order)
+    return objects
+
+  def _get_content(self, id):
+    content = self.model.get(uuid=id)
+    if not content:
+      content = self.model.get(slug=id)
+      if not content:
+        raise http.Http404(_("Content not found"))
+    return content
+
+  @staticmethod
+  def _filter(query, filters, order=None):
+    if order is not None:
+      query.order(order)
+
+    for filter in filters:
+      try:
+        query = filter.filter(query)
+      except AttributeError:
+        query = [] # TODO(zero) change to an empty query result
+
+    return query
+
+  @staticmethod
+  def _flash(request, msg_key, type='success'):
+    message = util.get_message(msg_key, 'success_action')
+    util.add_msg(request, type, message)
+    
+  def _get_context(self, request, extra_context={}):
+    extra_context.update({'request':request})
+    extra_context.update(self.initial_context)
+    return template.RequestContext(request, extra_context)
+
+  def _get_response(self, request, extra_context, tpl, format):
+    context = self._get_context(request, extra_context)
+    if not tpl.endswith(('html', 'json', 'atom', 'rss', 'xml')):
+      tpl = '%s.%s' % (tpl, format)
+    
+    return render_to_response(tpl, context, mimetype=MIME_TYPES.get(format))
+  
 class HandlerBase(object):
   def __init__(self, request, extra_context={}, **kwargs):
     self.request = request
