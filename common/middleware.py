@@ -31,10 +31,10 @@ class VerifyInstallMiddleware(object):
   def process_request(self, request):
     if not ConfigData.get_configdata('site_installed', default=False):
       theming.check_themes()
-      if not request.path.startswith('/install'):
+      if not request.path.startswith('/install') and not request.path.startswith('/loader'):
         return http.HttpResponseRedirect(reverse('install'))
       
-    if not request.path.startswith('/install'):
+    if not request.path.startswith('/install') and not request.path.startswith('/loader'):
       for app in settings.INSTALLED_APPS:
         if not ConfigData.is_installed(app):
           try:
