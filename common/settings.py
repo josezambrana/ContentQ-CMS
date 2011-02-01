@@ -13,6 +13,7 @@
 # under the License.
 
 from os import path
+from datetime import datetime
 
 ugettext = lambda s: s # dummy ugettext function, as said on django docs
 
@@ -75,4 +76,4 @@ MEMCACHE_ENABLED = True
 MEMCACHE_EXTERNAL_DEALS = True
 
 TESTING = False
-TEST_DATETIME_NOW = datetime.datetime(2011, 1, 06)
+TEST_DATETIME_NOW = datetime(2011, 1, 06)
