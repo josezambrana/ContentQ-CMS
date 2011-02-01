@@ -12,44 +12,32 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
-
-from django.core.urlresolvers import reverse
-from django.shortcuts import render_to_response
-
-from blog.handlers import BlogShowHandler, BlogIndexHandler
-from blog.models import PostItem, PostCategory
-from blog.forms import PostItemForm
-
-from common import common_views
-from common.filters import CategoryFilter, TagFilter
-from common import decorator
-
+from blog.handlers import BlogHandler
 from users import decorator as user_decorator
 
 ENTRIES_PER_PAGE=5
 WORDS_NUM = 60
 
+handler = BlogHandler()
+
 @user_decorator.login_required
 def admin(request, format='html'):
-  return common_views.content_admin(request, 'post', PostItem, [], 'blog_admin.html')
+  return handler.admin(request, tpl='blog_admin.html', format=format)
 
 def index(request, format='html', category=None, tag=None):
-  view_handler = BlogIndexHandler(request, format=format, category=category, tag=tag)
-  return view_handler.handle()
+  return handler.list(request, category=category, tag=tag, format=format)
 
 def show(request, slug, format='html'):
-  view_handler = BlogShowHandler(request, slug, format=format)
-  return view_handler.handle()
+  return handler.show(request, slug, tpl='blog_show', format=format)
 
 @user_decorator.login_required
 def new(request):
-  return common_views.content_new(request, 'post', PostItemForm, 'blog_new.html', redirect_to=True,  model=PostItem)
+  return handler.new(request, tpl='blog_new', redirect_to=True)
 
 @user_decorator.login_required
 def edit(request, slug):
-  return common_views.content_edit(request, slug, 'post', PostItem, PostItemForm, 'blog_edit.html', redirect_to=True)
+  return handler.edit(request, slug, tpl='blog_edit', redirect_to=PostItem.admin_url())
 
 @user_decorator.login_required
 def delete(request, slug):
-  return common_views.content_delete(request, slug, PostItem)
+  return handler.delete(request, slug, redirect_to=PostItem.admin_url())

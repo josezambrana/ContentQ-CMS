@@ -12,29 +12,22 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from blog.models import PostItem, PostCategory
+from blog.forms import PostItemForm
+from blog.models import PostItem
 
-from common import handlers
+from common.handlers import ModelHandler
 from common.filters import PropertyFilter, CategoryFilter, TagFilter
 
-class BlogShowHandler(handlers.CommentableHandler):
-  def __init__(self, request, slug, format='html'):
-    super(BlogShowHandler, self).__init__(request, slug, area='post',
-                                          model=PostItem,
-                                          tpl='blog_show',
-                                          format=format)
+class BlogHandler(ModelHandler):
+  def __init__(self):
+    ModelHandler.__init__(self, PostItem, PostItemForm)
 
-class BlogIndexHandler(handlers.ContentListViewHandler):
-  def __init__(self, request, category=None, tag=None, format='html'):
-    super(BlogIndexHandler, self).__init__(request, area='post',
-                                                    model=PostItem,
-                                                    order='-created_at',
-                                                    tpl='blog_list',
-                                                    format=format)
+  def list(self, request, format='html', category=None, tag=None):
+    filters = []
     if category is not None:
-      self.filters.append(CategoryFilter(category))
+      filters.append(CategoryFilter(category))
     if tag is not None:
-      self.filters.append(TagFilter(tag))
-    self.filters.append(PropertyFilter('status', 'published'))
+      filters.append(TagFilter(tag))
+    filters.append(PropertyFilter('status', 'published'))
 
-    self.update_context({"category":category})
+    return ModelHandler.list(self, request, tpl='blog_list', format=format, filters=filters)
