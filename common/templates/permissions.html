@@ -23,6 +23,7 @@
 
 {% block listbody %}
   <form action="" method="post" >
+    {% csrf_token %}
     {% for app, actionlist in apps.iteritems %}
     <h4 class="bottom permissions-app-title">{{app}}</h4>
     <ul class="permissions-list item-list admin-list clearfix">
