@@ -17,7 +17,7 @@ import logging
 from django import http, template
 from django.shortcuts import render_to_response
 
-from common.forms import CommentForm
+from common.forms import UnloggedCommentForm, CommentForm
 from common import util
 
 from django.utils.translation import ugettext_lazy as _
@@ -147,7 +147,31 @@ class ModelHandler(object):
       tpl = '%s.%s' % (tpl, format)
     
     return render_to_response(tpl, context, mimetype=MIME_TYPES.get(format))
-  
+
+
+class CommentableModelHandler(ModelHandler):
+  def show(self, request, id, tpl='content_show', format='html'):
+    comment_form_model = CommentForm if request.user else UnloggedCommentForm
+      
+    content = self._get_content(id)
+    comment_form = comment_form_model()
+    
+    if request.method == 'POST':
+      params = {'author':request.user.username,
+                     'owner':content.owner,
+                     'content':content.uuid,
+                     'content_type':content.app_label}
+
+      comment_form = comment_form_model(request.POST, extra_params=params)
+      if comment_form.is_valid():
+        comment_ref = comment_form.save()
+        self._flash(request, 'success_comment_new')
+        return http.HttpResponseRedirect(content.url())
+      
+    context = {'content':content, "comment_form":comment_form}
+    return self._get_response(request, context, tpl, format)
+
+
 class HandlerBase(object):
   def __init__(self, request, extra_context={}, **kwargs):
     self.request = request
