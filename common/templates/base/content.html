@@ -36,6 +36,8 @@
   {% endblock %}
 
   {% block aftercontentzone %}
-    {% include 'comments.html' %}
+    {% if content.is_commentable %}
+      {% include 'comments.html' %}
+    {% endif %}
   {% endblock %}
 {% endblock %}

@@ -1,23 +1,23 @@
 {% load avatar %}
-{% if content.is_commentable %}
-  <div id="comments" class="comments">
-    <h3 class="title">Comments</h3>
-    <ul class="comment-list item-list clearfix">
-      {% for comment in content.get_comments %}
-      <li id="comment-{{comment.uuid}}" class="comment {{forloop.counter|divisibleby:"2"|yesno:"pair,odd"}}">
-        <div class="comment-info clearfix">
-          <a class="avatar span" href="{% url users_profile_username comment.author %}">
-            <img src='{% url_avatar comment.author "u" %}' />
-          </a>
-          <strong class="username large span"><a href="">{{comment.author}}</a></strong>
-          <em class="span float-right small">{{comment.created_at|date:"F j, Y"}}</em>
-        </div>
-        <p class="bottom">{{comment.comment}}</p>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% with comment_form as form %}
-    {% include 'forms/comment_form.html' %}
-  {% endwith %}
-{% endif %}
+
+<div id="comments" class="comments">
+  <h3 class="title">Comments</h3>
+  <ul class="comment-list item-list clearfix">
+    {% for comment in content.get_comments %}
+    <li id="comment-{{comment.uuid}}" class="comment {{forloop.counter|divisibleby:"2"|yesno:"pair,odd"}}">
+      <div class="comment-info clearfix">
+        <a class="avatar span" href="{% url users_profile_username comment.author %}">
+          <img src='{% url_avatar comment.author "u" %}' />
+        </a>
+        <strong class="username large span"><a href="">{{comment.author}}</a></strong>
+        <em class="span float-right small">{{comment.created_at|date:"F j, Y"}}</em>
+      </div>
+      <p class="bottom">{{comment.comment}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% with comment_form as form %}
+  {% include 'forms/comment_form.html' %}
+{% endwith %}
