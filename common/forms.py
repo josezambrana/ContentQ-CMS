@@ -26,9 +26,17 @@ from common.models import Block, MenuItem, Theme, ConfigData, Comment
 from common.widgets import SelectMultiple, SelectDateTimeWidget
 from common import util
 
+from recaptcha_django import ReCaptchaField
+
 from users.models import User, UserDoesNotExist
 
 from beautifulsoup.BeautifulSoup import BeautifulSoup
+
+class ReCaptchaField(ReCaptchaField):
+  __metaclass__ = djangoforms.monkey_patch
+
+  def widget_attrs(self, widget):
+    return {'theme':'clean'}
 
 class SelectDateTimeField(forms.DateTimeField):
   widget = SelectDateTimeWidget
@@ -88,11 +96,11 @@ class Form(forms.Form):
 
 class ModelForm(djangoforms.ModelForm):
   __metaclass__ = djangoforms.monkey_patch
-
-class CategoryForm(ModelForm):
+  
   class Meta:
     exclude = ['uuid', 'slug', 'created_at', 'updated_at', 'deleted_at']
 
+class CategoryForm(ModelForm):
   def save(self):
     if self.instance is None:
       params = {'slug':unicode(slugify(self.cleaned_data['name']))}
@@ -101,12 +109,8 @@ class CategoryForm(ModelForm):
     return super(CategoryForm, self).save()
 
 class BaseForm(ModelForm):
-  class Meta:
-    exclude = ['uuid', 'slug', 'created_at', 'updated_at', 'deleted_at']
-
   def __init__(self, *args, **kwargs):
-    res = super(BaseForm, self).__init__(*args, **kwargs)
-    return res
+    ModelForm.__init__(self, *args, **kwargs)
   
   def clean(self):
     data = self.cleaned_data
@@ -125,11 +129,10 @@ class BaseForm(ModelForm):
   
 class BaseContentForm(BaseForm):
   class Meta:
-    exclude = ['uuid', 'slug', 'plain_description', 'created_at', 'updated_at', 'deleted_at']
+    exclude = BaseForm.Meta.exclude + ['plain_description']
 
   def __init__(self, *args, **kwargs):
-    logging.info(">> BaseContentForm")
-    super(BaseContentForm, self).__init__(*args, **kwargs)
+    BaseForm.__init__(self, *args, **kwargs)
     self.fields['tags'].widget = forms.TextInput()
     self.fields['meta_desc'].widget = forms.Textarea(attrs={'class':'ckexclude'})
 
@@ -139,12 +142,12 @@ class BaseContentForm(BaseForm):
       plain_description = mark_safe(''.join(BeautifulSoup(self.cleaned_data['description']).findAll(text=True)))
     params = {"plain_description":plain_description}
     self.cleaned_data.update(params)
-    return super(BaseContentForm, self).save()
+    return BaseForm.save(self)
   
 class CommentForm(ModelForm):
   class Meta:
     model = Comment
-    exclude = ['uuid', 'author', 'owner', 'deleted_at', 'content', 'content_type']
+    exclude = ModelForm.Meta.exclude + ['author', 'owner', 'content', 'content_type']
 
   def __init__(self, *args, **kwargs):
     self.extra_params = {}
@@ -154,8 +157,14 @@ class CommentForm(ModelForm):
     
   def save(self):
     self.cleaned_data.update(self.extra_params)
-    return super(CommentForm, self).save()
+    return ModelForm.save(self)
+
+class UnloggedCommentForm(CommentForm):
+  class Meta(CommentForm.Meta):
+    pass
     
+  captcha = ReCaptchaField()
+
 class BlockNewForm(BaseForm):
   class Meta:
     model = Block
