@@ -19,19 +19,17 @@ from google.appengine.ext.db import djangoforms
 from django import forms
 from blog import models
 
-from common import forms as common_forms
+from common.forms import BaseContentForm, CategoryForm
 
 TYPE_CHOICES = (('page','Page'),('post','Post'))
 
-class PostCategoryForm(common_forms.CategoryForm):
-  class Meta:
+class PostCategoryForm(CategoryForm):
+  class Meta(CategoryForm.Meta):
     model = models.PostCategory
-    exclude = ['uuid', 'slug', 'deleted_at']
   
-class PostItemForm(common_forms.BaseContentForm):
-  class Meta:
+class PostItemForm(BaseContentForm):
+  class Meta(BaseContentForm.Meta):
     model = models.PostItem
-    exclude = ['uuid', 'slug', 'plain_description','created_at', 'updated_at', 'deleted_at']
     
   def __init__(self, *args, **kwargs):
     super(PostItemForm, self).__init__(*args, **kwargs)

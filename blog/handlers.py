@@ -15,12 +15,12 @@
 from blog.forms import PostItemForm
 from blog.models import PostItem
 
-from common.handlers import ModelHandler
+from common.handlers import CommentableModelHandler
 from common.filters import PropertyFilter, CategoryFilter, TagFilter
 
-class BlogHandler(ModelHandler):
+class BlogHandler(CommentableModelHandler):
   def __init__(self):
-    ModelHandler.__init__(self, PostItem, PostItemForm)
+    CommentableModelHandler.__init__(self, PostItem, PostItemForm)
 
   def list(self, request, format='html', category=None, tag=None):
     filters = []
@@ -30,4 +30,6 @@ class BlogHandler(ModelHandler):
       filters.append(TagFilter(tag))
     filters.append(PropertyFilter('status', 'published'))
 
-    return ModelHandler.list(self, request, tpl='blog_list', format=format, filters=filters)
+    return CommentableModelHandler.list(self, request, tpl='blog_list',
+                                                       format=format,
+                                                       filters=filters)
