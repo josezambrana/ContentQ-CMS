@@ -176,6 +176,8 @@ input.checkbox, input.radio {
 .field-wrapper li label { width: auto; font-size: 1em; }
 .field-wrapper .error { padding: 0; background: transparent; border: 0; }
 
+.captcha label { display: none;}
+
 /* Success, notice and error boxes */
 .error, .notice, .success { padding: .8em; margin-bottom: 1em; }
 .error, .notice, .success { border: 2px solid #ddd; }
