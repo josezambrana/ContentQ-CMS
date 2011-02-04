@@ -10,7 +10,7 @@ default_auth:
                   'users_profile_username',
                   'users_settings',
                   'users_logout']
-  anonymous: ['users_profile_username', 'users_login', 'users_register']
+  anonymous: ['users_profile_username', 'users_login', 'users_register', 'users_forgot', 'users_passwordreset']
 
 areas:
   Users:

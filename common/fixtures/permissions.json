@@ -6,7 +6,7 @@
       "uuid": "3cc1649d0e514d2eab48b8b5fe0df926",
       "created_at": "2010-12-27 20:31:24.885000",
       "updated_at": "2010-12-27 20:31:26.865000",
-      "actions": ["install", "admin_dashboard", "admin_site", "config_admin", "permissions", "roles", "error", "notice", "success", "error_404", "error_404", "blocks_new", "blocks_admin", "blocks_edit", "blocks_config", "blocks_publish", "blocks_unpublish", "blocks_delete", "menuitem_admin", "menuitem_new", "menuitem_edit", "menuitem_delete", "menuitem_show", "menu_admin", "menu_new", "menu_edit", "menu_delete", "users_admin", "users_login", "users_logout", "users_register", "users_settings", "users_profile", "users_forgot", "users_passwordreset", "users_profile_username", "postcategory_admin", "postcategory_new", "postcategory_edit", "postcategory_delete", "post_admin", "post_list", "post_category", "post_category_format", "post_tag", "post_list", "post_new", "post_edit", "post_delete", "post_show", "post_show_format", "pages_admin", "pages_new", "pages_edit", "pages_delete", "pages_show", "blobinfo_upload", "blob_admin", "blob_serve", "contact_form", "contact_admin", "contact_show", "contact_settings"],
+      "actions": ["install", "admin_dashboard", "admin_site", "config_admin", "permissions", "roles", "error", "notice", "success", "error_404", "error_404", "blocks_new", "blocks_admin", "blocks_edit", "blocks_config", "blocks_publish", "blocks_unpublish", "blocks_delete", "menuitem_admin", "menuitem_new", "menuitem_edit", "menuitem_delete", "menuitem_show", "menu_admin", "menu_new", "menu_edit", "menu_delete", "users_admin", "users_login", "users_logout", "users_register", "users_settings", "users_profile", "users_passwordreset", "users_profile_username", "postcategory_admin", "postcategory_new", "postcategory_edit", "postcategory_delete", "post_admin", "post_list", "post_category", "post_category_format", "post_tag", "post_list", "post_new", "post_edit", "post_delete", "post_show", "post_show_format", "pages_admin", "pages_new", "pages_edit", "pages_delete", "pages_show", "blobinfo_upload", "blob_admin", "blob_serve", "contact_form", "contact_admin", "contact_show", "contact_settings"],
       "role": "administrator",
       "deleted_at": null
     }
@@ -18,7 +18,7 @@
       "uuid": "f5e20e7d4be44a96829517f39d9c962f",
       "created_at": "2010-12-27 20:31:24.937000",
       "updated_at": "2010-12-27 20:31:26.917000",
-      "actions": ["success", "notice", "error", "users_profile_username", "users_login", "users_register", "post_category", "post_category_format", "post_list", "post_show", "post_tag", "pages_show", "contact_form"],
+      "actions": ["success", "notice", "error", "users_profile", "users_profile_username", "users_login", "users_register", "users_forgot", "users_passwordreset", "post_category", "post_category_format", "post_list", "post_show", "post_tag", "pages_show", "contact_form"],
       "role": "anonymous",
       "deleted_at": null
     }
