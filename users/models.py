@@ -27,6 +27,8 @@ from common import properties
 
 class UserDoesNotExist(Exception):
   pass
+class InvalidPassword(Exception):
+  pass
 
 class AnonymousUser(object):
   username = 'anonymous'
@@ -54,6 +56,8 @@ class User(models.BaseModel):
   
   privacy = db.StringProperty(required=True, default=settings.PRIVACY_DEFAULT)
   extra = properties.DictProperty(default={})
+
+  key_template = '%(username)s'
   
   def set_password(self, raw_password):
     import random
@@ -77,7 +81,7 @@ class User(models.BaseModel):
     return reverse('users_profile_username', args=[self.username])
 
   def create_avatar(self, avatar):
-    blob_ref = Blob.create_blob_from_file(avatar, self, filename=self.username)
+    blob_ref = Blob.create_blob_from_file(avatar, self.username, filename=self.username)
     self.set_avatar("avatar_%s" % blob_ref.name)
     
     for size, dimensions in settings.AVATAR_SIZES.iteritems():
@@ -101,7 +105,7 @@ class User(models.BaseModel):
       Blob.create_blob(name= "avatar_%s_%s" % (blob_ref.name, size),
                        content=img_content,
                        content_type="image/jpeg",
-                       user=self)
+                       username=self.username)
     
   def set_avatar(self, avatar):
     self.extra['avatar'] = avatar
@@ -109,12 +113,10 @@ class User(models.BaseModel):
 
   @classmethod
   def get_user_from_request(cls, request):
-    user_ref = AnonymousUser()
     if settings.SESSION_KEY in request.session:
-      user_ref = cls.get(request.session[settings.SESSION_KEY])
-    return user_ref
+      return cls.get(request.session[settings.SESSION_KEY])
+    return AnonymousUser()
     
-
   @classmethod
   def authenticate(cls, username=None, password=None):
     user = cls.get_safe(username=username)
@@ -122,11 +124,11 @@ class User(models.BaseModel):
       try:
         user = cls.get(email=username)
       except UserDoesNotExist:
-        return None
+        raise UserDoesNotExist
       
     if user.check_password(password):
       return user
-    return None
+    raise InvalidPassword
 
   @classmethod
   def get(cls, *args, **kwargs):

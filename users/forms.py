@@ -20,7 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 from common import util
 from common.forms import ModelForm, Form
 
-from users.models import User, UserDoesNotExist
+from users.models import User, UserDoesNotExist, InvalidPassword
 from users.mail import mail_password_instructions
 from users.templatetags.avatar import avatar
 
@@ -136,8 +136,9 @@ class LoginForm(Form):
     password = self.cleaned_data.get('password')
     
     if username and password:
-      self.user_cache = User.authenticate(username=username, password=password)
-      if self.user_cache is None:
+      try:
+        self.user_cache = User.authenticate(username=username, password=password)
+      except (UserDoesNotExist, InvalidPassword):
         raise forms.ValidationError(_("Invalid username or password"))
         
       if not self.user_cache.is_active():
@@ -183,6 +184,8 @@ class ResetPassword(Form):
     return password2
 
   def save(self):
+    logging.info("***** Form save")
     self.user.set_password(self.cleaned_data["password1"])
     self.user.code = util.generate_uuid()
+    logging.info("    * code: %s" % self.user.code)
     self.user.put()
