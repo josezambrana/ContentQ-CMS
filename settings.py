@@ -83,6 +83,7 @@ MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + (
     'users.middleware.AuthenticationMiddleware',
     'common.middleware.ExceptionMiddleware',
     'common.middleware.AuthorizationMiddleware',
+    'recaptcha_django.middleware.ReCaptchaMiddleware',
 )
 
 TEMPLATE_DIRS = (
@@ -148,6 +149,13 @@ AVATAR_SIZES = {'u':(30, 30),
                 
 ###### END VARS ######
 
+##### SERVICE API KEYS #####
+#recaptcha
+RECAPTCHA_DOMAIN = ''
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = ''
+
+
 MANAGE_PY = os.path.exists('manage.py')
 
 # Set up the settings for the dev server if we are running it
@@ -160,6 +168,12 @@ if MANAGE_PY:
 # Allow local overrides, useful for testing during development
 try:
   from local_settings import *
+except ImportError:
+  pass
+
+# Allow overrides for production site
+try:
+  from prod_settings import *
 except ImportError:
   pass
 

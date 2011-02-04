@@ -7,3 +7,4 @@ static/default/img/0*.jpg
 docs/*
 .project
 .pydevproject
+prod_settings.py
