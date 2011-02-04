@@ -14,9 +14,10 @@
 
 import logging
 
-from django import template
+from django import http, template
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, redirect
+from django.utils.translation import ugettext_lazy as _
 
 from common import clean
 from common import common_views
@@ -68,19 +69,20 @@ def register(request):
       mail_welcome(user)
       authenticate(request, user)
       util.success(request, "Welcome to %s" % ConfigData.get_configdata('SITE_NAME'))
-      return redirect(reverse('admin_dashboard'))
+      if user.superuser:
+        return redirect(reverse('admin_dashboard'))
+      return redirect(reverse('front'))
 
   c = template.RequestContext(request, locals())
   return render_to_response('users_register.html', c)
 
-@user_decorator.login_required
 def profile(request, username=None):
-  logging.info("** users.views.profile ")
-  logging.info("   username: %s " % username)
   user = request.user
   if username is not None:
-    user = User.get(username=username)
-  logging.info("   user: %s" % user.username)
+    try:
+      user = User.get(username=username)
+    except UserDoesNotExist:
+      raise http.Http404(_("User %s does not exists" % username))
 
   c = template.RequestContext(request, locals())
   return render_to_response('users_profile.html', c)
@@ -124,7 +126,7 @@ def passwordreset(request, code):
     user_ref = User.get(code=code)
   except UserDoesNotExist:
     raise UnableActionError
-  
+
   form = ResetPassword(user=None)
   if request.method == 'POST':
     form = ResetPassword(request.POST, user=user_ref)
