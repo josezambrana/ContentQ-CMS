@@ -13,6 +13,7 @@
 # under the License.
 
 import logging
+import copy
 
 from google.appengine.api import mail as gae_mail
 
@@ -22,7 +23,7 @@ from django.template.loader import render_to_string
 from common.context_processors import get_global_vars
 
 def get_context(params):
-  context = get_global_vars()
+  context = copy.copy(get_global_vars())
   context.update(params)
   return context
 
