@@ -28,8 +28,8 @@ class BaseTestCase(test.TestCase):
     settings.TESTING = True
 
 class ViewTestCase(test.TestCase):
-  fixtures = ['actions', 'roles', 'permissions', 'configdata', 'themes', 'users']
-  passwords = {'admin':'.admin.'}
+  fixtures = ['actions', 'blocks', 'configdata', 'menus', 'permissions', 'roles', 'themes', 'users']
+  passwords = {'admin':'.admin.', 'authuser':'fakepass', 'editor':'fakepass', 'unactived':'fakepass'}
   def setUp(self):
     settings.DEBUG = False
     settings.TESTING = True

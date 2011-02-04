@@ -16,5 +16,66 @@
         "uuid" : "ab21315710d541ceabebc24cfe36a7c7"
       },
     "model" : "users.user",
-    "pk" : "agxjb250ZW50cS1kZXZyKgsSBFVzZXIiIGFiMjEzMTU3MTBkNTQxY2VhYmViYzI0Y2ZlMzZhN2M3DA"
-  } ]
+    "pk" : "user/admin"
+  },
+  { "fields" : { "active" : true,
+        "code" : "51b5745218a04a06999eacff2d06eb76",
+        "created_at" : "2010-12-28 14:40:48.62000",
+        "deleted_at" : null,
+        "email" : "editor@mail.com",
+        "extra" : {},
+        "first_name" : "Editor",
+        "last_login" : "2010-12-28 14:40:48.110000",
+        "last_name" : "User",
+        "password" : "sha1$c3bc1$993c8e47760e8842bcd395e156a1f82f504640fc",
+        "privacy" : "public",
+        "roles" : ["authenticated", "administrator"],
+        "superuser" : false,
+        "updated_at" : "2010-12-28 14:40:48.110000",
+        "username" : "editor",
+        "uuid" : "268a0257e49b481497356767e0b137f7"
+      },
+    "model" : "users.user",
+    "pk" : "user/editor"
+  },
+  { "fields" : { "active" : true,
+        "code" : "e52617949ad8421190a29771012ceac6",
+        "created_at" : "2010-12-28 14:40:48.62000",
+        "deleted_at" : null,
+        "email" : "normal@mail.com",
+        "extra" : {},
+        "first_name" : "Auth",
+        "last_login" : "2011-01-28 14:40:48.110000",
+        "last_name" : "User",
+        "password" : "sha1$c3bc1$993c8e47760e8842bcd395e156a1f82f504640fc",
+        "privacy" : "public",
+        "roles" : ["authenticated"],
+        "superuser" : false,
+        "updated_at" : "2010-12-28 14:40:48.110000",
+        "username" : "authuser",
+        "uuid" : "d1af337551e5418289494475592c4dd2"
+      },
+    "model" : "users.user",
+    "pk" : "user/authuser"
+  },
+  { "fields" : { "active" : false,
+        "code" : "8cb6a6b1c7404c5fa3febb9f4369d199",
+        "created_at" : "2010-12-28 14:40:48.62000",
+        "deleted_at" : null,
+        "email" : "unactive@mail.com",
+        "extra" : {},
+        "first_name" : "Unactived",
+        "last_login" : "2011-01-28 14:40:48.110000",
+        "last_name" : "User",
+        "password" : "sha1$c3bc1$993c8e47760e8842bcd395e156a1f82f504640fc",
+        "privacy" : "public",
+        "roles" : ["authenticated"],
+        "superuser" : false,
+        "updated_at" : "2010-12-28 14:40:48.110000",
+        "username" : "unactived",
+        "uuid" : "aa9bed254a72409689ab909a2e60300f"
+      },
+    "model" : "users.user",
+    "pk" : "user/unactived"
+  }
+]
