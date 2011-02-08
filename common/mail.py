@@ -14,6 +14,7 @@
 
 import logging
 import copy
+import traceback
 
 from google.appengine.api import mail as gae_mail
 
@@ -41,5 +42,6 @@ def send_mail(to_email, subject, message, on_behalf=None, html_message=None):
     _message.send()
     return True
   except:
+    logging.error("5xx: %s", traceback.format_exc())
     logging.error('Email can not be sent')
     return False
