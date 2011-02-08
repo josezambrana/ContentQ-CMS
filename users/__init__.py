@@ -18,27 +18,22 @@ import datetime
 from django.conf import settings
 from users.models import AnonymousUser
 
-def authenticate(request, user):
-    logging.error(">> users.authenticate")
+def login(request, user):
     if user is None:
-      logging.error(" user is None")
       user = request.user
     user.last_login = datetime.datetime.now()
     user.save()
 
     if settings.SESSION_KEY in request.session:
-      logging.info("   SESSION_KEY in request.session ")
       if request.session[settings.SESSION_KEY] != user.key():
         # To avoid reusing another user's session, create a new, empty
         # session if the existing session corresponds to a different
         # authenticated user.
         request.session.flush()
     else:
-      logging.info("   cycle_key")
       request.session.cycle_key()
     request.session[settings.SESSION_KEY] = user.key()
-    logging.info("   user.key(): %s " % user.key())
-    
+
     if hasattr(request, 'user'):
         request.user = user
 

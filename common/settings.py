@@ -51,6 +51,10 @@ INSTALLED_APPS = (
      'users',
 )
 
+AUTHENTICATION_BACKENDS = (
+  'users.auth.backends.ModelBackend',
+)
+
 # Status list for contents workflow.
 STATUS_LIST = ['draft', 'pending', 'published']
 

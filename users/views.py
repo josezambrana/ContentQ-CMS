@@ -26,8 +26,10 @@ from common import util
 from common.models import ConfigData
 from common.exception import UnableActionError
 
+from users import logout as auth_logout
+from users import login as auth_login
+
 from users import decorator as user_decorator
-from users import authenticate, logout as _logout
 from users.mail import mail_welcome
 from users.models import User, UserDoesNotExist
 from users.forms import ForgotPasswordForm, ResetPassword, LoginForm, RegisterForm, SettingsForm
@@ -43,7 +45,7 @@ def login(request):
     form = LoginForm(data=request.POST)
     if form.is_valid():
       user = form.get_user()
-      authenticate(request, user)
+      auth_login(request, user)
       util.set_flash(request, "success_users_login")
       return redirect(redirect_to)
   
@@ -52,7 +54,7 @@ def login(request):
 
 def logout(request):
   if request.user:
-    _logout(request)
+    auth_logout(request)
     util.set_flash(request, "success_users_logout")
   else:
     util.set_flash(request, "error_users_alreadyloggedout", type='error')
@@ -67,7 +69,7 @@ def register(request):
     if form.is_valid():
       user = form.save()
       mail_welcome(user)
-      authenticate(request, user)
+      auth_login(request, user)
       util.success(request, "Welcome to %s" % ConfigData.get_configdata('SITE_NAME'))
       if user.superuser:
         return redirect(reverse('admin_dashboard'))
