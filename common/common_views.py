@@ -26,7 +26,7 @@ from common import decorator
 from common import util
 
 from users import decorator as users_decorator
-from users import authenticate
+from users import login as auth_login
 
 from common.models import Action, Block, ConfigData, Permission, Role, Theme
 from common.forms import AdminSiteForm, InstallForm, BlockForm, BlockNewForm
@@ -102,7 +102,7 @@ def install(request):
     if form.is_valid():
       user = form.save()
       ConfigData.set_configdata('site_installed', True)
-      authenticate(request, user)
+      auth_login(request, user)
       util.success(request, "Site has been installed successfully")
       return http.HttpResponseRedirect(reverse('admin_dashboard'))
 

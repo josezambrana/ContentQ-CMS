@@ -17,6 +17,8 @@ from django import forms
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
+from django.contrib.auth import authenticate
+
 from common import util
 from common.forms import ModelForm, Form
 
@@ -137,14 +139,13 @@ class LoginForm(Form):
     
     if username and password:
       try:
-        self.user_cache = User.authenticate(username=username, password=password)
+        self.user_cache = authenticate(username=username, password=password)
       except (UserDoesNotExist, InvalidPassword):
         raise forms.ValidationError(_("Invalid username or password"))
         
       if not self.user_cache.is_active():
         raise forms.ValidationError(_("This account is inactive."))
 
-    logging.info("   returning")
     return self.cleaned_data
 
   def get_user(self):
