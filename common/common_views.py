@@ -21,8 +21,10 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.csrf import csrf_exempt
 
 from common import decorator
+from common import mail
 from common import util
 
 from users import decorator as users_decorator
@@ -59,6 +61,19 @@ def serializer(request, app=None, model=None):
   if model is not None:
     return content_list(request, "serializer", _model, format='json', paginate=False)
   raise Exception('Not model found')
+
+@decorator.admin_required
+@csrf_exempt
+def send_mail(request, key):
+  logging.info("**** common.common_views.send_mail")
+  if key == settings.TASKS_KEY and request.method == 'POST':
+    _mail = request.POST.get("mail")
+    subject = request.POST.get("subject")
+    message = request.POST.get("message")
+    html_message = request.POST.get("html_message")
+    mail.send_mail(_mail, subject, message, html_message=html_message)
+    return http.HttpResponse('success')
+  return http.HttpResponse('error', status=500)
 
 @decorator.admin_required
 @users_decorator.login_required

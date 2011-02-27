@@ -29,7 +29,9 @@ urlpatterns = patterns('common.common_views',
   url(r'^success$', 'flash_view', name='success'),
   url(r'^404$', 'error_404', name='error_404'),
   url(r'^500$', 'error_404', name='error_404'),
-  url(r'^serializer/(?P<app>[\w]+)/(?P<model>[\w]+).json$', 'serializer', name='serializer')
+  url(r'^loader$', 'loader', name='loader'),
+  url(r'^serializer/(?P<app>[\w]+)/(?P<model>[\w]+).json$', 'serializer', name='serializer'),
+  url(r'^send_mail/(?P<key>[\w]+)$', "send_mail", name="send_mail"),
 )
 urlpatterns += patterns('',
   url(r'^admin$', 'django.views.generic.simple.redirect_to', {'url': 'admin/dashboard'}),
