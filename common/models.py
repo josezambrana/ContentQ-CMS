@@ -605,3 +605,12 @@ class Role(BaseModel):
   @classmethod
   def all(cls):
     return super(Role, cls).all().order('order')
+
+class Relation(BaseModel):
+  owner = db.StringProperty(required=True)
+  relation = db.StringProperty(required=True)
+  target = db.StringProperty(required=True)
+
+  @classmethod
+  def get_relations(cls, relation):
+    return cls.all().filter("relation = ", relation)
