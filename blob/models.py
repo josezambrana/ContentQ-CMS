@@ -12,8 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
-
+from google.appengine.api import images
 from google.appengine.ext import db
 
 from django.core.urlresolvers import reverse
@@ -41,20 +40,20 @@ class Blob(Base):
     raise NotImplementedError
 
   @classmethod
-  def create_blob_from_file(cls, file, user, **kwargs):
+  def create_blob_from_file(cls, file, username, **kwargs):
     _name = util.generate_uuid()[:6] + kwargs.pop('filename', file.name)
     return cls.create_blob(name=_name,
                        content=file.read(),
                        content_type=file.content_type,
-                       user=user)
+                       username=username)
   
   @classmethod
-  def create_blob(cls, name='', content=None, content_type=None, user=None):
+  def create_blob(cls, name='', content=None, content_type=None, username=None):
     params = {
       'name':name,
       'slug':unicode(slugify(name)),
       'uuid':util.generate_uuid(),
-      'user':user.username,
+      'user':username,
       'content':content,
       'content_type': content_type,
       #'privacy': user.privacy
@@ -62,3 +61,44 @@ class Blob(Base):
     blob_ref = cls(**params)
     blob_ref.put()
     return blob_ref
+
+  @classmethod
+  def create_thumbails(cls, name, content, content_type, username='admin', sizes={}):
+    _name = _name = util.generate_uuid()[:6] + name
+    blob_ref = cls.create_blob(_name, content, content_type, username)
+    
+    thumbails = {}
+
+    for size, dimensions in sizes.iteritems(): 
+      image = images.Image(blob_ref.content)
+
+      original_width, original_height = float(image.width), float(image.height)
+      width, height = dimensions
+      f_width, f_height = float(width), float(height)
+
+      if original_width > original_height:
+        right_x = (f_width * original_height)/(f_height * original_width)
+        bottom_y = 1.0
+        if right_x > 1.0:
+          bottom_y = 1.0 / right_x
+          right_x = 1.0
+      else:
+        right_x = 1.0
+        bottom_y = (f_height * original_width)/(f_width * original_height)
+        if bottom_y > 1.0:
+          right_x = 1.0 / bottom_y
+          bottom_y = 1.0
+      
+      image.crop(0.0, 0.0, right_x, bottom_y)
+
+      image.resize(width, height)
+
+      img_content = image.execute_transforms(images.JPEG)
+
+      thumbail_name = "thumbail_%s_%s" % (blob_ref.name, size)
+      cls.create_blob(name=thumbail_name,
+                      content=img_content,
+                      content_type=content_type,
+                      username=username)
+      thumbails[size] = reverse('blob_serve', args=[thumbail_name])
+    return thumbails
