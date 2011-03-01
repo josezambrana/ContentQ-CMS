@@ -15,6 +15,7 @@
 import logging
 
 from django import http, template
+from django.conf import settings as django_settings
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, redirect
 from django.utils.translation import ugettext_lazy as _
@@ -37,7 +38,7 @@ from users.forms import ForgotPasswordForm, ResetPassword, LoginForm, RegisterFo
 @user_decorator.logout_required
 def login(request):
 
-  redirect_to = request.REQUEST.get('redirect_to', reverse('front'))
+  redirect_to = request.REQUEST.get('redirect_to', django_settings.LOGIN_REDIRECT_URL)
   redirect_to = clean.redirect_to(redirect_to)
 
   form = LoginForm()

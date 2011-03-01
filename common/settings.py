@@ -55,6 +55,8 @@ AUTHENTICATION_BACKENDS = (
   'users.auth.backends.ModelBackend',
 )
 
+LOGIN_REDIRECT_URL = '/'
+
 # Status list for contents workflow.
 STATUS_LIST = ['draft', 'pending', 'published']
 

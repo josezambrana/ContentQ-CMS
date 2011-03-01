@@ -126,7 +126,12 @@ class Theme(BaseModel):
   
   @classmethod
   def get_active(cls):
-    return super(Theme, cls).get(active=True)
+    active_ref = super(Theme, cls).get(active=True)
+    if active_ref is None:
+      ref = cls(directory_name="contentq", active=True, installed=True, description="contentq", name="ContentQ Theme")
+      ref.save()
+      return ref
+    return active_ref
   
   @classmethod
   def get_choices(cls):
@@ -605,3 +610,12 @@ class Role(BaseModel):
   @classmethod
   def all(cls):
     return super(Role, cls).all().order('order')
+
+class Relation(BaseModel):
+  owner = db.StringProperty(required=True)
+  relation = db.StringProperty(required=True)
+  target = db.StringProperty(required=True)
+
+  @classmethod
+  def get_relations(cls, relation):
+    return cls.all().filter("relation = ", relation)
