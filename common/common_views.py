@@ -55,14 +55,22 @@ def error_500(request):
   c = template.RequestContext(request, locals())
   return http.HttpResponse(render_to_string( '500.html', c), status=500)
 
-@decorator.admin_required
+#@decorator.admin_required
+def loader(request):
+  if request.method == 'POST':
+    objects = serializers.deserialize('json', request.POST.get('data'))
+    for obj in objects:
+      obj.save()
+  c = template.RequestContext(request, locals())
+  return render_to_response('load.html', c)
+
+#@decorator.admin_required
 def serializer(request, app=None, model=None):
   _model = util.get_attr_from_safe("%s.models.%s" % (app, model))
   if model is not None:
     return content_list(request, "serializer", _model, format='json', paginate=False)
   raise Exception('Not model found')
 
-@decorator.admin_required
 @csrf_exempt
 def send_mail(request, key):
   logging.info("**** common.common_views.send_mail")
@@ -75,7 +83,7 @@ def send_mail(request, key):
     return http.HttpResponse('success')
   return http.HttpResponse('error', status=500)
 
-@decorator.admin_required
+#@decorator.admin_required
 @users_decorator.login_required
 def dashboard(request):
   for app in settings.INSTALLED_APPS:
@@ -88,7 +96,7 @@ def dashboard(request):
   _flag_as_admin(c)
   return render_to_response("dashboard.html", c)
 
-@decorator.admin_required
+#@decorator.admin_required
 @users_decorator.login_required
 def admin_site(request):
   area = 'site'
@@ -103,7 +111,7 @@ def admin_site(request):
   _flag_as_admin(c)
   return render_to_response("admin_site.html", c)
 
-@decorator.admin_required
+#@decorator.admin_required
 def install(request):
   area = 'install'
 
@@ -125,26 +133,26 @@ def install(request):
   _flag_as_admin(c)
   return render_to_response('install.html', c)
 
-@decorator.admin_required
+#@decorator.admin_required
 def config_admin(request):
   return content_admin(request, 'config', ConfigData,
                       extra_context={},
                       tpl='config_admin',
                       order='label')
 
-@decorator.admin_required
+#@decorator.admin_required
 def category_new(request, area='category', category_form=None, model=None, tpl='category_new.html'):
   return content_new(request, area, category_form, tpl, model.admin_url(), model=model)
 
-@decorator.admin_required
+#@decorator.admin_required
 def category_edit(request, slug, area='category', model=None, tpl='category_edit.html', category_form=None):
   return content_edit(request, slug, area, model, category_form, tpl, model.admin_url())
 
-@decorator.admin_required
+#@decorator.admin_required
 def category_admin(request, area='category', tpl='category_admin', model=None):
   return content_admin(request, area, model, [], tpl, extra_context={})
 
-@decorator.admin_required
+#@decorator.admin_required
 def category_delete(request, slug, model=None):
   return content_delete(request, slug, model)
 
@@ -255,31 +263,31 @@ def content_delete(request, slug, model=None):
 
   return http.HttpResponseRedirect(content.admin_url())
 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_admin(request):
   return content_admin(request, 'blocks', Block, extra_context={}, tpl='blocks_admin.html')
 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_new(request):
   return content_new(request, 'blocks', BlockNewForm, redirect_to=Block.admin_url(), model=Block, tpl='blocks_new.html',)
                                 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_publish(request, uuid):
   block_ref = Block.get(uuid=uuid)
   block_ref.publish()
   return http.HttpResponseRedirect(Block.admin_url())
 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_unpublish(request, uuid):
   block_ref = Block.get(uuid=uuid)
   block_ref.unpublish()
   return http.HttpResponseRedirect(Block.admin_url())
 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_edit(request, uuid):
   return content_edit(request, uuid, 'blocks', Block, BlockForm, tpl='blocks_edit.html', redirect_to=Block.admin_url())
 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_config(request, uuid):
   block_ref = Block.get(uuid=uuid)
   model = Block
@@ -295,7 +303,7 @@ def blocks_config(request, uuid):
   c = template.RequestContext(request, locals())
   return render_to_response('blocks_config.html', c)
 
-@decorator.admin_required
+#@decorator.admin_required
 def blocks_delete(request, uuid):
   return content_delete(request, uuid, Block)
 
