@@ -240,6 +240,7 @@ class AdminSiteForm(Form):
     self.fields['site_name'].initial = ConfigData.get_configdata('SITE_NAME')
     self.fields['meta_description'].initial = ConfigData.get_configdata('SITE_DESCRIPTION')
     self.fields['meta_keywords'].initial = ConfigData.get_configdata('SITE_KEYWORDS')
+    self.fields['theme'].choices = Theme.get_choices()
     self.fields['theme'].widget = forms.Select(choices=Theme.get_choices())
     self.fields['theme'].initial = Theme.get_active().uuid
 
