@@ -18,6 +18,7 @@ import logging
 
 from django import forms
 from django.conf import settings
+from django.core.validators import validate_email
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe
@@ -40,6 +41,12 @@ class ReCaptchaField(ReCaptchaField):
 
 class SelectDateTimeField(forms.DateTimeField):
   widget = SelectDateTimeWidget
+
+class BlobWidget(forms.FileInput):
+  pass
+
+class BlobField(forms.FileField):
+  widget = BlobWidget
 
 class DateTimeProperty(djangoforms.DateTimeProperty):
   __metaclass__ = djangoforms.monkey_patch
@@ -75,6 +82,17 @@ class StringListProperty(djangoforms.StringListProperty):
     if isinstance(value, basestring):
       value = util.get_tags(value.lower())
     return value
+
+class MultiEmailField(forms.Field):
+  def to_python(self, value):
+    if not value:
+      return []
+    return util.get_tags(value.lower())
+
+  def validate(self, value):
+    super(MultiEmailField, self).validate(value)
+    for email in value:
+      validate_email(email)
 
 class Input(forms.widgets.Input):
   __metaclass__ = djangoforms.monkey_patch
