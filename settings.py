@@ -72,6 +72,8 @@ ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '*^t=5_u0c#-06calw!9^6*eg8+1&9sxbye@=umutgn^t_sg_nx'
+API_KEY = 'c0nt3ntQp1bddfda84719234a6a90e7d459f14de57c'
+TASKS_KEY = 'c0nt3ntQT4sKse0183746af9f844d0b72287ebdfac6745'
 
 # Ensure that email is not sent via SMTP by default to match the standard App
 # Engine SDK behaviour. If you want to sent email via SMTP then add the name of
