@@ -424,7 +424,7 @@ class Menu(BaseCategory):
     return MenuItem.all().filter('active', True).filter('menu = ', self.slug).filter('parentlink =', None).order('order')
 
   @classmethod
-  def app_label(cls):
+  def applabel(cls):
     return 'menu'
     
   @classmethod
@@ -475,7 +475,7 @@ class MenuItem(Base):
     return res
 
   @classmethod
-  def app_label(cls):
+  def applabel(cls):
     return 'menuitem'
 
   @classmethod

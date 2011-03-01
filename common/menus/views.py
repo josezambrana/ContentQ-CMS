@@ -24,7 +24,7 @@ from common import util
 
 from common.handlers import NewHandler
 
-@decorator.admin_required
+#@decorator.admin_required
 def admin(request):
   return common_views.content_admin(request, 'menus', MenuItem, [],
                                 'menuitems_admin.html')
@@ -32,7 +32,7 @@ def admin(request):
 def list(request):
   return common_views.content_list(request, 'menus', MenuItem, [], 'menuitems_list.html')
 
-@decorator.admin_required
+#@decorator.admin_required
 def new(request):
   content_dir = {}
   for app in settings.INSTALLED_APPS:
@@ -51,13 +51,13 @@ def new(request):
                                 extra_context={"content_dir":content_dir})
   return handler.handle() 
 
-@decorator.admin_required
+#@decorator.admin_required
 def edit(request, slug):
   return common_views.content_edit(request, slug, 'menus', MenuItem, MenuItemForm, 'menuitems_edit.html', redirect_to=MenuItem.admin_url())
 
 def show(request, slug):
   return common_views.content_show(request, slug, 'menus', MenuItem, 'menuitems_show.html')
 
-@decorator.admin_required
+#@decorator.admin_required
 def delete(request, slug):
   return common_views.content_delete(request, slug, MenuItem)
