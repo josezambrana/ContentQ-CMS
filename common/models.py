@@ -139,11 +139,9 @@ class Theme(BaseModel):
 
   @classmethod
   def check_for_duplicated_active_themes(cls, uuid):
-    logging.info(">> check_for_duplicated_active_themes")
     instance = cls.get(uuid=uuid)
     instance.active = True
     instance.put()
-    logging.info("   instance: %s" % instance.name)
     
     for theme in cls.all().filter('active =', True):
       if theme.uuid != instance.uuid:
@@ -379,15 +377,11 @@ class Block(Base):
     self.put()
 
   def get_block_class(self):
-    logging.info("**** common.models.Block.get_block_class")
     return util.get_attr_from_safe(self.model)
 
   def get_block_form(self):
-    logging.info("**** common.models.Block.get_block_form")
     _class = self.get_block_class()
-    logging.info("     _class: %s " % _class)
     _form = _class.get_form()
-    logging.info("     _form: %s " % _form)
     return self.get_block_class().get_form()
 
   def put(self):
@@ -487,7 +481,6 @@ class MenuItem(Base):
   @classmethod
   def get_by_url(cls, url):
     res = cls.get(link=url)
-    logging.info("   res: %s" % res)
     return res
 
   @classmethod
@@ -586,13 +579,10 @@ class Permission(BaseModel):
 
   @classmethod
   def can_access(cls, roles, action):
-    logging.info(">> Permissions.can_access ")
     for role in roles:
       ref = cls.get(role=role)
       if ref is not None and action in ref.actions:
-        logging.info(" True")
         return True
-    logging.info(" False")
     return False
 
 class Role(BaseModel):
