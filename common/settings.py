@@ -32,11 +32,12 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.csrf.middleware.CsrfMiddleware',
+    'django.contrib.csrf.middleware.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.csrf',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'common.context_processors.globals',
@@ -54,8 +55,6 @@ INSTALLED_APPS = (
 AUTHENTICATION_BACKENDS = (
   'users.auth.backends.ModelBackend',
 )
-
-LOGIN_REDIRECT_URL = '/'
 
 # Status list for contents workflow.
 STATUS_LIST = ['draft', 'pending', 'published']

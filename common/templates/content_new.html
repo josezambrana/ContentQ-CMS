@@ -20,7 +20,7 @@
 
 {% block contentzone %}
   {% include 'form_errors.html' %}
-  <form method="POST" action="" class="ckeditor">
+  <form method="POST" action="{% block form_action %}{% endblock %}" class="ckeditor" {% block extra_form_tag %}{% endblock %}>
     {% include 'forms/form_fields.html' %}
     <div class="prepend-4">
       <button>{% trans 'Add' %}</button>

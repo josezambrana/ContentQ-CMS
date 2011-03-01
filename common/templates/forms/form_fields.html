@@ -1,5 +1,6 @@
 <fieldset>
   <legend>Details</legend>
+  {% csrf_token %}
   {% for field in form %}
     <div class="field-wrapper {{field.name}} clearfix{% if field.errors %} invalid{% endif %}">
       {{ field.label_tag }} {{ field }}

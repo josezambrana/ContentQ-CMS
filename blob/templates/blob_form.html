@@ -1,6 +1,7 @@
 {% load format %}
 
 <form action="{{upload_url}}" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
   <div class="field-wrapper">
     <label for="file">File</label>
     <input id="file" type="file" name="file" class="file" />
