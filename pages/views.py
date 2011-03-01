@@ -25,21 +25,21 @@ from common import decorator
 ENTRIES_PER_PAGE=5
 WORDS_NUM = 60
 
-@decorator.admin_required
+#@decorator.admin_required
 def admin(request): 
   return common_views.content_admin(request, 'pages', Page, tpl='pages_admin.html')
 
 def show(request, slug):
   return common_views.content_show(request, slug, 'pages', Page, tpl='pages_show.html')
 
-@decorator.admin_required
+#@decorator.admin_required
 def new(request):
   return common_views.content_new(request, 'pages', PageForm, redirect_to=True, extra_context={'item_name':'Page'}, model=Page)
 
-@decorator.admin_required
+#@decorator.admin_required
 def edit(request, uuid):
   return common_views.content_edit(request, uuid, 'pages', Page, PageForm, redirect_to=True)
 
-@decorator.admin_required
+#@decorator.admin_required
 def delete(request, uuid):
   return common_views.content_delete(request, uuid, Page)
